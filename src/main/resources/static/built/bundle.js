@@ -37386,6 +37386,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function (r
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37473,7 +37476,7 @@ function (_React$Component2) {
           artist: artist
         });
       });
-      return React.createElement("table", null, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("th", null, "First Name"), React.createElement("th", null, "Last Name"), React.createElement("th", null, "Genre Description")), artists));
+      return React.createElement("table", null, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("th", null, "First Name"), React.createElement("th", null, "Last Name"), React.createElement("th", null, "Description")), artists));
     }
   }]);
 
@@ -37494,7 +37497,7 @@ function (_React$Component3) {
   _createClass(Artist, [{
     key: "render",
     value: function render() {
-      return React.createElement("tr", null, React.createElement("td", null, this.props.artist.firstName), React.createElement("td", null, this.props.artist.lastname), React.createElement("td", null, this.props.artist.description));
+      return React.createElement("tr", null, React.createElement("td", null, this.props.artist.firstName), React.createElement("td", null, this.props.artist.lastName), React.createElement("td", null, this.props.artist.genre));
     }
   }]);
 

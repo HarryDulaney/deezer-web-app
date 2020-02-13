@@ -1,4 +1,7 @@
-const React = require('react')
+'use strict'
+
+
+const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
 
@@ -6,7 +9,7 @@ class App extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state={artists: []};
+		this.state = {artists: []};
 	}
 	
 	componentDidMount() {
@@ -24,9 +27,12 @@ class App extends React.Component {
 	
 }
 
-class ArtistList extends React.Component {
+
+
+
+class ArtistList extends React.Component{
 	render() {
-		const artists= this.props.artists.map(artist =>
+		const artists = this.props.artists.map(artist =>
 			<Artist key={artist._links.self.href} artist={artist}/>
 	);
 		return (
@@ -35,7 +41,7 @@ class ArtistList extends React.Component {
 					<tr>
 						<th>First Name</th>
 						<th>Last Name</th>
-						<th>Genre Description</th>
+						<th>Description</th>
 					</tr>
 					{artists}
 				</tbody>
@@ -46,13 +52,15 @@ class ArtistList extends React.Component {
 	}
 }
 
+
+
 class Artist extends React.Component{
 	render() {
 		return (
 				<tr>
 					<td>{this.props.artist.firstName}</td>
-					<td>{this.props.artist.lastname}</td>
-					<td>{this.props.artist.description}</td>
+					<td>{this.props.artist.lastName}</td>
+					<td>{this.props.artist.genre}</td>
 				</tr>
 		)
 	}
