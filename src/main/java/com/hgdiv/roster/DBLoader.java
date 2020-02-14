@@ -18,6 +18,11 @@ public class DBLoader implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 	this.repository.save(new Artist("Cat","Stevens","70's Folk-Rock"));	
+	this.repository.save(new Artist("Fats","Domino","Soul and Blues"));	
+	this.repository.save(new Artist("Madonna","blank","Alternative/Pop"));	
+	this.repository.save(new Artist("Micheal","Jackson","Pop"));	
+
+	
 	}
 	
 }

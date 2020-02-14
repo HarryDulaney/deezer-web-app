@@ -1,6 +1,5 @@
 'use strict'
 
-
 const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
@@ -14,7 +13,7 @@ class App extends React.Component {
 	
 	componentDidMount() {
 		client({method: 'GET', path: '/api/artists'}).done(response => {
-			this.setState({artists: response.entity_embedded.artists});
+			this.setState({artists: response.entity._embedded.artists});
 		});
 	}
 	
@@ -22,12 +21,8 @@ class App extends React.Component {
 		return (
 			<ArtistList artists={this.state.artists}/>
 			)
-	}
-	
-	
+	}	
 }
-
-
 
 
 class ArtistList extends React.Component{
@@ -41,7 +36,7 @@ class ArtistList extends React.Component{
 					<tr>
 						<th>First Name</th>
 						<th>Last Name</th>
-						<th>Description</th>
+						<th>Genre</th>
 					</tr>
 					{artists}
 				</tbody>
@@ -51,7 +46,6 @@ class ArtistList extends React.Component{
 		
 	}
 }
-
 
 
 class Artist extends React.Component{
@@ -70,4 +64,3 @@ ReactDOM.render(
 	<App/>,
 	document.getElementById('react')
 )
-

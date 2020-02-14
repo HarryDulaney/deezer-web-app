@@ -37325,15 +37325,14 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function ()
   /* Convert a single or array of resources into "URI1\nURI2\nURI3..." */
 
   return {
-    read: function read(str
-    /*, opts */
-    ) {
+    read: function read(str, opts) {
       return str.split('\n');
     },
     write: function write(obj
-    /*, opts */
+    /* , opts */
     ) {
-      // If this is an Array, extract the self URI and then join using a newline
+      // If this is an Array, extract the self URI and then join using a
+      // newline
       if (obj instanceof Array) {
         return obj.map(function (resource) {
           return resource._links.self.href;
@@ -37362,10 +37361,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function (r
   var interceptor = __webpack_require__(/*! rest/interceptor */ "./node_modules/rest/interceptor.js");
 
   return interceptor({
-    request: function request(_request
-    /*, config, meta */
-    ) {
-      /* If the URI is a URI Template per RFC 6570 (https://tools.ietf.org/html/rfc6570), trim out the template part */
+    request: function request(_request, config, meta) {
+      /*
+       * If the URI is a URI Template per RFC 6570
+       * (https://tools.ietf.org/html/rfc6570), trim out the template part
+       */
       if (_request.path.indexOf('{') === -1) {
         return _request;
       } else {
@@ -37440,7 +37440,7 @@ function (_React$Component) {
         path: '/api/artists'
       }).done(function (response) {
         _this2.setState({
-          artists: response.entity_embedded.artists
+          artists: response.entity._embedded.artists
         });
       });
     }
@@ -37476,7 +37476,7 @@ function (_React$Component2) {
           artist: artist
         });
       });
-      return React.createElement("table", null, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("th", null, "First Name"), React.createElement("th", null, "Last Name"), React.createElement("th", null, "Description")), artists));
+      return React.createElement("table", null, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("th", null, "First Name"), React.createElement("th", null, "Last Name"), React.createElement("th", null, "Genre")), artists));
     }
   }]);
 

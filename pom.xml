@@ -52,6 +52,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.github.eirslett</groupId>
+			<artifactId>frontend-maven-plugin</artifactId>
+			<version>1.9.1</version>
+			<type>maven-plugin</type>
+		</dependency>
 	</dependencies>
 
 
@@ -64,23 +70,23 @@
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
-				<version>1.8.0</version>
+				<version>1.9.1</version>
 				<configuration>
 					<installDirectory>target</installDirectory>
 				</configuration>
 				<executions>
-				
+
 					<execution>
 						<id>install node and npm</id>
 						<goals>
 							<goal>install-node-and-npm</goal>
 						</goals>
 						<configuration>
-							<nodeVersion>v10.16.0</nodeVersion>
-							<npmVersion>6.13.4</npmVersion>
+							<nodeVersion>v10.11.0</nodeVersion>
+							<npmVersion>6.4.1</npmVersion>
 						</configuration>
 					</execution>
-					
+
 					<execution>
 						<id>npm install</id>
 						<goals>
@@ -90,19 +96,20 @@
 							<arguments>install</arguments>
 						</configuration>
 					</execution>
-					
+
 					<execution>
 						<id>webpack build</id>
 						<goals>
 							<goal>webpack</goal>
 						</goals>
 					</execution>
-					
-					
+
+
 				</executions>
 			</plugin>
-	
+
 		</plugins>
 	</build>
 
 </project>
+<!-- -->
