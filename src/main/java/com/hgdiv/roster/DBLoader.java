@@ -21,8 +21,7 @@ public class DBLoader implements CommandLineRunner {
 	this.repository.save(new Artist("Fats","Domino","Soul and Blues"));	
 	this.repository.save(new Artist("Madonna","blank","Alternative/Pop"));	
 	this.repository.save(new Artist("Micheal","Jackson","Pop"));	
-
-	
+	this.repository.save(new Artist("Rolling","Stones","Classic Rock"));
 	}
 	
 }

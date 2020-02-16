@@ -14,7 +14,6 @@ public class Artist {
 	private String lastName;
 	private String genre;
 
-	@SuppressWarnings("unused")
 	private Artist() {
 	}
 

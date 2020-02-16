@@ -1,7 +1,7 @@
 package com.hgdiv.roster;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface ArtistRepository extends CrudRepository<Artist, Long> {
+public interface ArtistRepository extends PagingAndSortingRepository<Artist, Long> {
 
 }

@@ -10,13 +10,10 @@ const baseRegistry = require('rest/mime/registry');
 const registry = baseRegistry.child();
 
 registry.register('text/uri-list', require('./api/uriListConverter'));
-registry.register('application/hal+json',
-		require('rest/mime/type/application/hal'));
+registry.register('application/hal+json', require('rest/mime/type/application/hal'));
 
-module.exports = rest.wrap(mime, {
-	registry : registry
-}).wrap(uriTemplateInterceptor).wrap(errorCode).wrap(defaultRequest, {
-	headers : {
-		'Accept' : 'application/hal+json'
-	}
-})
+module.exports = rest
+	.wrap(mime, { registry: registry })
+	.wrap(uriTemplateInterceptor)
+	.wrap(errorCode)
+	.wrap(defaultRequest, { headers: { 'Accept': 'application/hal+json' }});
