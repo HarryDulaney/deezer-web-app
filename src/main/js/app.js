@@ -4,7 +4,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
 
-const follow = require('./follow'); // function to hop multiple links by "rel"
+const follow = require('./follow'); 
 
 const root = '/api';
 
@@ -19,7 +19,6 @@ class App extends React.Component {
 		this.onNavigate = this.onNavigate.bind(this);
 	}
 
-	// tag::follow-2[]
 	loadFromServer(pageSize) {
 		follow(client, root, [
 			{rel: 'artists', params: {size: pageSize}}]
@@ -40,9 +39,7 @@ class App extends React.Component {
 				links: artistCollection.entity._links});
 		});
 	}
-	// end::follow-2[]
 
-	// tag::create[]
 	onCreate(newArtist) {
 		follow(client, root, ['artists']).then(artistCollection => {
 			return client({
@@ -62,17 +59,13 @@ class App extends React.Component {
 			}
 		});
 	}
-	// end::create[]
 
-	// tag::delete[]
 	onDelete(artist) {
 		client({method: 'DELETE', path: artist._links.self.href}).done(response => {
 			this.loadFromServer(this.state.pageSize);
 		});
 	}
-	// end::delete[]
 
-	// tag::navigate[]
 	onNavigate(navUri) {
 		client({method: 'GET', path: navUri}).done(artistCollection => {
 			this.setState({
@@ -83,21 +76,16 @@ class App extends React.Component {
 			});
 		});
 	}
-	// end::navigate[]
 
-	// tag::update-page-size[]
 	updatePageSize(pageSize) {
 		if (pageSize !== this.state.pageSize) {
 			this.loadFromServer(pageSize);
 		}
 	}
-	// end::update-page-size[]
 
-	// tag::follow-1[]
 	componentDidMount() {
 		this.loadFromServer(this.state.pageSize);
 	}
-	// end::follow-1[]
 
 	render() {
 		return (
@@ -114,7 +102,6 @@ class App extends React.Component {
 	}
 }
 
-// tag::create-dialog[]
 class CreateDialog extends React.Component {
 
 	constructor(props) {
@@ -130,12 +117,10 @@ class CreateDialog extends React.Component {
 		});
 		this.props.onCreate(newArtist);
 
-		// clear out the dialog's inputs
 		this.props.attributes.forEach(attribute => {
 			ReactDOM.findDOMNode(this.refs[attribute]).value = '';
 		});
 
-		// Navigate away from the dialog to hide it.
 		window.location = "#";
 	}
 
@@ -148,7 +133,7 @@ class CreateDialog extends React.Component {
 
 		return (
 			<div>
-				<a href="#createArtist">Create</a>
+				<a href="#createArtist">Add New Entry</a>
 
 				<div id="createArtist" className="modalDialog">
 					<div>
@@ -167,7 +152,6 @@ class CreateDialog extends React.Component {
 	}
 
 }
-// end::create-dialog[]
 
 class ArtistList extends React.Component {
 
@@ -180,7 +164,6 @@ class ArtistList extends React.Component {
 		this.handleInput = this.handleInput.bind(this);
 	}
 
-	// tag::handle-page-size-updates[]
 	handleInput(e) {
 		e.preventDefault();
 		const pageSize = ReactDOM.findDOMNode(this.refs.pageSize).value;
@@ -191,9 +174,7 @@ class ArtistList extends React.Component {
 				pageSize.substring(0, pageSize.length - 1);
 		}
 	}
-	// end::handle-page-size-updates[]
 
-	// tag::handle-nav[]
 	handleNavFirst(e){
 		e.preventDefault();
 		this.props.onNavigate(this.props.links.first.href);
@@ -213,9 +194,7 @@ class ArtistList extends React.Component {
 		e.preventDefault();
 		this.props.onNavigate(this.props.links.last.href);
 	}
-	// end::handle-nav[]
 
-	// tag::artist-list-render[]
 	render() {
 		const artists = this.props.artists.map(artist =>
 			<Artist key={artist._links.self.href} artist={artist} onDelete={this.props.onDelete}/>
@@ -223,7 +202,7 @@ class ArtistList extends React.Component {
 
 		const navLinks = [];
 		if ("first" in this.props.links) {
-			navLinks.push(<button key="first" onClick={this.handleNavFirst}>&lt;&lt;</button>);
+			navLinks.push(<button key="first"  onClick={this.handleNavFirst}>&lt;&lt;</button>);
 		}
 		if ("prev" in this.props.links) {
 			navLinks.push(<button key="prev" onClick={this.handleNavPrev}>&lt;</button>);
@@ -255,10 +234,10 @@ class ArtistList extends React.Component {
 			</div>
 		)
 	}
-	// end::artist-list-render[]
+	
 }
 
-// tag::artist[]
+
 class Artist extends React.Component {
 
 	constructor(props) {
@@ -283,7 +262,7 @@ class Artist extends React.Component {
 		)
 	}
 }
-// end::artist[]
+
 
 ReactDOM.render(
 	<App />,

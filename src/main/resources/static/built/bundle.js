@@ -37413,8 +37413,7 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
 
-var follow = __webpack_require__(/*! ./follow */ "./src/main/js/follow.js"); // function to hop multiple links by "rel"
-
+var follow = __webpack_require__(/*! ./follow */ "./src/main/js/follow.js");
 
 var root = '/api';
 
@@ -37440,8 +37439,7 @@ function (_React$Component) {
     _this.onDelete = _this.onDelete.bind(_assertThisInitialized(_this));
     _this.onNavigate = _this.onNavigate.bind(_assertThisInitialized(_this));
     return _this;
-  } // tag::follow-2[]
-
+  }
 
   _createClass(App, [{
     key: "loadFromServer",
@@ -37472,9 +37470,7 @@ function (_React$Component) {
           links: artistCollection.entity._links
         });
       });
-    } // end::follow-2[]
-    // tag::create[]
-
+    }
   }, {
     key: "onCreate",
     value: function onCreate(newArtist) {
@@ -37503,9 +37499,7 @@ function (_React$Component) {
           _this3.onNavigate(response.entity._links.self.href);
         }
       });
-    } // end::create[]
-    // tag::delete[]
-
+    }
   }, {
     key: "onDelete",
     value: function onDelete(artist) {
@@ -37517,9 +37511,7 @@ function (_React$Component) {
       }).done(function (response) {
         _this4.loadFromServer(_this4.state.pageSize);
       });
-    } // end::delete[]
-    // tag::navigate[]
-
+    }
   }, {
     key: "onNavigate",
     value: function onNavigate(navUri) {
@@ -37536,24 +37528,19 @@ function (_React$Component) {
           links: artistCollection.entity._links
         });
       });
-    } // end::navigate[]
-    // tag::update-page-size[]
-
+    }
   }, {
     key: "updatePageSize",
     value: function updatePageSize(pageSize) {
       if (pageSize !== this.state.pageSize) {
         this.loadFromServer(pageSize);
       }
-    } // end::update-page-size[]
-    // tag::follow-1[]
-
+    }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.loadFromServer(this.state.pageSize);
-    } // end::follow-1[]
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -37572,8 +37559,7 @@ function (_React$Component) {
   }]);
 
   return App;
-}(React.Component); // tag::create-dialog[]
-
+}(React.Component);
 
 var CreateDialog =
 /*#__PURE__*/
@@ -37600,12 +37586,10 @@ function (_React$Component2) {
       this.props.attributes.forEach(function (attribute) {
         newArtist[attribute] = ReactDOM.findDOMNode(_this7.refs[attribute]).value.trim();
       });
-      this.props.onCreate(newArtist); // clear out the dialog's inputs
-
+      this.props.onCreate(newArtist);
       this.props.attributes.forEach(function (attribute) {
         ReactDOM.findDOMNode(_this7.refs[attribute]).value = '';
-      }); // Navigate away from the dialog to hide it.
-
+      });
       window.location = "#";
     }
   }, {
@@ -37623,7 +37607,7 @@ function (_React$Component2) {
       });
       return React.createElement("div", null, React.createElement("a", {
         href: "#createArtist"
-      }, "Create"), React.createElement("div", {
+      }, "Add New Entry"), React.createElement("div", {
         id: "createArtist",
         className: "modalDialog"
       }, React.createElement("div", null, React.createElement("a", {
@@ -37637,8 +37621,7 @@ function (_React$Component2) {
   }]);
 
   return CreateDialog;
-}(React.Component); // end::create-dialog[]
-
+}(React.Component);
 
 var ArtistList =
 /*#__PURE__*/
@@ -37657,8 +37640,7 @@ function (_React$Component3) {
     _this8.handleNavLast = _this8.handleNavLast.bind(_assertThisInitialized(_this8));
     _this8.handleInput = _this8.handleInput.bind(_assertThisInitialized(_this8));
     return _this8;
-  } // tag::handle-page-size-updates[]
-
+  }
 
   _createClass(ArtistList, [{
     key: "handleInput",
@@ -37671,9 +37653,7 @@ function (_React$Component3) {
       } else {
         ReactDOM.findDOMNode(this.refs.pageSize).value = pageSize.substring(0, pageSize.length - 1);
       }
-    } // end::handle-page-size-updates[]
-    // tag::handle-nav[]
-
+    }
   }, {
     key: "handleNavFirst",
     value: function handleNavFirst(e) {
@@ -37697,9 +37677,7 @@ function (_React$Component3) {
     value: function handleNavLast(e) {
       e.preventDefault();
       this.props.onNavigate(this.props.links.last.href);
-    } // end::handle-nav[]
-    // tag::artist-list-render[]
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -37747,13 +37725,11 @@ function (_React$Component3) {
         defaultValue: this.props.pageSize,
         onInput: this.handleInput
       }), React.createElement("table", null, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("th", null, "First Name"), React.createElement("th", null, "Last Name"), React.createElement("th", null, "Genre"), React.createElement("th", null)), artists)), React.createElement("div", null, navLinks));
-    } // end::artist-list-render[]
-
+    }
   }]);
 
   return ArtistList;
-}(React.Component); // tag::artist[]
-
+}(React.Component);
 
 var Artist =
 /*#__PURE__*/
@@ -37785,8 +37761,7 @@ function (_React$Component4) {
   }]);
 
   return Artist;
-}(React.Component); // end::artist[]
-
+}(React.Component);
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('react'));
 
