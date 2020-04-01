@@ -5,6 +5,9 @@ import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Artist {
@@ -13,6 +16,8 @@ public class Artist {
 	private String firstName;
 	private String lastName;
 	private String genre;
+	
+	private @Version @JsonIgnore Long version;
 
 	private Artist() {
 	}
@@ -72,6 +77,15 @@ public class Artist {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
+	}
+
 
 	@Override
 	public String toString() {

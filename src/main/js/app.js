@@ -12,9 +12,10 @@ class App extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {artists: [], attributes: [], pageSize: 2, links: {}};
+		this.state = {artists: [], attributes: [], pageSize: 6, links: {}};
 		this.updatePageSize = this.updatePageSize.bind(this);
 		this.onCreate = this.onCreate.bind(this);
+		this.onUpdate = this.onUpdate.bind(this);
 		this.onDelete = this.onDelete.bind(this);
 		this.onNavigate = this.onNavigate.bind(this);
 	}
@@ -25,80 +26,99 @@ class App extends React.Component {
 		).then(artistCollection => {
 			return client({
 				method: 'GET',
-				path: artistCollection.entity._links.profile.href,
+				path:
+				artistCollection.entity._links.profile.href,
 				headers: {'Accept': 'application/schema+json'}
 			}).then(schema => {
 				this.schema = schema.entity;
+				this.links = artistCollection.entity._links;
 				return artistCollection;
 			});
-		}).done(artistCollection => {
+		}).then(artistCollection => {
+			return artistCollection.entity._embedded.artists.map(artist =>
+				client({
+					method: 'GET',
+					path: artist._links.self.href
+				})
+			);
+		}).then(artistPromises => {
+			return when.all(artistPromises);
+		}).done(artists => {
 			this.setState({
-				artists: artistCollection.entity._embedded.artists,
+				artists: artists,
 				attributes: Object.keys(this.schema.properties),
 				pageSize: pageSize,
-				links: artistCollection.entity._links});
-		});
-	}
-
-	onCreate(newArtist) {
-		follow(client, root, ['artists']).then(artistCollection => {
-			return client({
-				method: 'POST',
-				path: artistCollection.entity._links.self.href,
-				entity: newArtist,
-				headers: {'Content-Type': 'application/json'}
-			})
-		}).then(response => {
-			return follow(client, root, [
-				{rel: 'artists', params: {'size': this.state.pageSize}}]);
-		}).done(response => {
-			if (typeof response.entity._links.last !== "undefined") {
-				this.onNavigate(response.entity._links.last.href);
-			} else {
-				this.onNavigate(response.entity._links.self.href);
-			}
-		});
-	}
-
-	onDelete(artist) {
-		client({method: 'DELETE', path: artist._links.self.href}).done(response => {
-			this.loadFromServer(this.state.pageSize);
-		});
-	}
-
-	onNavigate(navUri) {
-		client({method: 'GET', path: navUri}).done(artistCollection => {
-			this.setState({
-				artists: artistCollection.entity._embedded.artists,
-				attributes: this.state.attributes,
-				pageSize: this.state.pageSize,
-				links: artistCollection.entity._links
+				links: this._links
 			});
 		});
-	}
 
-	updatePageSize(pageSize) {
-		if (pageSize !== this.state.pageSize) {
-			this.loadFromServer(pageSize);
+
+		onCreate(newArtist)
+		{
+			follow(client, root, ['artists']).then(artistCollection => {
+				return client({
+					method: 'POST',
+					path: artistCollection.entity._links.self.href,
+					entity: newArtist,
+					headers: {'Content-Type': 'application/json'}
+				})
+			}).then(response => {
+				return follow(client, root, [
+					{rel: 'artists', params: {'size': this.state.pageSize}}]);
+			}).done(response => {
+				if (typeof response.entity._links.last !== "undefined") {
+					this.onNavigate(response.entity._links.last.href);
+				} else {
+					this.onNavigate(response.entity._links.self.href);
+				}
+			});
 		}
-	}
 
-	componentDidMount() {
-		this.loadFromServer(this.state.pageSize);
-	}
+		onDelete(artist)
+		{
+			client({method: 'DELETE', path: artist._links.self.href}).done(response => {
+				this.loadFromServer(this.state.pageSize);
+			});
+		}
 
-	render() {
-		return (
-			<div>
-				<CreateDialog attributes={this.state.attributes} onCreate={this.onCreate}/>
-				<ArtistList artists={this.state.artists}
-							  links={this.state.links}
-							  pageSize={this.state.pageSize}
-							  onNavigate={this.onNavigate}
-							  onDelete={this.onDelete}
-							  updatePageSize={this.updatePageSize}/>
-			</div>
-		)
+		onNavigate(navUri)
+		{
+			client({method: 'GET', path: navUri}).done(artistCollection => {
+				this.setState({
+					artists: artistCollection.entity._embedded.artists,
+					attributes: this.state.attributes,
+					pageSize: this.state.pageSize,
+					links: artistCollection.entity._links
+				});
+			});
+		}
+
+		updatePageSize(pageSize)
+		{
+			if (pageSize !== this.state.pageSize) {
+				this.loadFromServer(pageSize);
+			}
+		}
+
+		componentDidMount()
+		{
+			this.loadFromServer(this.state.pageSize);
+		}
+
+		render()
+		{
+			return (
+				<div>
+					<CreateDialog attributes={this.state.attributes} onCreate={this.onCreate}/>
+					<ArtistList artists={this.state.artists}
+								links={this.state.links}
+								pageSize={this.state.pageSize}
+								onNavigate={this.onNavigate}
+								onDelete={this.onDelete}
+								updatePageSize={this.updatePageSize}/>
+				</div>
+			)
+		}
 	}
 }
 
@@ -267,4 +287,4 @@ class Artist extends React.Component {
 ReactDOM.render(
 	<App />,
 	document.getElementById('react')
-)
+);
