@@ -1,17 +1,26 @@
 body {
-    padding-top: 5rem;
-}
-.form-control {
-    padding: 3rem 1.5rem;
-    text-align: center;
+    padding-top: 10rem;
 }
 
-h1{
-    color:#0000FF;
+h1 {
+    color: darkblue;
 }
 
-h2{
-    color:#FF0000;
+h2 {
+    color: darkslategrey;
+}
+
+label {
+    color: saddlebrown;
+    align-content: center;
+
+}
+a{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-variant-caps: petite-caps;
+    position: center;
+    justify-content: center;
+
 }
 
 input.field {
@@ -19,24 +28,24 @@ input.field {
 }
 
 table {
-    border-collapse: collapse;
+    border-block-end-style: dashed;
+    font-family: 'Agency FB', cursive;
 }
 
 td, th {
-    border: 1px solid #999;
+    border: 1px solid midnightblue;
     padding: 0.5rem;
     text-align: left;
 }
-.request-button{
 
+.form-control {
+    padding: 3rem 1.5rem;
+    text-align: center;
 }
 
-
-
-
-.close {
-    background: #606061;
-    color: #FFFFFF;
+.submit-button {
+    background: grey;
+    color: burlywood;
     line-height: 25px;
     position: absolute;
     right: -12px;
@@ -51,6 +60,9 @@ td, th {
     -moz-box-shadow: 1px 1px 3px #000;
     -webkit-box-shadow: 1px 1px 3px #000;
     box-shadow: 1px 1px 3px #000;
+
 }
 
-.close:hover { background: #00d9ff; }
+.submit-button:hover {
+    background: cornflowerblue
+}

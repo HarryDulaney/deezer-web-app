@@ -1,6 +1,8 @@
 package com.hgdiv.opendata.model;
 
 
+import java.util.Objects;
+
 public class Track {
 
 
@@ -44,6 +46,24 @@ public class Track {
     public void setArtist(String artist) {
         this.artist = artist;
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Track track = (Track) o;
+        return Objects.equals(artist, track.artist) &&
+                Objects.equals(title, track.title) &&
+                Objects.equals(genre, track.genre) &&
+                Objects.equals(year, track.year);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(artist, title, genre, year);
+    }
+
 
     @Override
     public String toString() {

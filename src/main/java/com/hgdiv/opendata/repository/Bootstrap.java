@@ -14,12 +14,10 @@ public class Bootstrap {
     @Bean
     CommandLineRunner initDatabase(ArtistRepository artistRepository) {
         return args -> {
-            log.info("Preloading " + artistRepository.save(new Artist("TestPacket1","The first test packet")));
-            log.info("Preloading " + artistRepository.save(new Artist("TestPacket2","The second test packet")));
-            log.info("Preloading " + artistRepository.save(new Artist("TestPacket3","The third test packet")));
-            log.info("Preloading " + artistRepository.save(new Artist("TestPacket4","The fourth test packet")));
-            log.info("Preloading " + artistRepository.save(new Artist("TestPacket5","The fifth test packet")));
-            log.info("Preloading " + artistRepository.save(new Artist("TestPacket6","The sixth test packet")));
+            for(int i = 0; i < 7; i++) {
+                log.info("Preloading " + artistRepository.save(new Artist("ArtistName")));
+            }
+
         };
     }
 

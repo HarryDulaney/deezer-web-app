@@ -1,28 +1,32 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="css/main.css" rel="stylesheet"/>
-    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"/>
+    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
-    <title th:text="${app_title}"></title>
+    <title th:text="#{app.title.main}">Welcome</title>
 </head>
 <body>
-<h1 th:text="${app_title}"></h1>
-<nav th:insert="navbar"></nav>
-<div class="col-xl-3"></div>
-    <form class="form-control" action="#" th:action="@{/artistSearch}" th:object="${artistForm}" method="post" >
-            <label for="artistname">Enter The Artist Info: </label>
-            <input type="text" th:field="*{name}"name="artistname" id="artistname" required>
-            <label for="email">Enter the Artist: </label>
-            <input type="email" name="email" id="email" required>
+<div class="container">
+    <h1 th:text="${title}"></h1>
+    <br>
+    <nav th:align="center" class="navbar">
+        <label>What is stuck in your head?</label>
+        <a th:href="@{/}">Home</a>
+        <!--   <a th:href="">Songs</a>
+           <a th:href="">Albums</a> -->
+    </nav>
 
-        <div class="request-button">
+    <form class="form-control" action="#" th:action="@{/artistForm}" th:object="${artistSearch}" method="post">
+        <label for="name">Enter The Artist's Name Here: </label>
+        <input type="text" th:field="*{name}" name="name" id="name" required>
+        <div class="submit-button">
             <input type="submit" value="SUBMIT">
         </div>
     </form>
-<div th:insert="result"></div>
+</div>
 
 </body>
 </html>
