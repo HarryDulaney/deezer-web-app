@@ -18,7 +18,7 @@ target/
 *.iws
 *.iml
 *.ipr
-
+inProcess/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -27,6 +27,7 @@ target/
 /.nb-gradle/
 build/
 
-### VS Code ###
 .vscode/
 /node_modules/
+
+/data-serv-app.userlibraries

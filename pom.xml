@@ -20,7 +20,9 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <bootstrap.version>4.2.1</bootstrap.version>
+        <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+        <project.reporting.sourceEncoding>UTF-8</project.reporting.sourceEncoding>
     </properties>
 
 
@@ -28,6 +30,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,20 +58,31 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${bootstrap.version}</version>
         </dependency>
     </dependencies>
 
     <build>
+        <!-- <finalName></finalName> -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <addResources>true</addResources>
+                </configuration>
             </plugin>
+
         </plugins>
         <outputDirectory>target</outputDirectory>
     </build>
@@ -72,3 +94,4 @@
         </developer>
     </developers>
 </project>
+

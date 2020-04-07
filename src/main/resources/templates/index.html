@@ -1,19 +1,28 @@
-<!DOCTYPE html "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Open-Data-Server</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" media="all"
-          href="../../css/gtvg.css" th:href="@{../static/main.css}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/main.css" rel="stylesheet"/>
+    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"/>
+
+    <title th:text="${app_title}"></title>
 </head>
-
 <body>
+<h1 th:text="${app_title}"></h1>
+<nav th:insert="navbar"></nav>
+<div class="col-xl-3"></div>
+    <form class="form-control" action="#" th:action="@{/artistSearch}" th:object="${artistForm}" method="post" >
+            <label for="artistname">Enter The Artist Info: </label>
+            <input type="text" th:field="*{name}"name="artistname" id="artistname" required>
+            <label for="email">Enter the Artist: </label>
+            <input type="email" name="email" id="email" required>
 
-<p th:text="#{}">Welcome to Open Background Checker!</p>
+        <div class="request-button">
+            <input type="submit" value="SUBMIT">
+        </div>
+    </form>
+<div th:insert="result"></div>
 
 </body>
-
 </html>
