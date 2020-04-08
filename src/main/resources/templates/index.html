@@ -1,32 +1,33 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="css/main.css" rel="stylesheet"/>
-    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-
-    <title th:text="#{app.title.main}">Welcome</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="frags.html :: headFiles">
 </head>
 <body>
-<div class="container">
-    <h1 th:text="${title}"></h1>
-    <br>
-    <nav th:align="center" class="navbar">
-        <label>What is stuck in your head?</label>
-        <a th:href="@{/}">Home</a>
-        <!--   <a th:href="">Songs</a>
-           <a th:href="">Albums</a> -->
-    </nav>
+<header th:insert="frags.html::header"></header>
+<br>
+<form class="form-control" action="#" th:action="@{/artistForm}" th:object="${search}" method="post">
+    <label for="name">Enter The Artist's Name Here: </label>
+    <input type="text" th:field="*{name}" name="name" id="name" required>
+    <div class="submit-button">
+        <input type="submit" value="SUBMIT">
+    </div>
+</form>
+<br>
+<p>
+<h2>Artist:</h2>
+<p>
+<table class="table-responsive-xl">
+    <tbody>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+    </tr>
+    <tr>
+        <th scope="row"></th>
+        <th scope="row"></th>
+    </tr>
 
-    <form class="form-control" action="#" th:action="@{/artistForm}" th:object="${artistSearch}" method="post">
-        <label for="name">Enter The Artist's Name Here: </label>
-        <input type="text" th:field="*{name}" name="name" id="name" required>
-        <div class="submit-button">
-            <input type="submit" value="SUBMIT">
-        </div>
-    </form>
-</div>
-
+    </tbody>
+</table>
 </body>
 </html>

@@ -1,11 +1,15 @@
 package com.hgdiv.opendata.model;
 
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
+
+@Entity
 public class Track {
 
-
+    @Id
+    private int id;
     private String artist;
     private String title;
     private String genre;

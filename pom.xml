@@ -21,6 +21,7 @@
     <properties>
         <java.version>1.8</java.version>
         <bootstrap.version>4.2.1</bootstrap.version>
+        <jquery.version>3.4.1</jquery.version>
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
         <project.reporting.sourceEncoding>UTF-8</project.reporting.sourceEncoding>
     </properties>
@@ -68,7 +69,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>3.4.1</version>
+            <version>${jquery.version}</version>
         </dependency>
     </dependencies>
 

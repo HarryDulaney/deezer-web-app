@@ -1,15 +1,15 @@
 package com.hgdiv.opendata.repository;
 
-import com.hgdiv.opendata.model.Artist;
+import com.hgdiv.opendata.model.Search;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ArtistRepository extends JpaRepository<Artist,Long> {
+public interface SearchRepository extends JpaRepository<Search,Long> {
 
-    List<Artist> findAllByName(String name);
+    List<Search> findAllByName(String name);
 
 
 }

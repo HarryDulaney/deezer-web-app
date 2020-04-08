@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:fragment="headFiles">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--    <link href="../../../../inProcess/main.css" rel="stylesheet"/> -->
+    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <title th:text="${title}">Welcome</title>
+</head>
+<body>
+<header th:fragment="header">
+        <h1 th:text="${title}"></h1>
+        <br>
+        <label for="navbar">What is stuck in your head?</label>
+        <nav class="navbar-dark" id="navbar">
+            <a class="nav-item" th:href="@{/}">Home</a>
+        </nav>
+</header>
+
+</body>
+</html>
