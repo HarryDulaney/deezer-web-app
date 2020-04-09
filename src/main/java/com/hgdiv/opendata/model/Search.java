@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.util.Assert;
 
 import javax.persistence.*;
+import javax.xml.ws.RequestWrapper;
 import java.net.URL;
 import java.util.Objects;
 
@@ -31,10 +32,8 @@ public class Search {
      ***********************************************************/
     private String userInput;
 
-    public static final String APPENDABLE_QUERY_URL = "https://api.deezer.com/search?q=";
     public int deezerId; //The track's Deezer id
 
-    @JsonIgnore
     public boolean readable; //true if the track is readable in the player for the current user
     public String title; //The track's full title
     public String title_short; //The track's short title
@@ -59,18 +58,17 @@ public class Search {
     private Album album;
 
 
-    public Search() {
+
+    public Search(){
+        super();
+    }
+
+
+    public Search(String userInput) {
+        this.userInput = userInput;
 
     }
 
-    public static String buildSearchQuery(String userInput) throws Exception {
-
-        Assert.notNull(userInput, "The search criteria, Name of Artist is required to perform a search query");
-        if (userInput.length() > 0)
-            return APPENDABLE_QUERY_URL.concat(userInput);
-        else
-            throw new Exception();
-    }
 
 
     public Long getId() {
@@ -202,7 +200,6 @@ public class Search {
                 ", preview=" + preview +
                 ", artist=" + artist +
                 ", album=" + album + '\'' +
-                ", exampleSearchURL= " + APPENDABLE_QUERY_URL + '\'' +
                 "]}";
 
     }

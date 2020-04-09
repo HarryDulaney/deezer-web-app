@@ -2,7 +2,6 @@ package com.hgdiv.opendata.controller;
 
 import com.hgdiv.opendata.model.Artist;
 import com.hgdiv.opendata.model.Search;
-import com.hgdiv.opendata.repository.SearchRepository;
 import com.hgdiv.opendata.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,13 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+
 
 
 @Controller
 public class HomeController {
 
-    private SearchRepository searchRepository;
     private SearchService searchService;
 
     @Value(value = "${app.title.main}")
@@ -24,9 +22,8 @@ public class HomeController {
 
 
     @Autowired
-    public HomeController(SearchRepository searchRepository) {
-        this.searchRepository = searchRepository;
-
+    public HomeController(SearchService searchService) {
+        this.searchService = searchService;
     }
 
 
@@ -45,7 +42,14 @@ public class HomeController {
 
     @PostMapping(path = "/searchForm")
     public String artistSearch(@ModelAttribute("search") Search search, Model model) {
-        model.addAttribute("artist", searchArtist(search));
+
+        try {
+            searchService.saveSearch(search);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Artist artist = searchArtist(search);
+        model.addAttribute("artist", artist);
         model.addAttribute("title", title);
         model.addAttribute("search", search);
         return "result";
@@ -53,19 +57,12 @@ public class HomeController {
 
     private Artist searchArtist(Search search) {
         Artist artist = new Artist();
-        try {
+
             artist = searchService.searchArtist(search.getUserInput());
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
         if (artist.getName().length() <= 0) artist.setName("Something Went Wrong");
         return artist;
-    }
-
-    @Autowired
-    private void searchService(SearchService searchService) {
-        this.searchService = searchService;
     }
 
 }

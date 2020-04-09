@@ -5,22 +5,25 @@ import com.hgdiv.opendata.model.Artist;
 import com.hgdiv.opendata.model.Search;
 import com.hgdiv.opendata.model.Track;
 import com.hgdiv.opendata.repository.SearchRepository;
+import com.hgdiv.opendata.utils.UrlUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
 
-import static com.hgdiv.opendata.model.Artist.buildArtistQuery;
 
 @Service("searchService")
 public class SearchServiceImpl implements SearchService {
 
-   private static final Logger logger = LoggerFactory.getLogger(RestServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(SearchServiceImpl.class);
 
-    private RESTService restService;
     private SearchRepository searchRepository;
 
     @Autowired
@@ -48,10 +51,11 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public Artist searchArtist(String artistName) throws Exception {
+    public Artist searchArtist(String artistName) {
+        String urlQuery = UrlUtils.buildStrArtistSearchQuery(artistName);
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(urlQuery, Artist.class);
 
-         String urlQuery = buildArtistQuery(artistName);
-         return restService.getArtistRequest(urlQuery);
 
     }
 
@@ -63,12 +67,10 @@ public class SearchServiceImpl implements SearchService {
     @Override
     public Search saveSearch(Search search) throws AssertionError {
 
-        assert search != null;
+        assert search.getUserInput() != null;
         return searchRepository.save(search);
 
     }
-    @Autowired
-    private void initRestService(RESTService restService){
-        this.restService = restService;
-    }
+
+
 }

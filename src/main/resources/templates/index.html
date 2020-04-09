@@ -9,8 +9,7 @@
     <title th:text="${title}"></title>
 </head>
 <body>
-<header th:insert="frags.html :: header"></header>
-<br>
+<header th:insert="frags.html :: header"></header><br>
 <div th:align="center" class="container">
     <form class="form-control" action="#" th:action="@{/searchForm}" th:object="${search}" method="post">
         <label for="name">Enter The Artist's Name Here: </label>
@@ -18,12 +17,9 @@
         <div class="submit-button">
             <input type="submit" value="SUBMIT">
         </div>
-    </form>
-    <br>
+    </form><hr>
     <div th:align="center">
         <h2><strong>Artist:</strong></h2>
-    </div>
-    <div th:align="center">
         <table class="table-bordered table-striped">
             <thead>
             <tr>
