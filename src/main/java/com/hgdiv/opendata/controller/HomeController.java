@@ -3,6 +3,7 @@ package com.hgdiv.opendata.controller;
 import com.hgdiv.opendata.model.Artist;
 import com.hgdiv.opendata.model.Search;
 import com.hgdiv.opendata.repository.SearchRepository;
+import com.hgdiv.opendata.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -11,11 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Optional;
+
 
 @Controller
 public class HomeController {
 
-    private final SearchRepository searchRepository;
+    private SearchRepository searchRepository;
+    private SearchService searchService;
 
     @Value(value = "${app.title.main}")
     public String title;
@@ -31,23 +35,35 @@ public class HomeController {
     @GetMapping(path = "/")
     public String index(Model model) {
         model.addAttribute("title", title);
-        model.addAttribute("artist", new Artist(""));
+        model.addAttribute("search", new Search());
         return "index";
     }
 
-    @GetMapping(path="/frags")
-    public String getFrags(Model model){
+    @GetMapping(path = "/frags")
+    public String getFrags(Model model) {
         model.addAttribute("title", title);
-
         return "frags";
     }
 
-    @PostMapping(path="/artistForm")
+    @PostMapping(path = "/searchForm")
     public String artistSearch(
-            @ModelAttribute("artistSearch") Search search,
+            @ModelAttribute("search") Search search,
             Model model) {
+        model.addAttribute("artist", searchArtist(search));
         model.addAttribute("title", title);
-        model.addAttribute("artistSearch", search);
+        model.addAttribute("search", search);
         return "result";
     }
+
+    private Artist searchArtist(Search search) {
+      Optional<Artist> artist = Optional.ofNullable(searchService.searchArtist(search.nameOfArtist));
+        return artist.orElseGet(Artist::new);
+    }
+
+    @Autowired
+    private void searchService(SearchService searchService) {
+        this.searchService = searchService;
+    }
+
+    ;
 }

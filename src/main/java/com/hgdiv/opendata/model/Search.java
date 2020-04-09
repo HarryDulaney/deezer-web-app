@@ -1,32 +1,43 @@
 package com.hgdiv.opendata.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.hgdiv.opendata.controller.PacketNotFoundException;
+import com.sun.javafx.fxml.builder.URLBuilder;
+import org.springframework.util.Assert;
 
 import javax.persistence.*;
 import java.net.URL;
+import java.util.Objects;
 
 
 /**
- *     <p>
- *     Optional Parameters for filtering resulting JSON
- *     Possible values : RANKING, TRACK_ASC, TRACK_DESC, ARTIST_ASC, ARTIST_DESC, ALBUM_ASC,
- *         ALBUM_DESC, RATING_ASC, RATING_DESC, DURATION_ASC, DURATION_DESC
- *      </p>
+ * <p>
+ * Optional Parameters for filtering resulting JSON
+ * Possible values : RANKING, TRACK_ASC, TRACK_DESC, ARTIST_ASC, ARTIST_DESC, ALBUM_ASC,
+ * ALBUM_DESC, RATING_ASC, RATING_DESC, DURATION_ASC, DURATION_DESC
+ * </p>
  */
+
 @Entity
 public class Search {
 
-    private static final String exampleRESTCall = "https://api.deezer.com/search?q=eminem";
-
+    /***********************************************************
+     StuckInMyHead Vars
+     ***********************************************************/
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id; //Local repository id
 
+    /***********************************************************
+     Deezer
+     ***********************************************************/
+    public String nameOfArtist;
+
+    public static final String APPENDABLE_QUERY_URL = "https://api.deezer.com/search?q=";
     public int deezerId; //The track's Deezer id
 
     @JsonIgnore
     public boolean readable; //true if the track is readable in the player for the current user
-
     public String title; //The track's full title
     public String title_short; //The track's short title
     public String title_version; // The track version
@@ -53,6 +64,17 @@ public class Search {
     public Search() {
 
     }
+
+    public String buildSearchQuery(String nameOfArtist) throws Exception {
+
+        Assert.notNull(nameOfArtist, "The search criteria, Name of Artist is required to perform a search query");
+        if (nameOfArtist.length() > 0)
+            return APPENDABLE_QUERY_URL.concat(nameOfArtist);
+        else
+            throw new Exception();
+    }
+
+
     public Long getId() {
         return id;
     }
@@ -157,15 +179,49 @@ public class Search {
         this.album = album;
     }
 
-
-
     @Override
     public String toString() {
-        return "Search{" +
+        return "Search{[" +
                 "id=" + id +
+                ", deezerId=" + deezerId +
+                ", readable=" + readable +
                 ", title='" + title + '\'' +
-                ", exampleSearchURL= " + exampleRESTCall + '\'' +
-                '}';
+                ", title_short='" + title_short + '\'' +
+                ", title_version='" + title_version + '\'' +
+                ", link=" + link +
+                ", duration=" + duration +
+                ", rank=" + rank +
+                ", explicit_lyrics=" + explicit_lyrics +
+                ", preview=" + preview +
+                ", artist=" + artist +
+                ", album=" + album + '\'' +
+                ", exampleSearchURL= " + APPENDABLE_QUERY_URL + '\'' +
+                "]}";
+
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Search search = (Search) o;
+        return deezerId == search.deezerId &&
+                readable == search.readable &&
+                duration == search.duration &&
+                rank == search.rank &&
+                explicit_lyrics == search.explicit_lyrics &&
+                id.equals(search.id) &&
+                title.equals(search.title) &&
+                Objects.equals(title_short, search.title_short) &&
+                Objects.equals(title_version, search.title_version) &&
+                link.equals(search.link) &&
+                Objects.equals(preview, search.preview);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, deezerId, readable, title, title_short, title_version, link, duration, rank, explicit_lyrics, preview);
+    }
+
 
 }

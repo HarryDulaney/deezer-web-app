@@ -11,10 +11,34 @@
 <header th:fragment="header">
         <h1 th:text="${title}"></h1>
         <br>
-        <label for="navbar">What is stuck in your head?</label>
+ <!--       <label for="navbar">What is stuck in your head?</label>
         <nav class="navbar-dark" id="navbar">
             <a class="nav-item" th:href="@{/}">Home</a>
-        </nav>
+        </nav>-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Home</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="hero-unit">
+            <h1>What is stuck in you head today?</h1>
+            <p>
+               Welcome to StuckInYouHead!
+               Search for your favorite Artists!
+            </p>
+            <p>
+                <a href="/" th:href="@{/}" class="btn btn-large btn-success">Home</a>
+            </p>
+        </div>
+    </div>
 </header>
 
 </body>

@@ -5,15 +5,21 @@ import com.hgdiv.opendata.model.Artist;
 import com.hgdiv.opendata.model.Search;
 import com.hgdiv.opendata.model.Track;
 import com.hgdiv.opendata.repository.SearchRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
+import static com.hgdiv.opendata.model.Artist.buildArtistQuery;
+
+@Service("searchService")
 public class SearchServiceImpl implements SearchService {
 
+   private static final Logger logger = LoggerFactory.getLogger(RestServiceImpl.class);
+    private RESTService restService;
     private SearchRepository searchRepository;
 
     @Autowired
@@ -41,7 +47,17 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public List<Artist> searchArtist(String artistName) {
+    public Artist searchArtist(String artistName) {
+        try {
+         String urlQuery = buildArtistQuery(artistName);
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         return null;
     }
 
@@ -50,4 +66,15 @@ public class SearchServiceImpl implements SearchService {
         return null;
     }
 
+    @Override
+    public Search saveSearch(Search search) throws AssertionError {
+
+        assert search != null;
+        return searchRepository.save(search);
+
+    }
+    @Autowired
+    private void initRestService(RESTService restService){
+        this.restService = restService;
+    }
 }

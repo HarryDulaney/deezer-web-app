@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface SearchRepository extends JpaRepository<Search,Long> {
 
-    List<Search> findAllByName(String name);
+    List<Search> findAllByName(String nameOfArtist);
 
 
 }

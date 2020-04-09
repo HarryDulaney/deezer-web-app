@@ -3,11 +3,11 @@
 <head th:insert="frags.html :: headFiles">
 </head>
 <body>
-<header th:insert="frags.html::header"></header>
+<header th:replace="frags.html :: header"></header>
 <br>
 <form class="form-control" action="#" th:action="@{/artistForm}" th:object="${search}" method="post">
     <label for="name">Enter The Artist's Name Here: </label>
-    <input type="text" th:field="*{name}" name="name" id="name" required>
+    <input type="text" th:field="*{nameOfArtist}" name="name" id="name" required>
     <div class="submit-button">
         <input type="submit" value="SUBMIT">
     </div>
@@ -17,14 +17,22 @@
 <h2>Artist:</h2>
 <p>
 <table class="table-responsive-xl">
+    <thead>
+    <tr>
+        <th colspan="1">Id</th>
+        <th colspan="1">Name</th>
+        <th colspan="1">Number of Albums</th>
+        <th colspan="1">Deezer Fans</th>
+        <th colspan="1">Picture</th>
+    </tr>
+    </thead>
     <tbody>
     <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Name</th>
-    </tr>
-    <tr>
-        <th scope="row"></th>
-        <th scope="row"></th>
+        <td rowspan="1"></td>
+        <td rowspan="1"></td>
+        <td rowspan="1"></td>
+        <td rowspan="1"></td>
+        <td rowspan="1"></td>
     </tr>
 
     </tbody>

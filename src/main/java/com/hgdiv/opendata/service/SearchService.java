@@ -15,9 +15,11 @@ public interface SearchService {
 
     List<Track> getTopFiveTracks(int artistId); //https://api.deezer.com/artist/27/
 
-    List<Artist> searchArtist(String artistName); //https://api.deezer.com/search/artist?q=eminem
+    Artist searchArtist(String artistName); //https://api.deezer.com/search/artist?q=nameOfArtist
 
-    List<Album> getAlbumsByArtist(String artistName); //https://api.deezer.com/search/album?q=eminem
+    List<Album> getAlbumsByArtist(String artistName); //https://api.deezer.com/search/album?q=nameOfArtist
+
+    Search saveSearch(Search search) throws Exception;
 
 
 }
