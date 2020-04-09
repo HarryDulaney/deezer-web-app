@@ -1,41 +1,50 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:insert="frags.html :: headFiles">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="../static/css/main.css" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/jquery/3.4.1/jquery.min.js}"/>
+    <title th:text="${title}"></title>
 </head>
 <body>
-<header th:replace="frags.html :: header"></header>
+<header th:insert="frags.html :: header"></header>
 <br>
-<form class="form-control" action="#" th:action="@{/artistForm}" th:object="${search}" method="post">
-    <label for="name">Enter The Artist's Name Here: </label>
-    <input type="text" th:field="*{nameOfArtist}" name="name" id="name" required>
-    <div class="submit-button">
-        <input type="submit" value="SUBMIT">
+<div th:align="center" class="container">
+    <form class="form-control" action="#" th:action="@{/searchForm}" th:object="${search}" method="post">
+        <label for="name">Enter The Artist's Name Here: </label>
+        <input type="text" th:field="*{userInput}" name="name" id="name" required>
+        <div class="submit-button">
+            <input type="submit" value="SUBMIT">
+        </div>
+    </form>
+    <br>
+    <div th:align="center">
+        <h2><strong>Artist:</strong></h2>
     </div>
-</form>
-<br>
-<p>
-<h2>Artist:</h2>
-<p>
-<table class="table-responsive-xl">
-    <thead>
-    <tr>
-        <th colspan="1">Id</th>
-        <th colspan="1">Name</th>
-        <th colspan="1">Number of Albums</th>
-        <th colspan="1">Deezer Fans</th>
-        <th colspan="1">Picture</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td rowspan="1"></td>
-        <td rowspan="1"></td>
-        <td rowspan="1"></td>
-        <td rowspan="1"></td>
-        <td rowspan="1"></td>
-    </tr>
-
-    </tbody>
-</table>
+    <div th:align="center">
+        <table class="table-bordered table-striped">
+            <thead>
+            <tr>
+                <th colspan="1">Id</th>
+                <th colspan="1">Name</th>
+                <th colspan="1">Number of Albums</th>
+                <th colspan="1">Deezer Fans</th>
+                <th colspan="1">Picture</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td rowspan="1"/>
+                <td rowspan="1"/>
+                <td rowspan="1"/>
+                <td rowspan="1"/>
+                <td rowspan="1"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>

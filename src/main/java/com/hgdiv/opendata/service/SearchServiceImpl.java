@@ -19,6 +19,7 @@ import static com.hgdiv.opendata.model.Artist.buildArtistQuery;
 public class SearchServiceImpl implements SearchService {
 
    private static final Logger logger = LoggerFactory.getLogger(RestServiceImpl.class);
+
     private RESTService restService;
     private SearchRepository searchRepository;
 
@@ -29,7 +30,7 @@ public class SearchServiceImpl implements SearchService {
 
     @Override
     public List<Search> findAllByName(String name) {
-        return searchRepository.findAllByName(name);
+        return searchRepository.findAllByUserInput(name);
 
     }
 
@@ -47,18 +48,11 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public Artist searchArtist(String artistName) {
-        try {
+    public Artist searchArtist(String artistName) throws Exception {
+
          String urlQuery = buildArtistQuery(artistName);
+         return restService.getArtistRequest(urlQuery);
 
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-        return null;
     }
 
     @Override

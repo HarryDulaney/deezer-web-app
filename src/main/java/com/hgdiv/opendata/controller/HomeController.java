@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -46,9 +44,7 @@ public class HomeController {
     }
 
     @PostMapping(path = "/searchForm")
-    public String artistSearch(
-            @ModelAttribute("search") Search search,
-            Model model) {
+    public String artistSearch(@ModelAttribute("search") Search search, Model model) {
         model.addAttribute("artist", searchArtist(search));
         model.addAttribute("title", title);
         model.addAttribute("search", search);
@@ -56,8 +52,15 @@ public class HomeController {
     }
 
     private Artist searchArtist(Search search) {
-      Optional<Artist> artist = Optional.ofNullable(searchService.searchArtist(search.nameOfArtist));
-        return artist.orElseGet(Artist::new);
+        Artist artist = new Artist();
+        try {
+            artist = searchService.searchArtist(search.getUserInput());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (artist.getName().length() <= 0) artist.setName("Something Went Wrong");
+        return artist;
     }
 
     @Autowired
@@ -65,5 +68,4 @@ public class HomeController {
         this.searchService = searchService;
     }
 
-    ;
 }

@@ -1,8 +1,6 @@
 package com.hgdiv.opendata.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.hgdiv.opendata.controller.PacketNotFoundException;
-import com.sun.javafx.fxml.builder.URLBuilder;
 import org.springframework.util.Assert;
 
 import javax.persistence.*;
@@ -31,7 +29,7 @@ public class Search {
     /***********************************************************
      Deezer
      ***********************************************************/
-    public String nameOfArtist;
+    private String userInput;
 
     public static final String APPENDABLE_QUERY_URL = "https://api.deezer.com/search?q=";
     public int deezerId; //The track's Deezer id
@@ -65,11 +63,11 @@ public class Search {
 
     }
 
-    public String buildSearchQuery(String nameOfArtist) throws Exception {
+    public static String buildSearchQuery(String userInput) throws Exception {
 
-        Assert.notNull(nameOfArtist, "The search criteria, Name of Artist is required to perform a search query");
-        if (nameOfArtist.length() > 0)
-            return APPENDABLE_QUERY_URL.concat(nameOfArtist);
+        Assert.notNull(userInput, "The search criteria, Name of Artist is required to perform a search query");
+        if (userInput.length() > 0)
+            return APPENDABLE_QUERY_URL.concat(userInput);
         else
             throw new Exception();
     }
@@ -178,6 +176,15 @@ public class Search {
     public void setAlbum(Album album) {
         this.album = album;
     }
+
+    public String getUserInput() {
+        return userInput;
+    }
+
+    public void setUserInput(String nameOfArtist) {
+        this.userInput = nameOfArtist;
+    }
+
 
     @Override
     public String toString() {
