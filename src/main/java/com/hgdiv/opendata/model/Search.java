@@ -1,6 +1,7 @@
 package com.hgdiv.opendata.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.util.Assert;
 
 import javax.persistence.*;
@@ -17,44 +18,41 @@ import java.util.Objects;
  * </p>
  */
 
-@Entity
+
 public class Search {
 
     /***********************************************************
      StuckInMyHead Vars
      ***********************************************************/
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long id; //Local repository id
+    private String userInput;
 
     /***********************************************************
      Deezer
      ***********************************************************/
-    private String userInput;
-
-    public int deezerId; //The track's Deezer id
-
-    public boolean readable; //true if the track is readable in the player for the current user
+    private String searchOrder;
+    public Integer deezerId; //The track's Deezer id
+    public Boolean readable; //true if the track is readable in the player for the current user
     public String title; //The track's full title
     public String title_short; //The track's short title
     public String title_version; // The track version
-    public URL link; // The url of the track on Deezer
-    public int duration; // The track's duration in seconds
-    public int rank; // The track's Deezer rank
-    public boolean explicit_lyrics; //Whether the track contains explicit lyrics
+    public String link; // The url of the track on Deezer
+    public Integer duration; // The track's duration in seconds
+    public Integer rank; // The track's Deezer rank
+    public Boolean explicit_lyrics; //Whether the track contains explicit lyrics
     public URL preview; // The url of track's preview file. This file contains the first 30 seconds of the track
 
     /*
     artist object containing : id, name, link, picture, picture_small,
                                     picture_medium, picture_big, picture_xl
      */
-    @Transient
+
     private Artist artist;
 
     /*
     album object containing : id, title, cover, cover_small, cover_medium, cover_big, cover_xl
      */
-    @Transient
     private Album album;
 
 
@@ -69,6 +67,11 @@ public class Search {
 
     }
 
+    public Search(String userInput,String searchOrder) {
+        this.userInput = userInput;
+        this.searchOrder = searchOrder;
+
+    }
 
 
     public Long getId() {
@@ -79,19 +82,19 @@ public class Search {
         this.id = id;
     }
 
-    public int getDeezerId() {
+    public Integer getDeezerId() {
         return deezerId;
     }
 
-    public void setDeezerId(int deezerId) {
+    public void setDeezerId(Integer deezerId) {
         this.deezerId = deezerId;
     }
 
-    public boolean isReadable() {
+    public Boolean isReadable() {
         return readable;
     }
 
-    public void setReadable(boolean readable) {
+    public void setReadable(Boolean readable) {
         this.readable = readable;
     }
 
@@ -119,35 +122,35 @@ public class Search {
         this.title_version = title_version;
     }
 
-    public URL getLink() {
+    public String getLink() {
         return link;
     }
 
-    public void setLink(URL link) {
+    public void setLink(String link) {
         this.link = link;
     }
 
-    public int getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 
-    public int getRank() {
+    public Integer getRank() {
         return rank;
     }
 
-    public void setRank(int rank) {
+    public void setRank(Integer rank) {
         this.rank = rank;
     }
 
-    public boolean isExplicit_lyrics() {
+    public Boolean isExplicit_lyrics() {
         return explicit_lyrics;
     }
 
-    public void setExplicit_lyrics(boolean explicit_lyrics) {
+    public void setExplicit_lyrics(Boolean explicit_lyrics) {
         this.explicit_lyrics = explicit_lyrics;
     }
 
@@ -175,6 +178,7 @@ public class Search {
         this.album = album;
     }
 
+
     public String getUserInput() {
         return userInput;
     }
@@ -183,49 +187,35 @@ public class Search {
         this.userInput = nameOfArtist;
     }
 
+    public String getSearchOrder() {
+        return searchOrder;
+    }
+
+    public void setSearchOrder(String searchOrder) {
+        this.searchOrder = searchOrder;
+    }
 
     @Override
     public String toString() {
-        return "Search{[" +
+        return "Search{" +
                 "id=" + id +
+                ", userInput='" + userInput + '\'' +
+                ", searchOrder='" + searchOrder + '\'' +
                 ", deezerId=" + deezerId +
                 ", readable=" + readable +
                 ", title='" + title + '\'' +
                 ", title_short='" + title_short + '\'' +
                 ", title_version='" + title_version + '\'' +
-                ", link=" + link +
+                ", link='" + link + '\'' +
                 ", duration=" + duration +
                 ", rank=" + rank +
                 ", explicit_lyrics=" + explicit_lyrics +
                 ", preview=" + preview +
                 ", artist=" + artist +
-                ", album=" + album + '\'' +
-                "]}";
-
+                ", album=" + album +
+                '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Search search = (Search) o;
-        return deezerId == search.deezerId &&
-                readable == search.readable &&
-                duration == search.duration &&
-                rank == search.rank &&
-                explicit_lyrics == search.explicit_lyrics &&
-                id.equals(search.id) &&
-                title.equals(search.title) &&
-                Objects.equals(title_short, search.title_short) &&
-                Objects.equals(title_version, search.title_version) &&
-                link.equals(search.link) &&
-                Objects.equals(preview, search.preview);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, deezerId, readable, title, title_short, title_version, link, duration, rank, explicit_lyrics, preview);
-    }
 
 
 }

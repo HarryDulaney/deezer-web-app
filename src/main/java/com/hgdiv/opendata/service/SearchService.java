@@ -9,17 +9,12 @@ import java.util.List;
 
 public interface SearchService {
 
-    List<Search> findAllByName(String name);
+    List<Track> getTopFiveTracks(int artistId);
 
-    Search findById(Long id);
+    Artist searchArtist(String artistName);
 
-    List<Track> getTopFiveTracks(int artistId); //https://api.deezer.com/artist/27/
+    List<Album> getAlbumsByArtist(String artistName);
 
-    Artist searchArtist(String artistName); //https://api.deezer.com/search/artist?q=nameOfArtist
-
-    List<Album> getAlbumsByArtist(String artistName); //https://api.deezer.com/search/album?q=nameOfArtist
-
-    Search saveSearch(Search search) throws Exception;
 
 
 }

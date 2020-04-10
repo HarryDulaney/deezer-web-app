@@ -1,10 +1,13 @@
 package com.hgdiv.opendata.utils;
 
+import com.hgdiv.opendata.model.Search;
 import com.sun.jndi.toolkit.url.Uri;
 import org.springframework.util.Assert;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 
 public class UrlUtils {
 
@@ -18,13 +21,26 @@ public class UrlUtils {
 
     }
 
-    public static URI buildArtistSearchQuery(String userInput) throws URISyntaxException {
+    public static String buildArtistSearchQuery(String userInput)  {
 
-        return new URI(ARTIST_SEARCH_URL + userInput);
+        return ARTIST_SEARCH_URL + userInput;
 
     }
 
-    public static String buildStrArtistSearchQuery(String artistName) {
-        return ARTIST_SEARCH_URL + artistName;
+
+
+    private String getSearchQuery(final Search search) {
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("q=");
+        try {
+            queryBuilder.append(URLEncoder.encode(search.getUserInput(), "utf-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        if (search.getSearchOrder() != null) {
+            queryBuilder.append("&order=");
+            queryBuilder.append(search.getSearchOrder());
+        }
+        return queryBuilder.toString();
     }
 }
