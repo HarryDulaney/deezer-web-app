@@ -1,13 +1,6 @@
 package com.hgdiv.opendata.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.util.Assert;
-
-import javax.persistence.*;
-import javax.xml.ws.RequestWrapper;
 import java.net.URL;
-import java.util.Objects;
 
 
 /**

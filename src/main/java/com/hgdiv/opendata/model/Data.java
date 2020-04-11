@@ -2,19 +2,28 @@ package com.hgdiv.opendata.model;
 
 import java.util.List;
 
-public class RESTResult<T> {
+public class Data<T> {
 
-    private List<T> result;
     private Integer total;
+    private List<T> data;
     private String next;
+
+
     private String checksum;
 
-    public List<T> getResult() {
-        return result;
+    public Data() {
     }
 
-    public void setResult(List<T> result) {
-        this.result = result;
+    public Data(List<T> data) {
+        this.data = data;
+    }
+
+    public List<T> getData() {
+        return data;
+    }
+
+    public void setData(List<T> data) {
+        this.data = data;
     }
 
     public Integer getTotal() {
@@ -40,5 +49,6 @@ public class RESTResult<T> {
     public void setChecksum(String checksum) {
         this.checksum = checksum;
     }
-}
 
+
+}

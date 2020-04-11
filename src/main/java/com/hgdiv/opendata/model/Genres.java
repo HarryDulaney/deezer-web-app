@@ -1,5 +1,5 @@
 package com.hgdiv.opendata.model;
 
-public class Genres extends RESTResult<Genre> {
+public class Genres extends Data<Genre> {
 
 }

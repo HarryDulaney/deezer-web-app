@@ -1,14 +1,22 @@
 package com.hgdiv.opendata.utils;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
+
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.hgdiv.opendata.model.Artist;
+import com.hgdiv.opendata.model.Artists;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
+@Component
 public class SIMHRestTemplate {
+    Logger log = LoggerFactory.getLogger(SIMHRestTemplate.class);
 
     private HttpConnectionUtils httpConnectionUtils;
 
@@ -16,74 +24,35 @@ public class SIMHRestTemplate {
         this.httpConnectionUtils = httpConnectionUtils;
     }
 
-    public Artist get(final String url) {
+    public Artists get(final String url) throws RestClientException {
         return getRequest(url);
     }
 
-    private  Artist getRequest(final String requestURL) {
+    private Artists getRequest(final String url) throws RestClientException {
 
         try {
-            final String response = httpConnectionUtils.getConnect(requestURL);
+            final String response = httpConnectionUtils.getConnect(url);
             if (containsError(response)) {
                 throw new RestClientException("Error " + response);
             } else {
-                return convertJson(httpConnectionUtils.getConnect(requestURL));
+                return convertJson(httpConnectionUtils.getConnect(url));
             }
         } catch (IOException ex) {
-            throw new RestClientException("There is an exception for url " + requestURL, ex);
+            throw new RestClientException("There is an exception for url " + url, ex);
         }
     }
 
-    private Artist convertJson(final String content) throws IOException {
-        Artist artist = new Artist();
-        JsonFactory jsonFactory = new JsonFactory();
-        JsonParser parser = jsonFactory.createParser(content);
+    private Artists convertJson(final String content) throws IOException {
 
-        while (parser.nextToken() != JsonToken.END_OBJECT) {
-            String nextToken = parser.getCurrentName();
-            if (nextToken.equalsIgnoreCase("id")) {
-                parser.nextToken();
-                Long id = parser.getLongValue();
-                artist.setId(id);
-            }
-            if (nextToken.equalsIgnoreCase("name")) {
-                parser.nextToken();
-                String name = parser.getText();
-                artist.setName(name);
-            }
-            if (nextToken.equalsIgnoreCase("link")) {
-                parser.nextToken();
-                String link = parser.getText();
-                artist.setLink(link);
-            }
-            if (nextToken.equalsIgnoreCase("picture")) {
-                parser.nextToken();
-                String picture = parser.getText();
-                artist.setPicture(picture);
-            }
-            if (nextToken.equalsIgnoreCase("nb_album")) {
-                parser.nextToken();
-                Integer nbAlbum = parser.getIntValue();
-                artist.setNb_album(nbAlbum);
-            }
-            if (nextToken.equalsIgnoreCase("nb_fan")) {
-                parser.nextToken();
-                Integer nbFan = parser.getIntValue();
-                artist.setNb_fan(nbFan);
-            }
-            if (nextToken.equalsIgnoreCase("tracklist")) {
-                parser.nextToken();
-                String tracklist = parser.getText();
-                artist.setTracklist(tracklist);
-            }
+        ObjectMapper mapper = new ObjectMapper();
+        Artists artists = mapper.readValue(content,Artists.class);
+        return artists;
 
-        }
 
-        return artist;
     }
 
     private Boolean containsError(final String response) {
         return response.startsWith("{\"error");
     }
-
 }
+
