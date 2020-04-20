@@ -1,0 +1,87 @@
+body {
+    padding-top: 10rem;
+}
+.container{
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    position: center;
+}
+
+h1 {
+    color: darkblue;
+}
+
+h2 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: darkslategrey;
+}
+.navbar-brand{
+    -webkit-text-fill-color: darkblue;
+    text-decoration-color: chocolate;
+}
+
+label {
+    color: saddlebrown;
+    align-content: center;
+
+}
+a{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-variant-caps: petite-caps;
+    position: center;
+    justify-content: center;
+
+}
+
+input.field {
+    width: 90%;
+}
+
+table,
+td,tr {
+    border: 1px solid midnightblue;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+thead {
+    background-color: #333;
+    color: #fff;
+}
+
+
+.form-control {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.submit-button {
+    background: blue;
+    color: burlywood;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+
+}
+
+.submit-button:hover {
+    background: cornflowerblue;
+    color: darkseagreen;
+    text-decoration: -moz-buttonhovertext;
+    font-weight: bolder;
+    -webkit-border-radius: 20px;
+
+
+}
