@@ -45,8 +45,7 @@ public class SIMHRestTemplate {
     private Artists convertJson(final String content) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
-        Artists artists = mapper.readValue(content,Artists.class);
-        return artists;
+        return mapper.readValue(content,Artists.class);
 
 
     }

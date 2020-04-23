@@ -4,9 +4,9 @@
 <div th:fragment="headFiles">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <link href="../static/css/main.css" rel="stylesheet"/>
-    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <title th:text="${title}"></title>
 </div>
 <body>
@@ -14,10 +14,9 @@
 <header th:fragment="header">
     <div class="container">
         <div class="navbar-header" th:bgcolor="black">
-            <strong><a class="navbar-brand btn-dark" style="-webkit-text-fill-color: wheat"
-                       th:href="@{/}">Home</a></strong>
+            <strong><a class="navbar-brand btn-outline-dark" style="-webkit-text-fill-color: maroon" th:href="@{/}">Home</a></strong>
+            <strong><a  class="navbar-brand btn-outline-dark"  style="-webkit-text-fill-color: maroon" th:href="@{/albums}">Albums</a></strong>
         </div>
-
     </div>
     <div th:align="center" class="container">
         <div class="hero-unit">

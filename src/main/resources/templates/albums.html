@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/jquery/3.4.1/jquery.min.js}"/>
+    <link rel="stylesheet" href="../static/css/main.css"/>
+
+    <title th:text="${title}"></title>
+</head>
+<body>
+<header th:insert="frags.html :: header"></header>
+<div class="container" th:align="center">
+    <div th:align="center">
+        <h2><strong>Albums:</strong></h2>
+        <table class="table-bordered table-striped">
+            <thead>
+            <tr>
+                <th colspan="1">Album Name</th>
+                <th colspan="1">Album Cover</th>
+                <th colspan="1">Release Date</th>
+                <th colspan="1">Genre</th>
+                <th colspan="1">Number of Fans</th>
+                <th colspan="1">Explicit Lyrics?</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td rowspan="1" th:text=""></td>
+                <td rowspan="1"><img th:src="" alt="cover-art"/></td>
+
+                <td rowspan="1" th:text=""></td>
+                <td rowspan="1" th:text="" alt=""></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

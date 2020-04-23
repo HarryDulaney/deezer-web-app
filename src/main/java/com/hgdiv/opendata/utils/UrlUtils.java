@@ -10,7 +10,6 @@ public class UrlUtils {
     private static final String ARTIST_SEARCH_URL = "https://api.deezer.com/search/artist?q=";
     private static final String BASIC_SEARCH_URL = "https://api.deezer.com/search?q=";
 
-
     public static String buildSearchQuery(String userInput) {
         return BASIC_SEARCH_URL + userInput;
 

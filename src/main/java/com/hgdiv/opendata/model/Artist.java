@@ -2,7 +2,6 @@ package com.hgdiv.opendata.model;
 
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 public class Artist {
 

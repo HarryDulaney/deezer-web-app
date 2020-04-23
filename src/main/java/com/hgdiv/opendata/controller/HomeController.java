@@ -45,6 +45,11 @@ public class HomeController {
         model.addAttribute("title", title);
         return "frags";
     }
+    @GetMapping(path= "/albums")
+    public String getAlbums(Model model){
+        model.addAttribute("title",title);
+        return "albums";
+    }
 
     @PostMapping(path = "/searchForm")
     public String artistSearch(@ModelAttribute("search") Search search, Model model) {

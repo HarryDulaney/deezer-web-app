@@ -1,7 +1,8 @@
 body {
     padding-top: 10rem;
 }
-.container{
+
+.container {
     justify-content: center;
     align-content: center;
     margin: auto;
@@ -17,17 +18,15 @@ h2 {
     margin-top: 5px;
     color: darkslategrey;
 }
-.navbar-brand{
-    -webkit-text-fill-color: darkblue;
-    text-decoration-color: chocolate;
-}
+
 
 label {
     color: saddlebrown;
     align-content: center;
 
 }
-a{
+
+a {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-variant-caps: petite-caps;
     position: center;
@@ -40,10 +39,11 @@ input.field {
 }
 
 table,
-td,tr {
+td, tr {
     border: 1px solid midnightblue;
     padding: 0.5rem;
     text-align: left;
+
 }
 
 thead {
@@ -85,3 +85,4 @@ thead {
 
 
 }
+
