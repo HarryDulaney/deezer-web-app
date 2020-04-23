@@ -17,21 +17,20 @@
         <table class="table-bordered table-striped">
             <thead>
             <tr>
-                <th colspan="1">Album Name</th>
-                <th colspan="1">Album Cover</th>
-                <th colspan="1">Release Date</th>
-                <th colspan="1">Genre</th>
-                <th colspan="1">Number of Fans</th>
-                <th colspan="1">Explicit Lyrics?</th>
+                <th>Album Name</th>
+                <th>Album Cover</th>
+                <th>Release Date</th>
+                <th>Genre</th>
+                <th>Number of Fans</th>
+                <th>Explicit Lyrics?</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td rowspan="1" th:text=""></td>
-                <td rowspan="1"><img th:src="" alt="cover-art"/></td>
-
-                <td rowspan="1" th:text=""></td>
-                <td rowspan="1" th:text="" alt=""></td>
+            <tr th:each="album:${albums}">
+                <td th:text="${album.id}"/>
+                <td th:text="${album.title}"/>
+                <td th:text="${artist.getFans()}" alt="nb_fans"></td>
+                <td><img th:src="@{${artist.cover}}" alt="img-pic" src=""/></td>
 
             </tr>
             </tbody>

@@ -2,35 +2,40 @@ package com.hgdiv.opendata.model;
 
 public class Album {
 
-    private Long id;
+    private Integer id;
     private String title;
     private String upc;
     private String link;
     private String cover;
+    private String cover_small;
+    private String cover_medium;
+    private String cover_big;
+    private String cover_xl;
     private String genre_id;
+    private Integer fans;
+    private String release_date;
+    private String record_type;
+    private String tracklist;
+    private Boolean explicit_lyrics;
+    private String type;
+
     private String label;
     private Integer duration;
-    private Integer fans;
     private Integer rating;
-    private String release_date;
     private Boolean available;
     private Artist artist;
-    private String type;
-    private Tracks tracks;
     private String approved_type;
     private String language;
     private String genre;
     private Integer nb_tracks;
-    private Album alternative;
     private Genres genres;
-    private String record_type;
-    private String tracklist;
 
-    public Long getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -170,22 +175,6 @@ public class Album {
         this.upc = upc;
     }
 
-    public Tracks getTracks() {
-        return tracks;
-    }
-
-    public void setTracks(Tracks tracks) {
-        this.tracks = tracks;
-    }
-
-    public Album getAlternative() {
-        return alternative;
-    }
-
-    public void setAlternative(Album alternative) {
-        this.alternative = alternative;
-    }
-
     public Genres getGenres() {
         return genres;
     }
@@ -209,4 +198,46 @@ public class Album {
     public void setTracklist(String tracklist) {
         this.tracklist = tracklist;
     }
+
+
+    public String getCover_small() {
+        return cover_small;
+    }
+
+    public void setCover_small(String cover_small) {
+        this.cover_small = cover_small;
+    }
+
+    public String getCover_medium() {
+        return cover_medium;
+    }
+
+    public void setCover_medium(String cover_medium) {
+        this.cover_medium = cover_medium;
+    }
+
+    public String getCover_big() {
+        return cover_big;
+    }
+
+    public void setCover_big(String cover_big) {
+        this.cover_big = cover_big;
+    }
+
+    public String getCover_xl() {
+        return cover_xl;
+    }
+
+    public void setCover_xl(String cover_xl) {
+        this.cover_xl = cover_xl;
+    }
+
+    public Boolean getExplicit_lyrics() {
+        return explicit_lyrics;
+    }
+
+    public void setExplicit_lyrics(Boolean explicit_lyrics) {
+        this.explicit_lyrics = explicit_lyrics;
+    }
+
 }

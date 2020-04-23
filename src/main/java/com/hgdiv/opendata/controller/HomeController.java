@@ -1,5 +1,6 @@
 package com.hgdiv.opendata.controller;
 
+import com.hgdiv.opendata.model.Albums;
 import com.hgdiv.opendata.model.Artist;
 import com.hgdiv.opendata.model.Search;
 import com.hgdiv.opendata.service.SearchService;
@@ -9,9 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestClientException;
-
 
 
 @Controller
@@ -20,6 +22,8 @@ public class HomeController {
     Logger log = LoggerFactory.getLogger(HomeController.class);
 
     private SearchService searchService;
+
+    private Artist currentArtist;
 
     private static String searchField;
 
@@ -45,11 +49,26 @@ public class HomeController {
         model.addAttribute("title", title);
         return "frags";
     }
-    @GetMapping(path= "/albums")
-    public String getAlbums(Model model){
-        model.addAttribute("title",title);
-        return "albums";
+
+    @GetMapping(path = "/albums")
+    public String albumRequest(Model model) {
+        if (currentArtist != null) {
+            Albums albums = albumsRequest(currentArtist);
+            log.info("Albums: " + albums.toString());
+            model.addAttribute("title", title);
+            model.addAttribute("albums", albums);
+            return "albums";
+        } else {
+            return "/error";
+        }
     }
+
+
+    private Albums albumsRequest(Artist artist) {
+
+        return searchService.getAlbumsByArtistLink(artist.getLink());
+    }
+
 
     @PostMapping(path = "/searchForm")
     public String artistSearch(@ModelAttribute("search") Search search, Model model) {
@@ -58,8 +77,9 @@ public class HomeController {
         if (artist == null) {
             return "/error";
         }
-        model.addAttribute("artist", artist);
-       log.info(artist.toString());
+        currentArtist = artist;
+        model.addAttribute("artist", currentArtist);
+        log.info(currentArtist.toString());
         model.addAttribute("title", title);
         model.addAttribute("search", search);
         return "result";
@@ -85,6 +105,15 @@ public class HomeController {
     public static void setSearchField(String searchField) {
         HomeController.searchField = searchField;
     }
+
+    public Artist getCurrentArtist() {
+        return currentArtist;
+    }
+
+    public void setCurrentArtist(Artist currentArtist) {
+        this.currentArtist = currentArtist;
+    }
+
 
 
 }

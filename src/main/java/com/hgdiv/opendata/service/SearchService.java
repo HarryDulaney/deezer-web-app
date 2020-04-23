@@ -1,9 +1,6 @@
 package com.hgdiv.opendata.service;
 
-import com.hgdiv.opendata.model.Album;
-import com.hgdiv.opendata.model.Artist;
-import com.hgdiv.opendata.model.Search;
-import com.hgdiv.opendata.model.Track;
+import com.hgdiv.opendata.model.*;
 
 import java.util.List;
 
@@ -13,7 +10,9 @@ public interface SearchService {
 
     Artist searchArtist(String artistName);
 
-    List<Album> getAlbumsByArtist(String artistName);
+    Albums getAlbumsByArtist(String artistName);
+
+    Albums getAlbumsByArtistLink(String artistLink);
 
 
 

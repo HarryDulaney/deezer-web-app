@@ -7,10 +7,10 @@
     <link rel="stylesheet" th:href="@{/webjars/jquery/3.4.1/jquery.min.js}"/>
     <link rel="stylesheet" href="/static/css/main.css" />
 
-    <title th:text="${title}"></title>
+    <title th:text="${title}"> </title>
 </head>
 <body>
-<header th:insert="frags.html :: header"></header><br>
+<header th:insert="frags.html :: header"> </header><br>
 <div th:align="center" class="container">
     <form class="form-control" action="#" th:action="@{/searchForm}" th:object="${search}" method="post">
         <label for="name">Enter The Artist's Name Here: </label>
@@ -33,11 +33,11 @@
             </thead>
             <tbody>
             <tr>
-                <td rowspan="1"/>
-                <td rowspan="1"/>
-                <td rowspan="1"/>
-                <td rowspan="1"/>
-                <td rowspan="1"/>
+                <td rowspan="1"> </td>
+                <td rowspan="1"> </td>
+                <td rowspan="1"> </td>
+                <td rowspan="1"> </td>
+                <td rowspan="1"> </td>
             </tr>
             </tbody>
         </table>

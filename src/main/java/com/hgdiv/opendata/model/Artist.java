@@ -1,7 +1,9 @@
 package com.hgdiv.opendata.model;
 
 
-
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
 
 public class Artist {
 
