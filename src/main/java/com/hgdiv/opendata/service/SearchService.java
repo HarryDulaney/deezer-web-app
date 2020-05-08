@@ -8,11 +8,11 @@ public interface SearchService {
 
     List<Track> getTopFiveTracks(int artistId);
 
-    Artist searchArtist(String artistName);
+    Artist searchArtist(String artistName) throws Exception;
 
     Albums getAlbumsByArtist(String artistName);
 
-    Albums getAlbumsByArtistLink(String artistLink);
+    Albums getAlbumsByArtistId(Integer artistId) throws Exception;
 
 
 

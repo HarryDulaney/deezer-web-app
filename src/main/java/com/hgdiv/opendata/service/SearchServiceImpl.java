@@ -33,9 +33,9 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public Artist searchArtist(String userInput) throws RestClientException {
+    public Artist searchArtist(String userInput) throws Exception {
         String urlQuery = UrlUtils.buildArtistSearchQuery(userInput);
-        Artists artists = restTemplate.getArtists(urlQuery);
+        Artists artists = restTemplate.get(urlQuery,Artists.class);
         List<Artist> list = artists.getData();
 
         return list.get(0);
@@ -47,14 +47,13 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public Albums getAlbumsByArtistLink(String artistLink) {
+    public Albums getAlbumsByArtistId(Integer artistId) throws Exception {
 
-        String query = UrlUtils.buildAlbumLinkQuery(artistLink);
-        Albums albums = restTemplate.getAlbums(query);
+        String query = UrlUtils.buildAlbumLinkQuery(artistId);
 
-
-        return null;
+        return restTemplate.get(query,Albums.class);
     }
+
 
 
 }

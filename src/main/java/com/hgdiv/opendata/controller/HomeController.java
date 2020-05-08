@@ -23,7 +23,8 @@ public class HomeController {
 
     private SearchService searchService;
 
-    private Artist currentArtist;
+    private static Artist currentArtist;
+    private static boolean Initialized;
 
     private static String searchField;
 
@@ -40,6 +41,7 @@ public class HomeController {
     @GetMapping(path = "/")
     public String index(Model model) {
         model.addAttribute("title", title);
+        model.addAttribute("artist",currentArtist);
         model.addAttribute("search", new Search());
         return "index";
     }
@@ -51,41 +53,63 @@ public class HomeController {
     }
 
     @GetMapping(path = "/albums")
-    public String albumRequest(Model model) {
-        if (currentArtist != null) {
-            Albums albums = albumsRequest(currentArtist);
-            log.info("Albums: " + albums.toString());
-            model.addAttribute("title", title);
-            model.addAttribute("albums", albums);
-            return "albums";
-        } else {
+    public String getAlbums(Model model) {
+        if(!Initialized) {
             return "/error";
+        }else {
+            Albums albums = null;
+            try {
+                albums = albumsRequest(currentArtist);
+            } catch (Exception e) {
+                log.info("Cause: [ " + e.getCause() + " ]  Message: [" + e.getMessage() + " ]");
+                e.printStackTrace();
+            }
+            log.info("AlbumRequest Artist=" + currentArtist.toString());
+            log.info("Albums: " + albums);
+            model.addAttribute("title", title);
+            model.addAttribute("albums",albums.getData());
+            return "albums";
         }
     }
 
 
-    private Albums albumsRequest(Artist artist) {
-
-        return searchService.getAlbumsByArtistLink(artist.getLink());
+    private Albums albumsRequest(Artist artist) throws Exception {
+        Albums albums = null;
+        try {
+             albums = searchService.getAlbumsByArtistId(artist.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(albums != null)
+        return albums;
+        else
+            throw new Exception();
     }
+
 
 
     @PostMapping(path = "/searchForm")
     public String artistSearch(@ModelAttribute("search") Search search, Model model) {
         setSearchField(search.getUserInput());
-        Artist artist = searchArtist(search);
+        Artist artist = null;
+        try {
+            artist = searchArtist(search);
+        } catch (Exception e) {
+            log.info("Cause: [ " + e.getCause() + " ]  Message: [" + e.getMessage() + " ]");
+            e.printStackTrace();
+        }
         if (artist == null) {
             return "/error";
         }
-        currentArtist = artist;
-        model.addAttribute("artist", currentArtist);
+        setCurrentArtist(artist);
+        model.addAttribute("artist", artist);
         log.info(currentArtist.toString());
         model.addAttribute("title", title);
         model.addAttribute("search", search);
         return "result";
     }
 
-    private Artist searchArtist(Search search) {
+    private Artist searchArtist(Search search) throws Exception {
         try {
             return searchService.searchArtist(search.getUserInput());
 
@@ -106,14 +130,16 @@ public class HomeController {
         HomeController.searchField = searchField;
     }
 
-    public Artist getCurrentArtist() {
+    public static Artist getCurrentArtist() {
         return currentArtist;
     }
 
-    public void setCurrentArtist(Artist currentArtist) {
-        this.currentArtist = currentArtist;
+    public static void setCurrentArtist(Artist currentArtist) {
+        if(currentArtist != null){
+            Initialized = true;
+        }
+        HomeController.currentArtist = currentArtist;
     }
-
 
 
 }

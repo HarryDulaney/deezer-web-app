@@ -14,13 +14,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 @Component
-public class HttpConnectionUtils {
+public class HttpConnectionUtils implements IHttpConnection{
 
     Logger log = LoggerFactory.getLogger(HttpConnectionUtils.class);
 
     private static final String USER_AGENT = "Mozilla/5.0";
 
-
+    @Override
     public String getConnect(String url) throws IOException {
 
         CloseableHttpClient client = HttpClients.createDefault();
@@ -47,4 +47,5 @@ public class HttpConnectionUtils {
         return result.toString();
 
     }
+
 }

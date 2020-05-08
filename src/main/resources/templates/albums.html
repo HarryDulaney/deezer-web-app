@@ -12,30 +12,32 @@
 <body>
 <header th:insert="frags.html :: header"></header>
 <div class="container" th:align="center">
-    <div th:align="center">
-        <h2><strong>Albums:</strong></h2>
-        <table class="table-bordered table-striped">
-            <thead>
+    <h2><strong>Albums:</strong></h2>
+    <table class="table-bordered table-striped">
+        <thead>
+        <tr>
+            <th colspan="1">Media Type</th>
+            <th colspan="1">Title</th>
+            <th colspan="1">Genre</th>
+            <th colspan="1">Explicit Lyrics?</th>
+            <th colspan="1">Release Date</th>
+            <th colspan="1">Cover</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="album: ${albums}">
             <tr>
-                <th>Album Name</th>
-                <th>Album Cover</th>
-                <th>Release Date</th>
-                <th>Genre</th>
-                <th>Number of Fans</th>
-                <th>Explicit Lyrics?</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="album:${albums}">
-                <td th:text="${album.id}"/>
-                <td th:text="${album.title}"/>
-                <td th:text="${artist.getFans()}" alt="nb_fans"></td>
-                <td><img th:src="@{${artist.cover}}" alt="img-pic" src=""/></td>
+            <td rowspan="1" th:text="${album.record_type}">..</td>
+            <td rowspan="1" th:text="${album.title}">..</td>
+            <td rowspan="1" th:text="${album.genre}">..</td>
+            <td rowspan="1" th:text="${album.explicit_lyrics}">..</td>
+            <td rowspan="1" th:text="${album.release_date}">..</td>
+                <td rowspan="1"><img th:src="@{${album.cover_big}}" alt="img-pic" src=""/></td>
+        </tr>
+            </th:block>
+        </tbody>
+    </table>
 
-            </tr>
-            </tbody>
-        </table>
     </div>
-</div>
 </body>
 </html>

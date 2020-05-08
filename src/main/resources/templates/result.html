@@ -6,10 +6,10 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
     <link rel="stylesheet" th:href="@{/webjars/jquery/3.4.1/jquery.min.js}"/>
     <link rel="stylesheet" href="../static/css/main.css"/>
-    <title th:text="${title}"> </title>
+    <title th:text="${title}"></title>
 </head>
 <body>
-<header th:insert="frags.html :: header"> </header>
+<header th:insert="frags.html :: header"></header>
 <div class="container" th:align="center">
     <form class="form-control" action="#" th:action="@{/searchForm}" th:object="${search}" method="post">
         <label for="userInput">Enter The Artist's Name Here: </label>
@@ -17,33 +17,35 @@
         <div class="submit-button">
             <input type="submit" value="SUBMIT">
         </div>
-    </form><hr>
+    </form>
+    <hr>
     <div th:align="center">
         <h2><strong>Artist:</strong></h2>
         <table class="table-bordered table-striped">
-                <thead>
-                <tr>
-                    <th colspan="1">Id</th>
-                    <th colspan="1">Name</th>
-                    <th colspan="1">Number of Albums</th>
-                    <th colspan="1">Number of (Deezer) Fans</th>
-                    <th colspan="1">Picture</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td rowspan="1" th:text="${artist.getId()}"> </td>
-                    <td rowspan="1" th:text="${artist.getName()}"> </td>
-                    <td rowspan="1" th:text="${artist.getNb_album()}"> </td>
-                    <td rowspan="1" th:text="${artist.getNb_fan()}" alt="nb_fans"> </td>
-                    <td rowspan="1"><img th:src="@{${artist.getPicture_medium()}}" alt="img-pic" src=""/> </td>
-                    <td rowspan="1"><strong><a class="navbar-brand btn-outline-dark"  style="-webkit-text-fill-color: darkred" th:href="@{/albums}">Albums</a></strong>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </button>
-        </div>
+            <thead>
+            <tr>
+                <th colspan="1">Name</th>
+                <th colspan="1">Number of Albums</th>
+                <th colspan="1">Number of (Deezer) Fans</th>
+                <th colspan="1">Picture</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td rowspan="1" th:text="${artist.name}">.</td>
+                <td rowspan="1" th:text="${artist.nb_album}">.</td>
+                <td rowspan="1" th:text="${artist.nb_fan}" alt="nb_fans">.</td>
+                <td rowspan="1"><img th:src="@{${artist.picture_big}}" alt="img-pic" src=""/></td>
+            </tr>
+            <tr>
+                <td><a class="navbar-brand btn-outline-dark" style="-webkit-text-fill-color: maroon"
+                       th:href="@{/albums}">Albums</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
 </div>
 </body>
 </html>
