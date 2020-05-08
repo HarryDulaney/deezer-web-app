@@ -9,7 +9,8 @@
     <title th:text="${title}"></title>
 </head>
 <body>
-<header th:insert="frags.html :: header"></header>
+<header th:insert="frags.html :: header">
+</header>
 <div class="container" th:align="center">
     <form class="form-control" action="#" th:action="@{/searchForm}" th:object="${search}" method="post">
         <label for="userInput">Enter The Artist's Name Here: </label>
@@ -36,11 +37,6 @@
                 <td rowspan="1" th:text="${artist.nb_album}">.</td>
                 <td rowspan="1" th:text="${artist.nb_fan}" alt="nb_fans">.</td>
                 <td rowspan="1"><img th:src="@{${artist.picture_big}}" alt="img-pic" src=""/></td>
-            </tr>
-            <tr>
-                <td><a class="navbar-brand btn-outline-dark" style="-webkit-text-fill-color: maroon"
-                       th:href="@{/albums}">Albums</a>
-                </td>
             </tr>
             </tbody>
         </table>

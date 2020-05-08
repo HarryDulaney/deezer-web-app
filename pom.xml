@@ -13,10 +13,10 @@
 
     <groupId>com.hgdiv</groupId>
     <artifactId>stuck-in-my-head</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>app</name>
-    <description>A RESTful Web Service for consuming Deezer music library api</description>
-    <!-- <packaging>jar</packaging> -->
+    <description>A RESTful Web Service for consuming Deezer.com's music library api</description>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>1.8</java.version>
@@ -52,15 +52,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-  <!--      <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency> -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
@@ -85,7 +76,7 @@
     </dependencies>
 
     <build>
-        <!-- <finalName></finalName> -->
+       <finalName>StuckInMyHead</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -107,7 +98,7 @@
         <developer>
             <name>Harry Dulaney IV</name>
             <id>HGDIV</id>
-            <email>github.com/harrydulaney</email>
+            <email>www.harrydulaney.github.io</email>
         </developer>
     </developers>
 </project>

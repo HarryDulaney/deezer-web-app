@@ -10,7 +10,8 @@
     <title th:text="${title}"> </title>
 </head>
 <body>
-<header th:insert="frags.html :: header"> </header><br>
+<header th:insert="frags.html :: header">
+</header><br>
 <div th:align="center" class="container">
     <form class="form-control" action="#" th:action="@{/searchForm}" th:object="${search}" method="post">
         <label for="name">Enter The Artist's Name Here: </label>
