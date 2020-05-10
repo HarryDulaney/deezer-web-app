@@ -6,9 +6,8 @@
 <div align="center">
 <label for="one">Search you favorite recording artists and bands</label>
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/one.png" height="300" width="500" id="one" alt="Strokes One">
- 
 <label for="two">View Discography with album covers and album info</label>
-<img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/two.png" height="300" width="500" alt="Strokes Two">
+<img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/two.png" id="two" height="300" width="500" alt="Strokes Two">
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/three.png" height="300" width="500" alt="Strokes Three">
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/four.png" height="300" width="500" alt="Strokes Four">
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/five.png" height="300" width="500" alt="Strokes Five">
