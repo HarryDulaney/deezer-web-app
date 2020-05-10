@@ -18,7 +18,6 @@
         <tr>
             <th colspan="1">Media Type</th>
             <th colspan="1">Title</th>
-            <th colspan="1">Genre</th>
             <th colspan="1">Explicit Lyrics?</th>
             <th colspan="1">Release Date</th>
             <th colspan="1">Cover</th>
@@ -29,7 +28,6 @@
             <tr>
             <td rowspan="1" th:text="${album.record_type}">..</td>
             <td rowspan="1" th:text="${album.title}">..</td>
-            <td rowspan="1" th:text="${album.genre}">..</td>
             <td rowspan="1" th:text="${album.explicit_lyrics}">..</td>
             <td rowspan="1" th:text="${album.release_date}">..</td>
                 <td rowspan="1"><img th:src="@{${album.cover_big}}" alt="img-pic" src=""/></td>
