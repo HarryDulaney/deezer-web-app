@@ -1,7 +1,7 @@
 
 # _Stuck In My Head_
 
-## Spring Thymeleaf Web Application for searching recording artist's and musicians. This web app consumes the Deezer.com API to display pictures and artist discography. 
+## Java, Spring Boot, Jackson, and Thymeleaf Web Application for searching recording artist's and musicians. This web app consumes the Deezer.com API to display pictures and artist discography. 
 
 <div align="center">
   <strong><p><em>Find info on your favorite musicians and recording artists</em></p></strong>
