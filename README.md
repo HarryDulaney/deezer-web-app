@@ -4,10 +4,10 @@
 ## Spring Thymeleaf Web Application for searching recording artist's and musicians. This web app consumes the Deezer.com API to display pictures and artist discography. 
 
 <div align="center">
-  <strong><p>Search you favorite recording artists and bands</p></strong>
+  <strong><p><em>Find info on your favorite musicians and recording artists</em></p></strong>
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/one.png" height="300" width="500" alt="Strokes One"><br>
 
-<p>View Discography with album covers and album info</p>
+<p><em>Get Discography with album covers and album info</em></p>
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/two.png" height="300" width="500" alt="Strokes Two">
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/three.png" height="300" width="500" alt="Strokes Three">
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/four.png" height="300" width="500" alt="Strokes Four">
