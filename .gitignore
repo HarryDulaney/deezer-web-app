@@ -30,3 +30,4 @@ build/
 /node_modules/
 
 /data-serv-app.userlibraries
+/target/
