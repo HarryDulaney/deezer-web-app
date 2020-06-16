@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +20,15 @@ import org.springframework.web.client.RestClientException;
 @Controller
 public class HomeController {
 
+    @Autowired
+    public ConfigurableApplicationContext ctx;
+
     Logger log = LoggerFactory.getLogger(HomeController.class);
 
     private SearchService searchService;
 
     private static Artist currentArtist;
+
     private static boolean Initialized;
 
     private static String searchField;
@@ -41,7 +46,7 @@ public class HomeController {
     @GetMapping(path = "/")
     public String index(Model model) {
         model.addAttribute("title", title);
-        model.addAttribute("artist", currentArtist);
+        model.addAttribute("artist", new Artist());
         model.addAttribute("search", new Search());
         return "index";
     }
@@ -56,7 +61,7 @@ public class HomeController {
     @GetMapping(path = "/albums")
     public String getAlbums(Model model) {
         if (!Initialized) {
-            return "/error";
+            return "exception-custom";
         } else {
             Albums albums = null;
             try {
@@ -100,7 +105,7 @@ public class HomeController {
             e.printStackTrace();
         }
         if (artist == null) {
-            return "/error";
+            return "error";
         }
         setCurrentArtist(artist);
         model.addAttribute("artist", artist);
@@ -141,6 +146,8 @@ public class HomeController {
         }
         HomeController.currentArtist = currentArtist;
     }
+
+
 
 
 }
