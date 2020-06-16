@@ -17,7 +17,7 @@ h1 {
 
 }
 
-h2 {
+h2 > strong {
     margin-bottom: 5px;
     margin-top: 5px;
     color: darkslategrey;
@@ -92,47 +92,5 @@ thead {
     font-weight: bolder;
     -webkit-border-radius: 20px;
 
-
-}
-
-
-
-
-
-
-/* Smartphones (portrait) ----------- */
-@media only screen
-and (max-width : 320px) {
-    h2{
-        display: none;
-    }
-}
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px) {
-    h2{
-        display: none;
-    }
-}
-
-/* iPads (landscape) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : landscape) {
-    h2{
-        display: none;
-    }
-}
-
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : portrait) {
-    h2{
-        display: none;
-    }
 
 }
