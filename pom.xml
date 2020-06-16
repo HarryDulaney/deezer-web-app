@@ -12,18 +12,18 @@
     </parent>
 
     <groupId>com.hgdiv</groupId>
-    <artifactId>stuck-in-my-head</artifactId>
+    <artifactId>opendata</artifactId>
     <version>0.0.3-SNAPSHOT</version>
-    <name>app</name>
+    <name>Deezer-Api-Client</name>
     <description>A RESTful Web Service for consuming Deezer.com's music library api</description>
     <packaging>jar</packaging>
 
     <properties>
         <java.version>1.8</java.version>
-        <bootstrap.version>4.2.1</bootstrap.version>
-        <jquery.version>3.4.1</jquery.version>
-        <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
-        <project.reporting.sourceEncoding>UTF-8</project.reporting.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <webjars-bootstrap.version>4.2.1</webjars-bootstrap.version>
+        <webjars-jquery.version>3.4.1</webjars-jquery.version>
     </properties>
 
 
@@ -31,6 +31,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -66,17 +70,17 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>4.2.1</version>
+            <version>${webjars-bootstrap.version}</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>3.4.1</version>
+            <version>${webjars-jquery.version}</version>
         </dependency>
     </dependencies>
 
     <build>
-       <finalName>StuckInMyHead</finalName>
+       <finalName>Deezer-Api-Client</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -86,19 +90,29 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <addResources>true</addResources>
-                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                        <configuration>
+                            <additionalProperties>
+                                <encoding.source>${project.build.sourceEncoding}</encoding.source>
+                                <encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
+                                <java.source>${maven.compiler.source}</java.source>
+                                <java.target>${maven.compiler.target}</java.target>
+                            </additionalProperties>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
-
         </plugins>
-        <outputDirectory>target</outputDirectory>
     </build>
     <developers>
         <developer>
-            <name>Harry Dulaney IV</name>
+            <name>Harry Dulaney</name>
             <id>HGDIV</id>
-            <email>www.harrydulaney.github.io</email>
+            <email>harrydulaney.com</email>
         </developer>
     </developers>
 </project>

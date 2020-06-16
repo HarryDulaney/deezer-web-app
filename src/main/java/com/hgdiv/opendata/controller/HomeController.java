@@ -41,7 +41,7 @@ public class HomeController {
     @GetMapping(path = "/")
     public String index(Model model) {
         model.addAttribute("title", title);
-        model.addAttribute("artist",currentArtist);
+        model.addAttribute("artist", currentArtist);
         model.addAttribute("search", new Search());
         return "index";
     }
@@ -52,11 +52,12 @@ public class HomeController {
         return "frags";
     }
 
+
     @GetMapping(path = "/albums")
     public String getAlbums(Model model) {
-        if(!Initialized) {
+        if (!Initialized) {
             return "/error";
-        }else {
+        } else {
             Albums albums = null;
             try {
                 albums = albumsRequest(currentArtist);
@@ -67,7 +68,8 @@ public class HomeController {
             log.info("AlbumRequest Artist=" + currentArtist.toString());
             log.info("Albums: " + albums);
             model.addAttribute("title", title);
-            model.addAttribute("albums",albums.getData());
+            assert albums != null;
+            model.addAttribute("albums", albums.getData());
             return "albums";
         }
     }
@@ -76,16 +78,15 @@ public class HomeController {
     private Albums albumsRequest(Artist artist) throws Exception {
         Albums albums = null;
         try {
-             albums = searchService.getAlbumsByArtistId(artist.getId());
+            albums = searchService.getAlbumsByArtistId(artist.getId());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(albums != null)
-        return albums;
+        if (albums != null)
+            return albums;
         else
             throw new Exception();
     }
-
 
 
     @PostMapping(path = "/searchForm")
@@ -135,7 +136,7 @@ public class HomeController {
     }
 
     public static void setCurrentArtist(Artist currentArtist) {
-        if(currentArtist != null){
+        if (currentArtist != null) {
             Initialized = true;
         }
         HomeController.currentArtist = currentArtist;
