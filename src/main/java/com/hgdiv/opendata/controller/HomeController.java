@@ -20,9 +20,6 @@ import org.springframework.web.client.RestClientException;
 @Controller
 public class HomeController {
 
-    @Autowired
-    public ConfigurableApplicationContext ctx;
-
     Logger log = LoggerFactory.getLogger(HomeController.class);
 
     private SearchService searchService;
@@ -45,6 +42,9 @@ public class HomeController {
 
     @GetMapping(path = "/")
     public String index(Model model) {
+        searchField = null;
+        Initialized = false;
+        currentArtist = null;
         model.addAttribute("title", title);
         model.addAttribute("artist", new Artist());
         model.addAttribute("search", new Search());
