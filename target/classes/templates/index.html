@@ -13,7 +13,7 @@
 <header th:insert="frags.html :: header">
 </header><br>
 <div th:align="center" class="container">
-    <form class="form-control" action="#" th:action="@{/searchForm}" th:object="${search}" method="post">
+    <form class="form-control" action="#" th:action="@{/searchForm}" th:object="${search}" th:method="post">
         <label for="name">Enter The Artist's Name Here: </label>
         <input type="text" th:field="*{userInput}" name="name" id="name" required>
         <div class="submit-button">
