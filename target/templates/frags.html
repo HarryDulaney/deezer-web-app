@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head><title> </title></head>
+<div th:fragment="headFiles">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link href="../static/css/main.css" rel="stylesheet"/>
+    <title th:text="${title}"></title>
+</div>
+<body>
+<br>
+<header th:fragment="header">
+    <div class="container">
+        <div class="navbar-header" th:bgcolor="black" th:align="center">
+            <strong><a class="navbar-brand btn-outline-dark" style="-webkit-text-fill-color: maroon" th:href="@{/}">Home</a></strong>
+            <strong><a class="navbar-brand btn-outline-dark"  style="-webkit-text-fill-color: maroon" th:href="@{/albums}">Albums</a></strong>
+          <!--  <strong><a class="navbar-brand btn-outline-dark"  style="-webkit-text-fill-color: maroon" th:href="@{/}">Tracks</a></strong> -->
+          <!--  <strong><a class="navbar-brand btn-outline-dark"  style="-webkit-text-fill-color: maroon" th:href="@{/}">Similar Artists</a></strong> -->
+        </div>
+    </div>
+    <div th:align="center" class="container">
+        <div class="hero-unit">
+            <h1>What is stuck in you head today?</h1>
+            <p><strong>
+                Welcome to Stuck In My Head!</strong><br>
+                Find Album info on your favorite Artists!</p>
+        </div>
+    </div>
+</header>
+
+</body>
+</html>
