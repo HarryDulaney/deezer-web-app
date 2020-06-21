@@ -54,6 +54,7 @@ public class HomeController {
     @GetMapping(path = "/frags")
     public String getFrags(Model model) {
         model.addAttribute("title", title);
+        model.addAttribute("currentArtist",currentArtist);
         return "frags";
     }
 
@@ -105,7 +106,7 @@ public class HomeController {
             e.printStackTrace();
         }
         if (artist == null) {
-            return "error";
+            return "null_artist_error";
         }
         setCurrentArtist(artist);
         model.addAttribute("artist", artist);

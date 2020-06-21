@@ -18,6 +18,7 @@ HELP.md
 *.iml
 *.ipr
 inProcess/
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -31,3 +32,4 @@ build/
 
 /data-serv-app.userlibraries
 /target/
+/src/main/java/com/hgdiv/opendata/Launcher.java
