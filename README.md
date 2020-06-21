@@ -1,9 +1,12 @@
 
-# _Deezer-Api-Client-Music-Discography_
+
+# [_Deezer-Api-Client-Music-Discography_](https://powerful-hollows-10387.herokuapp.com/ "CLICK HERE TO TRY IT!")
+
 
 ## Java, Spring Boot, Jackson, and Thymeleaf Web Application for searching recording artist's and musicians. This web app consumes the Deezer.com API to display pictures and artist discography. 
 
 <div align="center">
+  <a href="https://powerful-hollows-10387.herokuapp.com/">TRY IT HERE!</a>
   <strong><p><em>Find info on your favorite musicians and recording artists</em></p></strong>
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/one.png" height="300" width="500" alt="Strokes One"><br>
 
