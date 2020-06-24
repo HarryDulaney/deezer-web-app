@@ -22,6 +22,12 @@ h2 > strong {
     margin-top: 5px;
     color: darkslategrey;
 }
+footer{
+
+    display: block;
+    position: center;
+    justify-content: center;
+}
 
 
 label {

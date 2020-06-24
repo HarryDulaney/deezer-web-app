@@ -1,6 +1,5 @@
 com\hgdiv\opendata\model\Albums.class
 com\hgdiv\opendata\utils\HttpConnectionUtils.class
-com\hgdiv\opendata\Launcher.class
 com\hgdiv\opendata\model\Artists.class
 com\hgdiv\opendata\model\Genre.class
 com\hgdiv\opendata\controller\HomeController.class
