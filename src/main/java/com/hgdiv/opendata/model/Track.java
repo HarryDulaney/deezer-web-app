@@ -2,6 +2,9 @@ package com.hgdiv.opendata.model;
 
 import java.util.Date;
 
+/**
+ * @author HGDIV
+ */
 public class Track {
 
     private Long id;

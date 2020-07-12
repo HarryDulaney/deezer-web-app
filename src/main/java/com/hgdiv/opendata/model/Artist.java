@@ -1,10 +1,9 @@
 package com.hgdiv.opendata.model;
 
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
-
+/**
+ * @author HGDIV
+ */
 public class Artist {
 
     private Integer id; //The artist's Deezer id

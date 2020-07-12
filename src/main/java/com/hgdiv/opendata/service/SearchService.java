@@ -4,6 +4,9 @@ import com.hgdiv.opendata.model.*;
 
 import java.util.List;
 
+/**
+ * @author HGDIV
+ */
 public interface SearchService {
 
     List<Track> getTopFiveTracks(int artistId);

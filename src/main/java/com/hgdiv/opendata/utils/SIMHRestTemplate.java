@@ -11,6 +11,9 @@ import org.springframework.web.client.RestClientException;
 
 import java.io.IOException;
 
+/**
+ * @author HGDIV
+ */
 @Component
 public class SIMHRestTemplate {
     Logger log = LoggerFactory.getLogger(SIMHRestTemplate.class);

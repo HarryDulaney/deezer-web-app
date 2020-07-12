@@ -2,6 +2,11 @@ package com.hgdiv.opendata.model;
 
 import java.util.List;
 
+/**
+ * @author HGDIV
+ * @param <T> Wrapper for application object to enable mapping
+ *            by Jackson ObjectMapper on Data[{k:key,v:value}] style JSON
+ */
 public class Data<T> {
 
     private Integer total;

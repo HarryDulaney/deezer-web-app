@@ -13,6 +13,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * @author HGDIV
+ */
 @Component
 public class HttpConnectionUtils implements IHttpConnection{
 

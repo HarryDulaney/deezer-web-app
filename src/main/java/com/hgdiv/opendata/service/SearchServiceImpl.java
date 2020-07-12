@@ -12,7 +12,9 @@ import org.springframework.web.client.RestClientException;
 
 import java.util.List;
 
-
+/**
+ * @author HGDIV
+ */
 @Service("searchService")
 public class SearchServiceImpl implements SearchService {
 

@@ -5,6 +5,10 @@ import com.hgdiv.opendata.model.Search;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+
+/**
+ * @author HGDIV
+ */
 public class UrlUtils {
     private static final String BASE_URL =  "https://api.deezer.com/artist/";
     private static final String ARTIST_SEARCH_URL = "https://api.deezer.com/search/artist?q=";

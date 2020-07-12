@@ -1,5 +1,8 @@
 package com.hgdiv.opendata.model;
 
+/**
+ * @author HGDIV
+ */
 public class Album {
 
     private Integer id;
