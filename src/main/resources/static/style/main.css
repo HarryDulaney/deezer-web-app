@@ -1,35 +1,49 @@
 body {
+    background-color:whitesmoke;
 }
 
 
 h1 {
     display: block;
     position: relative;
-    color: darkslateblue;
-
+    color: darkblue;
+    text-align: center;
+    align-content: center;
 }
 
-h2 > strong {
-    margin-bottom: 5px;
-    margin-top: 5px;
-    color: midnightblue;
-}
+
 
 footer {
-
     display: block;
     position: center;
     justify-content: center;
+    margin: 2px;
 }
 hr {
-    height: 4vh;
+    height: 30px;
 }
 
+br{
+    height: 15px;
+}
+.container {
+    display: block;
+    position: relative;
+    align-content: center;
+    text-align-all: center;
+
+}
 
 label {
     color: darkblue;
     align-content: center;
+    padding: 1px 1px 1px 1px;
 
+}
+button{
+    align-self: center;
+    alignment: center;
+    padding: 1px 1px 1px 1px;
 }
 
 a {
@@ -40,51 +54,13 @@ a {
 
 }
 
-input.field {
-    width: 90%;
-}
-
 table,
 td, tr {
-    display: block;
-    position: relative;
-    border: 1px solid midnightblue;
-    padding: 0.5rem;
     text-align: center;
-    text-align-all: center;
 
 }
 
 thead {
     display: block;
     position: relative;;
-    background-color: #333;
-    color: #fff;
-}
-
-
-
-.form-control {
-    display: block;
-    position: relative;
-    padding: 2vh 2vw;
-    text-align: center;
-    align-content: center;
-}
-
-.form-control .submit-button input {
-    background: cornflowerblue;
-    color: darkblue;
-    position: relative;
-    text-align: center;
-    margin: 0 auto;
-    font-weight: bold;
-}
-
-.form-control .submit-button input:hover {
-    background: cornflowerblue;
-    color: darkseagreen;
-    text-decoration: -moz-buttonhovertext;
-    font-weight: bolder;
-
 }

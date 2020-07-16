@@ -7,13 +7,13 @@
     <link href="style/main.css" rel="stylesheet"/>
 </head>
 <body>
-<table class="table-responsive" th:fragment="result-table">
+<table class="table-dark" th:fragment="result-table">
     <thead>
     <tr>
-        <th colspan="1">Name</th>
-        <th colspan="1">Number of Albums</th>
-        <th colspan="1">Number of (Deezer) Fans</th>
-        <th colspan="1">Picture</th>
+        <th rowspan="1">Name</th>
+        <th rowspan="1">Number of Albums</th>
+        <th rowspan="1">Number of (Deezer) Fans</th>
+        <th rowspan="1">Picture</th>
     </tr>
     </thead>
     <tbody>
@@ -27,7 +27,7 @@
 </table>
 
 <table class="table-responsive" th:fragment="blank-table">
-    <thead>
+   <!-- <thead>
     <tr>
         <th colspan="1">Name</th>
         <th colspan="1">Number of Albums</th>
@@ -40,9 +40,9 @@
         <td rowspan="1" text="Artist Name">.</td>
         <td rowspan="1" text="Albums">.</td>
         <td rowspan="1" text="Fans on Deezer">.</td>
-        <td rowspan="1"><img src="" alt="img-pic"/></td>
+        <td rowspan="1"><img src=""/></td>
     </tr>
-    </tbody>
+    </tbody> -->
 </table>
 
 

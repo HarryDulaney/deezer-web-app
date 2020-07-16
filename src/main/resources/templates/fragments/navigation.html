@@ -12,12 +12,12 @@
     <nav th:fragment="nav-home" class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
             <a class="navbar-brand" th:href="@{/}">Music Discography Web App</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive"
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+                    aria-controls="navbarResponsive2"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsiv">
+            <div class="collapse navbar-collapse" id="navbarResponsive2">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" th:href="@{/}">Home
@@ -31,10 +31,9 @@
             </div>
         </div>
     </nav>
-    <h2 th:fragment="h2-banner">
-    <div class="hero-unit">
+    <h2 th:fragment="h2-banner" th:align="center" class="header-panel">
         <h1>Welcome!</h1>
-        <p><strong>
+        <p th:align="center"><strong>
             Start by searching your favorite Musician or Recording Artist!</strong><br></p>
     </div></h2>
 
@@ -72,9 +71,9 @@
         </div>
     </div>
 </nav>
-<h2 th:fragment="h2-banner-2" class="hero-unit">
-    <h1>Once you've found the Artist you're looking for, </h1>
-    <p><strong>
+<h2 th:fragment="h2-banner-2" th:align="center" class="header-panel">
+    <h1 th:align="center">Once you've found the Artist you're looking for,</h1>
+    <p th:align="center"><strong>
         Use the links to navigate to their album's page or find new music to listen to by clicking on Similar
         Artists</strong><br></p>
 </h2>
@@ -82,8 +81,31 @@
 <footer th:fragment="footer" th:align="center">
     <hr>
     <a href="https://www.github.com/harrydulaney">
-        <button class="btn btn-secondary">By: HGDIV</button>
+        <button class="btn btn-primary">By: HGDIV</button>
     </a>
 </footer>
 </body>
 </html>
+<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <a class="navbar-brand" href="#">Top navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse show" id="navbarCollapse" style="">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline mt-2 mt-md-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav> -->

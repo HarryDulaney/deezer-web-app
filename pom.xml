@@ -22,8 +22,6 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <webjars-bootstrap.version>4.2.1</webjars-bootstrap.version>
-        <webjars-jquery.version>3.4.1</webjars-jquery.version>
     </properties>
 
 
@@ -70,12 +68,12 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>${webjars-bootstrap.version}</version>
+            <version>4.2.1</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>${webjars-jquery.version}</version>
+            <version>3.4.1</version>
         </dependency>
     </dependencies>
 
