@@ -12,6 +12,8 @@
 <body>
 <nav th:insert="fragments/navigation.html :: nav-all-links"></nav>
 <div class="container" th:align="center">
+    <div th:replace="fragments/navigation :: links-bar"></div>
+
     <h2><strong>Albums:</strong></h2>
     <table class="table-responsive">
         <thead>

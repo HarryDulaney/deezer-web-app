@@ -9,17 +9,16 @@
     <title th:text="${title}"></title>
 </head>
 <body>
-<nav th:insert="fragments/navigation.html :: ${initialized} ? 'nav-all-links' : 'nav-home'"></nav>
+<nav th:insert="fragments/navigation.html :: nav-all-links "></nav>
 <br>
 <div class="container-fluid">
-    <h2 th:insert="fragments/navigation.html :: h2-banner"></h2>
+    <h2 th:insert="fragments/navigation.html :: ${initialized} ? 'h2-banner-2': 'h2-banner' "></h2>
     <hr>
     <div class="container">
-        <form class="form-group" action="#" th:action="@{/searchForm}" th:object="${search}" th:method="post">
-            <label th:align="center" for="name">Enter The Artist's Name Here: </label>
-            <input th:align="center" type="search" th:field="*{userInput}" name="name" id="name" required>
-            <br>
-            <button class="btn btn-primary" type="submit" style="margin: 0 auto;">Search</button>
+        <form class="form-group" action="#" th:align="center" th:action="@{/searchForm}" th:object="${search}" th:method="post">
+           <label th:align="center" for="name">Enter The Artist's Name Here: </label>
+            <input type="search" th:field="*{userInput}" name="name" id="name" required>
+            <button class="btn btn-primary" type="submit" >Search</button>
         </form>
     </div>
     <hr>
@@ -28,7 +27,7 @@
         <h2 th:align="center" th:if="${initialized}"><strong>Artist:</strong></h2>
 
         <table th:insert="fragments/tables :: ${initialized} ? 'result-table' : 'blank-table'"></table>
-
+        <div th:replace="fragments/navigation :: ${initialized} ? 'links-bar': 'no-links-bar'"></div>
     </div>
 </div>
 <footer th:insert="fragments/navigation.html :: footer"></footer>

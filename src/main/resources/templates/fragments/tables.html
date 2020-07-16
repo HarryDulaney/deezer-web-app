@@ -7,10 +7,10 @@
     <link href="style/main.css" rel="stylesheet"/>
 </head>
 <body>
-<table class="table-dark" th:fragment="result-table">
+<table class="table-responsive-lg" th:fragment="result-table">
     <thead>
     <tr>
-        <th rowspan="1">Name</th>
+        <div class="d-lg-table-cell"> <th rowspan="1">Name</th> </div>
         <th rowspan="1">Number of Albums</th>
         <th rowspan="1">Number of (Deezer) Fans</th>
         <th rowspan="1">Picture</th>
@@ -18,7 +18,7 @@
     </thead>
     <tbody>
     <tr>
-        <td rowspan="1" th:text="${artist.name}">.</td>
+        <div class="d-lg-table-row"> <td rowspan="1" th:text="${artist.name}">.</td> </div>
         <td rowspan="1" th:text="${artist.nb_album}">.</td>
         <td rowspan="1" th:text="${artist.nb_fan}">.</td>
         <td rowspan="1"><img th:src="@{${artist.picture_big}}" alt="img-pic" src=""/></td>
