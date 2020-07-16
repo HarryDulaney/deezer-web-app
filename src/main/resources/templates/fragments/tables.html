@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
+    <link href="style/main.css" rel="stylesheet"/>
+</head>
+<body>
+<table class="table-responsive" th:fragment="result-table">
+    <thead>
+    <tr>
+        <th colspan="1">Name</th>
+        <th colspan="1">Number of Albums</th>
+        <th colspan="1">Number of (Deezer) Fans</th>
+        <th colspan="1">Picture</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td rowspan="1" th:text="${artist.name}">.</td>
+        <td rowspan="1" th:text="${artist.nb_album}">.</td>
+        <td rowspan="1" th:text="${artist.nb_fan}">.</td>
+        <td rowspan="1"><img th:src="@{${artist.picture_big}}" alt="img-pic" src=""/></td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="table-responsive" th:fragment="blank-table">
+    <thead>
+    <tr>
+        <th colspan="1">Name</th>
+        <th colspan="1">Number of Albums</th>
+        <th colspan="1">Number of (Deezer) Fans</th>
+        <th colspan="1">Picture</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td rowspan="1" text="Artist Name">.</td>
+        <td rowspan="1" text="Albums">.</td>
+        <td rowspan="1" text="Fans on Deezer">.</td>
+        <td rowspan="1"><img src="" alt="img-pic"/></td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

@@ -50,7 +50,7 @@ input.field {
 
 table,
 td, tr {
-    display: flex;
+    display: block;
     position: relative;
     border: 1px solid midnightblue;
     padding: 0.5rem;
@@ -60,7 +60,7 @@ td, tr {
 }
 
 thead {
-    display: flex;
+    display: block;
     position: relative;;
     background-color: #333;
     color: #fff;
@@ -72,7 +72,7 @@ thead {
     text-align: center;
 }
 
-.submit-button {
+.form-control .submit-button input{
     background: blue;
     color: burlywood;
     line-height: 25px;
@@ -91,7 +91,7 @@ thead {
 
 }
 
-.submit-button:hover {
+.form-control .submit-button input:hover {
     background: cornflowerblue;
     color: darkseagreen;
     text-decoration: -moz-buttonhovertext;

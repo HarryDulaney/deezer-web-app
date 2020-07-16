@@ -4,44 +4,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
-    <link rel="stylesheet" th:href="@{/webjars/jquery/3.4.1/jquery.min.js}"/>
-    <link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="stylesheet" href="style/main.css"/>
 
-    <title th:text="${title}"> </title>
+    <title th:text="${title}"></title>
 </head>
 <body>
-<header th:insert="frags.html :: header">
-</header><br>
-<div th:align="center" class="container">
+<nav th:insert="fragments/navigation.html :: ${initialized} ? 'nav-all-links' : 'nav-home'"></nav>
+<br>
+<h2 th:insert="fragments/navigation.html :: h2-banner"></h2>
+<hr>
+<div class="container">
     <form class="form-control" action="#" th:action="@{/searchForm}" th:object="${search}" th:method="post">
         <label for="name">Enter The Artist's Name Here: </label>
-        <input type="text" th:field="*{userInput}" name="name" id="name" required>
-        <div class="submit-button">
-            <input type="submit" value="SUBMIT">
-        </div>
-    </form><hr>
-    <hr><!--<hr>
-    <div th:align="center">
-        <table class="table table-bordered table-striped">
-            <thead>
-            <tr>
-                <th colspan="1">Name</th>
-                <th colspan="1">Number of Albums</th>
-                <th colspan="1">Number of (Deezer) Fans</th>
-                <th colspan="1">Picture</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td rowspan="1"> </td>
-                <td rowspan="1"> </td>
-                <td rowspan="1"> </td>
-                <td rowspan="1"> </td>
-            </tr>
-            </tbody>
-        </table>
-    </div> -->
+        <input type="search" th:field="*{userInput}" name="name" id="name" required>
+        <button class="btn btn-primary" type="submit">Run Search</button>
+    </form>
+    <hr>
+    <h2 th:align="center" th:if="${initialized}"><strong>Artist:</strong></h2>
+
+    <table th:insert="fragments/tables :: ${initialized} ? 'result-table' : 'blank-table'"></table>
+
+
 </div>
-    <footer th:insert="frags.html :: footer"></footer>
+<footer th:insert="fragments/navigation.html :: footer"></footer>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
 </body>
 </html>

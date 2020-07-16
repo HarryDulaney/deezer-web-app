@@ -1,37 +1,33 @@
 body {
-    padding-top: 10rem;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin: auto;
-    position: center;
-}
 
 h1 {
     display: block;
     position: relative;
-    color: darkblue;
+    color: darkslateblue;
 
 }
 
 h2 > strong {
     margin-bottom: 5px;
     margin-top: 5px;
-    color: darkslategrey;
+    color: midnightblue;
 }
-footer{
+
+footer {
 
     display: block;
     position: center;
     justify-content: center;
 }
+hr {
+    height: 4vh;
+}
 
 
 label {
-    color: saddlebrown;
+    color: darkblue;
     align-content: center;
 
 }
@@ -50,7 +46,7 @@ input.field {
 
 table,
 td, tr {
-    display: flex;
+    display: block;
     position: relative;
     border: 1px solid midnightblue;
     padding: 0.5rem;
@@ -60,43 +56,35 @@ td, tr {
 }
 
 thead {
-    display: flex;
+    display: block;
     position: relative;;
     background-color: #333;
     color: #fff;
 }
 
 
+
 .form-control {
-    padding: 3rem 1.5rem;
+    display: block;
+    position: relative;
+    padding: 2vh 2vw;
     text-align: center;
+    align-content: center;
 }
 
-.submit-button {
-    background: blue;
-    color: burlywood;
-    line-height: 25px;
-    position: absolute;
-    right: -12px;
+.form-control .submit-button input {
+    background: cornflowerblue;
+    color: darkblue;
+    position: relative;
     text-align: center;
-    top: -10px;
-    width: 24px;
+    margin: 0 auto;
     font-weight: bold;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
-    -moz-box-shadow: 1px 1px 3px #000;
-    -webkit-box-shadow: 1px 1px 3px #000;
-    box-shadow: 1px 1px 3px #000;
-
 }
 
-.submit-button:hover {
+.form-control .submit-button input:hover {
     background: cornflowerblue;
     color: darkseagreen;
     text-decoration: -moz-buttonhovertext;
     font-weight: bolder;
-    -webkit-border-radius: 20px;
-
 
 }

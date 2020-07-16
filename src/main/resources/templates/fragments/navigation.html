@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
+    <link href="style/main.css" rel="stylesheet"/>
+</head>
+<body>
+
+    <!-- Nav Links Start Page -->
+    <nav th:fragment="nav-home" class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/}">Music Discography Web App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsiv">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/}">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.github.com/HarryDulaney/open-data-web-app">View Code</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h2 th:fragment="h2-banner">
+    <div class="hero-unit">
+        <h1>Welcome!</h1>
+        <p><strong>
+            Start by searching your favorite Musician or Recording Artist!</strong><br></p>
+    </div></h2>
+
+
+
+<!-- Nav Links All Options-->
+<nav th:fragment="nav-all-links" class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Music Discography Web App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/albums}">Albums</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tracks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Similar Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.github.com/HarryDulaney/open-data-web-app">View Code</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h2 th:fragment="h2-banner-2" class="hero-unit">
+    <h1>Once you've found the Artist you're looking for, </h1>
+    <p><strong>
+        Use the links to navigate to their album's page or find new music to listen to by clicking on Similar
+        Artists</strong><br></p>
+</h2>
+
+<footer th:fragment="footer" th:align="center">
+    <hr>
+    <a href="https://www.github.com/harrydulaney">
+        <button class="btn btn-secondary">By: HGDIV</button>
+    </a>
+</footer>
+</body>
+</html>

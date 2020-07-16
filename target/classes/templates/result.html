@@ -4,8 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
-    <link rel="stylesheet" th:href="@{/webjars/jquery/3.4.1/jquery.min.js}"/>
-    <link rel="stylesheet" href="../static/css/main.css"/>
+    <link rel="stylesheet" href="style/main.css"/>
     <title th:text="${title}"></title>
 </head>
 <body>
@@ -14,14 +13,14 @@
 <div class="container" th:align="center">
     <form class="form-control" action="#" th:action="@{/searchForm}" th:object="${search}" method="post">
         <label for="userInput">Enter The Artist's Name Here: </label>
-        <input type="text" th:field="*{userInput}" name="userInput" id="userInput" required>
-        <div class="submit-button">
+        <input type="search" th:field="*{userInput}" name="userInput" id="userInput" required>
+        <div class="submit-button dis">
             <input type="submit" value="SUBMIT">
         </div>
     </form>
     <hr>
     <div th:align="center">
-        <table class="table-bordered table-striped">
+        <table class="table-responsive">
             <thead>
             <tr>
                 <th colspan="1">Name</th>
@@ -42,5 +41,7 @@
 
     </div>
 </div>
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

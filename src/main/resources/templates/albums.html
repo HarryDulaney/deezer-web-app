@@ -4,16 +4,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
-    <link rel="stylesheet" th:href="@{/webjars/jquery/3.4.1/jquery.min.js}"/>
-    <link rel="stylesheet" href="../static/css/main.css"/>
+
+    <link rel="stylesheet" href="style/main.css"/>
 
     <title th:text="${title}"></title>
 </head>
 <body>
-<header th:insert="frags.html :: header"></header>
+<nav th:insert="fragments/navigation.html :: nav-all-links"></nav>
 <div class="container" th:align="center">
     <h2><strong>Albums:</strong></h2>
-    <table class="table-bordered table-striped">
+    <table class="table-responsive">
         <thead>
         <tr>
             <th colspan="1">Media Type</th>

@@ -1,25 +1,50 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head><title> </title></head>
-<div th:fragment="headFiles">
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-    <link href="../static/css/main.css" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
+    <link href="style/main.css" rel="stylesheet"/>
     <title th:text="${title}"></title>
-</div>
-
-    <body>
-<br>
-<header th:fragment="header">
-    <div class="container">
-        <div class="navbar-header" th:bgcolor="black" th:align="center">
-            <strong><a class="navbar-brand btn-outline-dark" style="-webkit-text-fill-color: maroon" th:href="@{/}">Home</a></strong>
-            <strong><a class="navbar-brand btn-outline-dark"  style="-webkit-text-fill-color: maroon" th:href="@{/albums}">Albums</a></strong>
-          <!--  <strong><a class="navbar-brand btn-outline-dark"  style="-webkit-text-fill-color: maroon" th:href="@{/}">Tracks</a></strong> -->
-          <!--  <strong><a class="navbar-brand btn-outline-dark"  style="-webkit-text-fill-color: maroon" th:href="@{/}">Similar Artists</a></strong> -->
+</head>
+<body>
+<div th:fragment="header">
+    <!-- Nav Links-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/}">Music Discography Web App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/}">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav">
+                        <a class="nav-link" href="https://www.github.com/HarryDulaney/open-data-web-app">View Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/albums}">Albums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tracks</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
+        <div class="navbar-header" th:bgcolor="black" th:align="center">
+            <strong><a class="navbar-brand btn-outline-dark" style="-webkit-text-fill-color: maroon"
+                       th:href="@{/}">Home</a></strong>
+            <strong><a class="navbar-brand btn-outline-dark" style="-webkit-text-fill-color: maroon"
+                       th:href="@{/albums}">Albums</a></strong>
+            <!--  <strong><a class="navbar-brand btn-outline-dark"  style="-webkit-text-fill-color: maroon" th:href="@{/tracks}">Tracks</a></strong> -->
+            <!--  <strong><a class="navbar-brand btn-outline-dark"  style="-webkit-text-fill-color: maroon" th:href="@{/similarArtists}">Similar Artists</a></strong> -->
+        </div>
     <div th:align="center" class="container">
         <div class="hero-unit">
             <h1>Recording Artist Discography Search</h1>
@@ -27,9 +52,10 @@
                 Welcome! Start by searching your favorite Musician or Recording Artist!</strong><br></p>
         </div>
     </div>
-</header>
-<footer th:fragment="footer"><div th:align="center">
-  <hr><a href="https://github.com/HarryDulaney"><p>By: HGDIV</p></a>
-</div> </footer>
+</div>
+<footer th:fragment="footer" th:align="center">
+        <hr>
+        <a class="page-link" href="https://github.com/HarryDulaney"><p>By: HGDIV</p></a>
+</footer>
 </body>
 </html>

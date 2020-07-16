@@ -80,7 +80,7 @@
     </dependencies>
 
     <build>
-       <finalName>Deezer-Api-Client</finalName>
+       <finalName>HGDIV-Discography-App</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

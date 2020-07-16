@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,22 +41,28 @@ public class HomeController {
     }
 
 
-    @GetMapping(path = "/")
+    @GetMapping("/")
     public String index(Model model) {
         searchField = null;
         Initialized = false;
         currentArtist = null;
         model.addAttribute("title", title);
-        model.addAttribute("artist", new Artist());
+        model.addAttribute("initialized", Initialized);
+        model.addAttribute("artist",currentArtist);
         model.addAttribute("search", new Search());
         return "index";
     }
 
-    @GetMapping(path = "/frags")
-    public String getFrags(Model model) {
+    @GetMapping("/fragments/tables")
+    public String getTables(Model model) {
         model.addAttribute("title", title);
-        model.addAttribute("currentArtist",currentArtist);
-        return "frags";
+        model.addAttribute("artist", currentArtist);
+        return "fragments/tables";
+    }
+
+    @GetMapping("/fragments/navigation")
+    public String getCoreFrags (Model model){
+    return "fragments/navigation";
     }
 
 
@@ -112,10 +117,11 @@ public class HomeController {
         }
         setCurrentArtist(artist);
         model.addAttribute("artist", artist);
+        model.addAttribute("initialized",Initialized);
         log.info(currentArtist.toString());
         model.addAttribute("title", title);
         model.addAttribute("search", search);
-        return "result";
+        return "index";
     }
 
     private Artist searchArtist(Search search) throws Exception {
@@ -149,8 +155,6 @@ public class HomeController {
         }
         HomeController.currentArtist = currentArtist;
     }
-
-
 
 
 }
