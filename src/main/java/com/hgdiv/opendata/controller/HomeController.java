@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestClientException;
 
 /**
@@ -30,6 +31,8 @@ public class HomeController {
     private static boolean Initialized;
 
     private static String searchField;
+    private static final String HOME = "to.home";
+    private static final String ARTIST = "to.artist";
 
     @Value(value = "${app.title.main}")
     public String title;
@@ -46,9 +49,10 @@ public class HomeController {
         searchField = null;
         Initialized = false;
         currentArtist = null;
+
         model.addAttribute("title", title);
         model.addAttribute("initialized", Initialized);
-        model.addAttribute("artist",currentArtist);
+        model.addAttribute("artist", currentArtist);
         model.addAttribute("search", new Search());
         return "index";
     }
@@ -61,8 +65,8 @@ public class HomeController {
     }
 
     @GetMapping("/fragments/navigation")
-    public String getCoreFrags (Model model){
-    return "fragments/navigation";
+    public String getCoreFrags(Model model) {
+        return "fragments/navigation";
     }
 
 
@@ -101,7 +105,6 @@ public class HomeController {
             throw new Exception();
     }
 
-
     @PostMapping(path = "/searchForm")
     public String artistSearch(@ModelAttribute("search") Search search, Model model) {
         setSearchField(search.getUserInput());
@@ -117,7 +120,7 @@ public class HomeController {
         }
         setCurrentArtist(artist);
         model.addAttribute("artist", artist);
-        model.addAttribute("initialized",Initialized);
+        model.addAttribute("initialized", Initialized);
         log.info(currentArtist.toString());
         model.addAttribute("title", title);
         model.addAttribute("search", search);
@@ -155,6 +158,5 @@ public class HomeController {
         }
         HomeController.currentArtist = currentArtist;
     }
-
 
 }

@@ -11,6 +11,7 @@ com\hgdiv\opendata\utils\SIMHRestTemplate.class
 com\hgdiv\opendata\service\SearchService.class
 com\hgdiv\opendata\model\Tracks.class
 com\hgdiv\opendata\model\Artist.class
+com\hgdiv\opendata\controller\ErrorController.class
 com\hgdiv\opendata\utils\UrlUtils.class
 com\hgdiv\opendata\utils\IHttpConnection.class
 com\hgdiv\opendata\model\Search.class

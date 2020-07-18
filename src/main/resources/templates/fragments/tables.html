@@ -3,48 +3,50 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css} "/>
     <link href="style/main.css" rel="stylesheet"/>
 </head>
 <body>
-<table class="table-responsive-lg" th:fragment="result-table">
-    <thead>
+<table th:fragment="result-table" class="table">
+    <thead class="thead-light">
     <tr>
-        <div class="d-lg-table-cell"> <th rowspan="1">Name</th> </div>
-        <th rowspan="1">Number of Albums</th>
-        <th rowspan="1">Number of (Deezer) Fans</th>
-        <th rowspan="1">Picture</th>
+        <th scope="col">Name</th>
+        <th scope="col"># of Albums</th>
+        <th scope="col"># Fans on Deezer</th>
+        <th scope="col">Picture</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <div class="d-lg-table-row"> <td rowspan="1" th:text="${artist.name}">.</td> </div>
-        <td rowspan="1" th:text="${artist.nb_album}">.</td>
-        <td rowspan="1" th:text="${artist.nb_fan}">.</td>
-        <td rowspan="1"><img th:src="@{${artist.picture_big}}" alt="img-pic" src=""/></td>
+        <td th:text="${artist.name}">.</td>
+        <td th:text="${artist.nb_album}">.</td>
+        <td th:text="${artist.nb_fan}">.</td>
+        <td><img th:src="@{${artist.picture_xl}}" class="card-img" alt="img-pic" src=""/></td>
     </tr>
     </tbody>
 </table>
 
 <table class="table-responsive" th:fragment="blank-table">
-   <!-- <thead>
-    <tr>
-        <th colspan="1">Name</th>
-        <th colspan="1">Number of Albums</th>
-        <th colspan="1">Number of (Deezer) Fans</th>
-        <th colspan="1">Picture</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td rowspan="1" text="Artist Name">.</td>
-        <td rowspan="1" text="Albums">.</td>
-        <td rowspan="1" text="Fans on Deezer">.</td>
-        <td rowspan="1"><img src=""/></td>
-    </tr>
-    </tbody> -->
+    <!-- <thead>
+     <tr>
+         <th colspan="1">Name</th>
+         <th colspan="1">Number of Albums</th>
+         <th colspan="1">Number of (Deezer) Fans</th>
+         <th colspan="1">Picture</th>
+     </tr>
+     </thead>
+     <tbody>
+     <tr>
+         <td rowspan="1" text="Artist Name">.</td>
+         <td rowspan="1" text="Albums">.</td>
+         <td rowspan="1" text="Fans on Deezer">.</td>
+         <td rowspan="1"><img src=""/></td>
+     </tr>
+     </tbody> -->
 </table>
 
-
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

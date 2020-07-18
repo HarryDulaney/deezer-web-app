@@ -3,106 +3,79 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <link href="style/main.css" rel="stylesheet"/>
 </head>
 <body>
 
-    <!-- Nav Links
-    <nav th:fragment="nav-home" class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-        <div class="container">
-            <a class="navbar-brand" th:href="@{/}">Music Discography Web App</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
-                    aria-controls="navbarResponsive2"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/}">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.github.com/HarryDulaney/open-data-web-app">View Code</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>-->
 
-    <h2 th:fragment="h2-banner" th:align="center" class="header-panel">
-        <h1>Welcome!</h1>
-        <p th:align="center"><strong>
-            Start by searching your favorite Musician or Recording Artist!</strong><br></p>
+<h2 th:fragment="h2-banner" th:align="center" class="header-panel">
+    <h1>Welcome!</h1>
+    <p th:align="center" class="h6"><strong>
+        Use the text box below to search your favorite band or recording artist.<br>
+        Discography Web App sends a http request to Deezer.com's open-source API of millions of musicians.
+        </strong>
+   </p>
     </div></h2>
 
-<!--     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-         <a class="navbar-brand" th:href="@{/}">Music Discography Web App</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#"
-                 aria-controls="#" aria-expanded="true" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse show" >
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form class="form-inline mt-2 mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav> -->
-
-<!-- Nav Links All Options-->
+<!-- Nav Links -->
 <nav th:fragment="nav-all-links" class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        <a class="navbar-brand" th:href="@{/}">Music Discography Web App</a>
-        <div class="navbar-collapse collapse show">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.github.com/HarryDulaney/open-data-web-app">View Code</a>
-                </li>
-            </ul>
-        </div>
+    <a class="navbar-brand text-white"><strong>Discography Web App</strong></a>
+    <div class="navbar-collapse collapse show">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/}">Home<span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.github.com/HarryDulaney/open-data-web-app">View Code</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 <h2 th:fragment="h2-banner-2" th:align="center" class="header-panel">
-    <h1 th:align="center">Once you've found the Artist you're looking for,</h1>
+    <h1 th:align="center">Recording Artist</h1>
     <p th:align="center"><strong>
-        Use the links below to navigate to their album's page or find new music to listen to by clicking on Similar
-        Artists</strong><br></p>
+        Use the links below to explore other content on your artist<!-- or find new music to listen to by clicking on Similar
+        Artists --></strong><br></p>
+</h2>
+<h2 th:fragment="h2-banner-3" th:align="center" class="header-panel">
+    <h1 th:align="center">Discography</h1>
+    <p th:align="center"><strong>
+        New Features coming soon!!</strong><br></p>
 </h2>
 
-    <div th:fragment="links-bar" class="button-bar">
-        <a th:href="@{/}">
-            <button class="btn btn-outline-primary mb-auto">Home</button>
-        </a>
-     <a th:href="@{/albums}">
-         <button class="btn btn-outline-primary mb-auto">Albums</button>
-     </a>
-    </div>
+<div th:fragment="links-bar" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
+    <a th:href="@{/}">
+        <button class="btn btn-outline-primary mb-auto">Home</button>
+    </a>
+    <a th:href="@{/albums}">
+        <button class="btn btn-outline-primary mb-auto">Albums</button>
+    </a>
+</div>
+
+<div th:fragment="links-bar-artist-disabled" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
+    <a th:href="@{/}">
+        <button class="btn btn-outline-primary mb-auto" disabled>Artist</button>
+    </a>
+    <a th:href="@{/albums}">
+        <button class="btn btn-outline-primary mb-auto">Albums</button>
+    </a>
+</div>
 
 
-    <div th:fragment="no-links-bar" class="container"></div>
+<div th:fragment="no-links-bar" class="container"></div>
 
 
-    <footer th:fragment="footer" th:align="center">
+<footer th:fragment="footer" th:align="center">
     <hr>
     <a href="https://www.github.com/harrydulaney">
-        <button class="btn btn-primary">By: HGDIV</button>
+        <button class="btn btn-outline-dark">By: HGDIV</button>
     </a>
 </footer>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
 </body>
 </html>
