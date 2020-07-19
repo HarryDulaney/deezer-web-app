@@ -1,5 +1,5 @@
 body {
-    background-color:whitesmoke;
+    background-color: whitesmoke;
 }
 
 
@@ -10,20 +10,28 @@ h1 {
     align-content: center;
 }
 
+h2 {
+    color: darkblue;
+    text-align: center;
+    align-content: center;
+}
 
 
 footer {
 
     justify-content: center;
     margin: 2px;
+    padding-bottom: 5px;
 }
+
 hr {
     height: 30px;
 }
 
-br{
+br {
     height: 15px;
 }
+
 .container {
     align-content: center;
     text-align-all: center;
@@ -36,7 +44,8 @@ label {
     padding: 1px 1px 1px 1px;
 
 }
-button{
+
+button {
 
     padding: 1px 1px 1px 1px;
 }

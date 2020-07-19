@@ -10,12 +10,11 @@
 
 
 <h2 th:fragment="h2-banner" th:align="center" class="header-panel">
-    <h1>Welcome!</h1>
+    <h2 style="font-size: 115%">Powered By: <img class="img-fluid" src="style/deez_icon.png" style="max-width: 7.5%"/> Open-Access API</h2>
     <p th:align="center" class="h6"><strong>
         Use the text box below to search your favorite band or recording artist.<br>
-        Discography Web App sends a http request to Deezer.com's open-source API of millions of musicians.
-        </strong>
-   </p>
+    </strong>
+    </p>
     </div></h2>
 
 <!-- Nav Links -->
@@ -34,20 +33,20 @@
     </div>
 </nav>
 <h2 th:fragment="h2-banner-2" th:align="center" class="header-panel">
-    <h1 th:align="center">Recording Artist</h1>
+    <h1 th:align="center" style="font-size: 115%;">Powered By: <img class="img-fluid" src="style/deez_icon.png" style="max-width: 7.5%"/> Open-Access API</h1>
     <p th:align="center"><strong>
-        Use the links below to explore other content on your artist<!-- or find new music to listen to by clicking on Similar
+        Use the links below to explore other content on the artist<!-- or find new music to listen to by clicking on Similar
         Artists --></strong><br></p>
 </h2>
 <h2 th:fragment="h2-banner-3" th:align="center" class="header-panel">
-    <h1 th:align="center">Discography</h1>
+    <h1 th:align="center" style="font-size: 115%;">Powered By: <img src="style/deez_icon.png" style="max-width: 7.5%"/>Open-Access API</h1>
     <p th:align="center"><strong>
         New Features coming soon!!</strong><br></p>
 </h2>
 
 <div th:fragment="links-bar" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
-    <a th:href="@{/}">
-        <button class="btn btn-outline-primary mb-auto">Home</button>
+    <a th:href="@{/artist}">
+        <button class="btn btn-outline-primary mb-auto">Artist</button>
     </a>
     <a th:href="@{/albums}">
         <button class="btn btn-outline-primary mb-auto">Albums</button>

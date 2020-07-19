@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestClientException;
 
 /**
@@ -24,15 +23,11 @@ public class HomeController {
 
     Logger log = LoggerFactory.getLogger(HomeController.class);
 
-    private SearchService searchService;
-
+    private final SearchService searchService;
     private static Artist currentArtist;
-
     private static boolean Initialized;
-
     private static String searchField;
-    private static final String HOME = "to.home";
-    private static final String ARTIST = "to.artist";
+
 
     @Value(value = "${app.title.main}")
     public String title;
@@ -43,30 +38,27 @@ public class HomeController {
         this.searchService = searchService;
     }
 
+    @ModelAttribute("title")
+    private String populateTitle() {
+        return title;
+    }
+
 
     @GetMapping("/")
     public String index(Model model) {
-        searchField = null;
-        Initialized = false;
-        currentArtist = null;
-
-        model.addAttribute("title", title);
-        model.addAttribute("initialized", Initialized);
+        resetView();
         model.addAttribute("artist", currentArtist);
+        model.addAttribute("initialized", Initialized);
         model.addAttribute("search", new Search());
         return "index";
     }
 
-    @GetMapping("/fragments/tables")
-    public String getTables(Model model) {
-        model.addAttribute("title", title);
+    @GetMapping("/artist")
+    public String artistView(Model model) {
+        model.addAttribute("initialized", Initialized);
         model.addAttribute("artist", currentArtist);
-        return "fragments/tables";
-    }
-
-    @GetMapping("/fragments/navigation")
-    public String getCoreFrags(Model model) {
-        return "fragments/navigation";
+        model.addAttribute("search",new Search());
+        return "index";
     }
 
 
@@ -84,8 +76,8 @@ public class HomeController {
             }
             log.info("AlbumRequest Artist=" + currentArtist.toString());
             log.info("Albums: " + albums);
-            model.addAttribute("title", title);
             assert albums != null;
+            model.addAttribute("initialized", Initialized);
             model.addAttribute("albums", albums.getData());
             return "albums";
         }
@@ -119,10 +111,8 @@ public class HomeController {
             return "null_artist_error";
         }
         setCurrentArtist(artist);
-        model.addAttribute("artist", artist);
+        model.addAttribute("artist", currentArtist);
         model.addAttribute("initialized", Initialized);
-        log.info(currentArtist.toString());
-        model.addAttribute("title", title);
         model.addAttribute("search", search);
         return "index";
     }
@@ -140,23 +130,29 @@ public class HomeController {
         return new Artist("Something went Wrong, please try searching a different artist");
     }
 
-    public static String getSearchField() {
+    private static String getSearchField() {
         return searchField;
     }
 
-    public static void setSearchField(String searchField) {
+    private static void setSearchField(String searchField) {
         HomeController.searchField = searchField;
     }
 
-    public static Artist getCurrentArtist() {
+    protected static Artist getCurrentArtist() {
         return currentArtist;
     }
 
-    public static void setCurrentArtist(Artist currentArtist) {
+    protected static void setCurrentArtist(Artist currentArtist) {
         if (currentArtist != null) {
             Initialized = true;
         }
         HomeController.currentArtist = currentArtist;
+    }
+
+    private static void resetView() {
+        Initialized = false;
+        currentArtist = null;
+        searchField = null;
     }
 
 }
