@@ -2,6 +2,7 @@ package com.hgdiv.opendata.controller;
 
 import com.hgdiv.opendata.model.Albums;
 import com.hgdiv.opendata.model.Artist;
+import com.hgdiv.opendata.model.Artists;
 import com.hgdiv.opendata.model.Search;
 import com.hgdiv.opendata.service.SearchService;
 import org.slf4j.Logger;
@@ -10,29 +11,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClientException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
+ * The type Home controller.
+ *
  * @author HGDIV
  */
 @Controller
 public class HomeController {
 
+    /**
+     * The Log.
+     */
     Logger log = LoggerFactory.getLogger(HomeController.class);
 
     private final SearchService searchService;
-    private static Artist currentArtist;
+    private static Integer currentArtist;
     private static boolean Initialized;
     private static String searchField;
+    private static Artists artists;
 
 
+    /**
+     * The Title.
+     */
     @Value(value = "${app.title.main}")
     public String title;
 
 
+    /**
+     * Instantiates a new Home controller.
+     *
+     * @param searchService the search service
+     */
     @Autowired
     public HomeController(SearchService searchService) {
         this.searchService = searchService;
@@ -44,27 +60,80 @@ public class HomeController {
     }
 
 
+    /**
+     * Index string.
+     *
+     * @param model the model
+     * @return the string
+     */
     @GetMapping("/")
     public String index(Model model) {
         resetView();
-        model.addAttribute("artist", currentArtist);
+        model.addAttribute("artists", artists.getData());
         model.addAttribute("initialized", Initialized);
         model.addAttribute("search", new Search());
         return "index";
     }
 
-    @GetMapping("/artist")
+    /**
+     * Artist view string.
+     *
+     * @param model the model
+     * @return the string
+     */
+    @GetMapping("/artists")
     public String artistView(Model model) {
         model.addAttribute("initialized", Initialized);
-        model.addAttribute("artist", currentArtist);
-        model.addAttribute("search",new Search());
+        model.addAttribute("artists", artists.getData());
+        model.addAttribute("search", new Search());
         return "index";
     }
 
+    /**
+     * Gets tables.
+     *
+     * @param model the model
+     * @return the tables
+     */
+    @GetMapping("/fragments/tables")
+    public String getTables(Model model) {
+        model.addAttribute("artists", artists.getData());
+        return "fragments/tables";
+    }
 
-    @GetMapping(path = "/albums")
-    public String getAlbums(Model model) {
-        if (!Initialized) {
+
+    /**
+     * Gets albums.
+     *
+     * @param artistId the artists Deezer id Integer
+     * @param model    the model
+     * @return the albums
+     */
+    @GetMapping("/albums/{artistId}")
+    public String getAlbums(@PathVariable("artistId") Integer artistId, Model model) {
+        if (artistId == null) {
+            return "exception-custom";
+        } else {
+            Albums albums = null;
+            try {
+                albums = albumsRequest(artistId);
+            } catch (Exception e) {
+                log.info("Cause: [ " + e.getCause() + " ]  Message: [" + e.getMessage() + " ]");
+                e.printStackTrace();
+            }
+            currentArtist = artistId;
+            log.info("AlbumRequest Artist=" + currentArtist.toString());
+            log.info("Albums: " + albums);
+            assert albums != null;
+            model.addAttribute("initialized", Initialized);
+            model.addAttribute("albums", albums.getData());
+            return "albums";
+        }
+    }
+
+    @GetMapping("/albums")
+    public String albumsReturn(Model model) {
+        if (currentArtist == null) {
             return "exception-custom";
         } else {
             Albums albums = null;
@@ -84,10 +153,11 @@ public class HomeController {
     }
 
 
-    private Albums albumsRequest(Artist artist) throws Exception {
+
+    private Albums albumsRequest(Integer id) throws Exception {
         Albums albums = null;
         try {
-            albums = searchService.getAlbumsByArtistId(artist.getId());
+            albums = searchService.getAlbumsByArtistId(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -97,27 +167,35 @@ public class HomeController {
             throw new Exception();
     }
 
+    /**
+     * Artist search string.
+     *
+     * @param search the search
+     * @param model  the model
+     * @return the string
+     */
     @PostMapping(path = "/searchForm")
     public String artistSearch(@ModelAttribute("search") Search search, Model model) {
+
         setSearchField(search.getUserInput());
-        Artist artist = null;
+        Artists artistsList = new Artists();
         try {
-            artist = searchArtist(search);
+            artistsList = searchArtist(search);
         } catch (Exception e) {
             log.info("Cause: [ " + e.getCause() + " ]  Message: [" + e.getMessage() + " ]");
             e.printStackTrace();
         }
-        if (artist == null) {
+        if (artistsList.getData().size() == 0) {
             return "null_artist_error";
         }
-        setCurrentArtist(artist);
-        model.addAttribute("artist", currentArtist);
+        setArtists(artistsList);
+        model.addAttribute("artists", artistsList.getData());
         model.addAttribute("initialized", Initialized);
         model.addAttribute("search", search);
         return "index";
     }
 
-    private Artist searchArtist(Search search) throws Exception {
+    private Artists searchArtist(Search search) throws Exception {
         try {
             return searchService.searchArtist(search.getUserInput());
 
@@ -126,8 +204,10 @@ public class HomeController {
             log.info("Cause: [ " + e.getCause() + " ]  Message: [" + e.getMessage() + " ]");
 
         }
-
-        return new Artist("Something went Wrong, please try searching a different artist");
+        List<Artist> list = new ArrayList<>();
+        Artists emptyArtists = new Artists();
+        emptyArtists.setData(list);
+        return emptyArtists;
     }
 
     private static String getSearchField() {
@@ -138,20 +218,27 @@ public class HomeController {
         HomeController.searchField = searchField;
     }
 
-    protected static Artist getCurrentArtist() {
+    /**
+     * Gets current artist.
+     *
+     * @return the current artist
+     */
+    protected static Integer getCurrentArtist() {
         return currentArtist;
     }
 
-    protected static void setCurrentArtist(Artist currentArtist) {
-        if (currentArtist != null) {
+    private static void setArtists(Artists artists) {
+        if (artists.getData().size() != 0) {
             Initialized = true;
         }
-        HomeController.currentArtist = currentArtist;
+        HomeController.artists = artists;
+
     }
+
 
     private static void resetView() {
         Initialized = false;
-        currentArtist = null;
+        artists = new Artists();
         searchField = null;
     }
 

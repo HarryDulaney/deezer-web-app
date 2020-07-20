@@ -7,6 +7,8 @@ import java.net.URLEncoder;
 
 
 /**
+ * The type Url utils.
+ *
  * @author HGDIV
  */
 public class UrlUtils {
@@ -15,14 +17,33 @@ public class UrlUtils {
     private static final String BASIC_SEARCH_URL = "https://api.deezer.com/search?q=";
     private static final String ALBUMS_LINK_URL = "/albums";
 
+    /**
+     * Build search query string.
+     *
+     * @param userInput the user input
+     * @return the string
+     */
     public static String buildSearchQuery(String userInput) {
         return BASIC_SEARCH_URL + userInput;
 
     }
 
+    /**
+     * Build artist search query string.
+     *
+     * @param userInput the user input
+     * @return the string
+     */
     public static String buildArtistSearchQuery(String userInput) {
         return getSearchQuery(userInput,ARTIST_SEARCH_URL);
     }
+
+    /**
+     * Build album link query string.
+     *
+     * @param artist_id the artist id
+     * @return the string
+     */
     public static String buildAlbumLinkQuery(Integer artist_id){
         String urlTail = String.valueOf(artist_id).concat(ALBUMS_LINK_URL);
 

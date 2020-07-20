@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
+ * The type Search service.
+ *
  * @author HGDIV
  */
 @Service("searchService")
@@ -21,6 +23,11 @@ public class SearchServiceImpl implements SearchService {
 
     private SIMHRestTemplate restTemplate;
 
+    /**
+     * Instantiates a new Search service.
+     *
+     * @param httpConnectionUtils the http connection utils
+     */
     @Autowired
     public SearchServiceImpl(HttpConnectionUtils httpConnectionUtils) {
         this.restTemplate = new SIMHRestTemplate(httpConnectionUtils);
@@ -34,12 +41,10 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public Artist searchArtist(String userInput) throws Exception {
+    public Artists searchArtist(String userInput) throws Exception {
         String urlQuery = UrlUtils.buildArtistSearchQuery(userInput);
-        Artists artists = restTemplate.get(urlQuery,Artists.class);
-        List<Artist> list = artists.getData();
 
-        return list.get(0);
+        return restTemplate.get(urlQuery,Artists.class);
     }
 
     @Override

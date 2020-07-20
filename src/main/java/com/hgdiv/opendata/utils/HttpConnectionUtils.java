@@ -14,11 +14,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
+ * The type Http connection utils.
+ *
  * @author HGDIV
  */
 @Component
 public class HttpConnectionUtils implements IHttpConnection{
 
+    /**
+     * The Log.
+     */
     Logger log = LoggerFactory.getLogger(HttpConnectionUtils.class);
 
     private static final String USER_AGENT = "Mozilla/5.0";

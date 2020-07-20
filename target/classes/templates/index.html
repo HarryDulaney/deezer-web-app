@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
     <link rel="stylesheet" href="style/main.css"/>
 
     <title th:text="${title}"></title>
@@ -14,7 +14,7 @@
 <div class="container-fluid" th:align="center">
     <h2 th:insert="fragments/navigation.html :: ${initialized} ? 'h2-banner-2': 'h2-banner' "></h2>
     <hr>
-    <div th:replace="fragments/navigation :: ${initialized} ? 'links-bar-artist-disabled': 'no-links-bar'"></div>
+    <div th:replace="fragments/navigation :: ${initialized} ? 'links-bar-search-disabled': 'no-links-bar'"></div>
     <div class="container">
         <form class="form-group" action="#" th:align="center" th:action="@{/searchForm}" th:object="${search}" th:method="post">
            <label th:align="center" for="name">Enter Artist Here: </label>
@@ -25,14 +25,13 @@
     <hr>
     <div class="container">
         <hr>
-        <h2 th:align="center" th:if="${initialized}"><strong>Artist:</strong></h2>
-        <div class="table-responsive">
-        <table th:insert="fragments/tables :: ${initialized} ? 'result-table' : 'blank-table'"></table>
+        <h2 th:align="center" th:if="${initialized}"><strong>Artists:</strong></h2>
+        <h4 th:align="center" class="text-dark text-md-center"></h4>
+        <table th:insert="fragments/tables :: ${initialized} ? 'artist-table' : 'blank-table'"></table>
         </div>
     </div>
-</div>
 <footer th:insert="fragments/navigation :: footer"></footer>
-
+<hr>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

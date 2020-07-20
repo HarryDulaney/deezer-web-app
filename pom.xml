@@ -13,9 +13,9 @@
 
     <groupId>com.hgdiv</groupId>
     <artifactId>opendata</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.7</version>
     <name>Deezer-Api-Client</name>
-    <description>A RESTful Web Service for consuming Deezer.com's music library api</description>
+    <description>Web Service Client for Deezer's open-access api, Discography Web App</description>
     <packaging>jar</packaging>
 
     <properties>
@@ -67,7 +67,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>4.0.0-2</version>
+            <version>4.2.1</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
@@ -77,7 +77,7 @@
     </dependencies>
 
     <build>
-       <finalName>HGDIV-Discography-App</finalName>
+        <finalName>HGDIV-Discography-App</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

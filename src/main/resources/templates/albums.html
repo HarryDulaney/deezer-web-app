@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
     <link rel="stylesheet" href="style/main.css"/>
 
     <title th:text="${title}"></title>
@@ -15,34 +15,30 @@
     <h2 th:insert="fragments/navigation :: h2-banner-3"></h2>
     <hr>
     <div th:replace="fragments/navigation :: links-bar"></div>
-
     <h2><strong>Albums:</strong></h2>
-    <div class="table-responsive">
         <table class="table">
-            <thead>
+            <thead class="thead-light">
             <tr>
-                <th scope="col">Media Type</th>
                 <th scope="col">Title</th>
-                <th scope="col">Explicit Lyrics?</th>
                 <th scope="col">Release Date</th>
-                <th scope="col">Cover</th>
+                <th scope="col">Cover Art</th>
+                <th scope="col">Explicit Lyrics?</th>
+                <!--<th scope="col" class="text-danger">Record Label</th>-->
             </tr>
             </thead>
             <tbody>
-            <th:block th:each="album: ${albums}">
-                <td th:text="${album.record_type}">..</td>
+            <tr th:block th:each="album: ${albums}">
                 <td th:text="${album.title}">..</td>
-                <td th:text="${album.explicit_lyrics}">..</td>
                 <td th:text="${album.release_date}">..</td>
                 <td><img th:src="@{${album.cover_big}}" class="card-img" alt="img-pic" src=""/></td>
-                </tr>
-            </th:block>
+                <td th:text="${album.explicit_lyrics}">..</td>
+            </tr>
             </tbody>
         </table>
     </div>
 
-</div>
 <footer th:replace="fragments/navigation :: footer"></footer>
+<hr>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

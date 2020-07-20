@@ -3,23 +3,25 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
     <link href="style/main.css" rel="stylesheet"/>
 </head>
 <body>
 
 
 <h2 th:fragment="h2-banner" th:align="center" class="header-panel">
-    <h2 style="font-size: 115%">Powered By: <img class="img-fluid" src="style/deez_icon.png" style="max-width: 7.5%"/> Open-Access API</h2>
+    <h2 style="font-size: 115%">Made Possible By: <img class="img-fluid" src="style/deez_icon.png"
+                                                       style="max-width: 7.5%" alt="Deezer Logo"/>'s Open-Access API
+    </h2>
     <p th:align="center" class="h6"><strong>
-        Use the text box below to search your favorite band or recording artist.<br>
+        Use the box below to search your favorite band or recording artist.<br>
     </strong>
     </p>
     </div></h2>
 
 <!-- Nav Links -->
 <nav th:fragment="nav-all-links" class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-    <a class="navbar-brand text-white"><strong>Discography Web App</strong></a>
+    <a href="#" class="navbar-brand text-white"><strong>Discography Web App</strong></a>
     <div class="navbar-collapse collapse show">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -30,35 +32,52 @@
                 <a class="nav-link" href="https://www.github.com/HarryDulaney/open-data-web-app">View Code</a>
             </li>
         </ul>
+        <span class="float-right"><a class="nav-link text-white" href="https://www.github.com/HarryDulaney">Created By Harry Dulaney</a></span>
     </div>
 </nav>
 <h2 th:fragment="h2-banner-2" th:align="center" class="header-panel">
-    <h1 th:align="center" style="font-size: 115%;">Powered By: <img class="img-fluid" src="style/deez_icon.png" style="max-width: 7.5%"/> Open-Access API</h1>
+    <h1 th:align="center" style="font-size: 115%;">Made Possible By: <img class="img-fluid" src="style/deez_icon.png"
+                                                                          style="max-width: 7.5%" alt="Deezer Logo"/>'s
+        Open-Access API</h1>
     <p th:align="center"><strong>
         Use the links below to explore other content on the artist<!-- or find new music to listen to by clicking on Similar
         Artists --></strong><br></p>
 </h2>
 <h2 th:fragment="h2-banner-3" th:align="center" class="header-panel">
-    <h1 th:align="center" style="font-size: 115%;">Powered By: <img src="style/deez_icon.png" style="max-width: 7.5%"/>Open-Access API</h1>
+    <h1 th:align="center" style="font-size: 115%;">Made Possible By: <img src="style/deez_icon.png"
+                                                                          style="max-width: 7.5%" alt="Deezer Logo"/>'s
+        Open-Access API</h1>
     <p th:align="center"><strong>
         New Features coming soon!!</strong><br></p>
 </h2>
 
 <div th:fragment="links-bar" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
-    <a th:href="@{/artist}">
-        <button class="btn btn-outline-primary mb-auto">Artist</button>
+    <a th:href="@{/artists}">
+        <button class="btn btn-outline-primary mb-auto">Search</button>
     </a>
     <a th:href="@{/albums}">
         <button class="btn btn-outline-primary mb-auto">Albums</button>
+    </a>
+    <a>
+        <button class="btn btn-outline-primary mb-auto" disabled>Tracks</button>
+    </a>
+    <a>
+        <button class="btn btn-outline-primary mb-auto" disabled>Similar Artists</button>
     </a>
 </div>
 
-<div th:fragment="links-bar-artist-disabled" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
+<div th:fragment="links-bar-search-disabled" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
     <a th:href="@{/}">
-        <button class="btn btn-outline-primary mb-auto" disabled>Artist</button>
+        <button class="btn btn-outline-primary mb-auto" disabled>Search</button>
     </a>
     <a th:href="@{/albums}">
-        <button class="btn btn-outline-primary mb-auto">Albums</button>
+        <button class="btn btn-outline-primary mb-auto" disabled>Albums</button>
+    </a>
+    <a th:href="@{/}">
+        <button class="btn btn-outline-primary mb-auto" disabled>Tracks</button>
+    </a>
+    <a th:href="@{/}">
+        <button class="btn btn-outline-primary mb-auto" disabled>Similar Artists</button>
     </a>
 </div>
 
@@ -68,8 +87,9 @@
 
 <footer th:fragment="footer" th:align="center">
     <hr>
+    <span class="text-secondary" style="margin-bottom: 2vh;">Created and Coded By:</span>
     <a href="https://www.github.com/harrydulaney">
-        <button class="btn btn-outline-dark">By: HGDIV</button>
+        <button class="btn btn-outline-dark">Harry Dulaney</button>
     </a>
 </footer>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
