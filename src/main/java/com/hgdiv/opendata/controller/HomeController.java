@@ -106,7 +106,7 @@ public class HomeController {
      * Gets albums.
      *
      * @param artistId the artists Deezer id Integer
-     * @param model    the model
+     * @param model The model
      * @return the albums
      */
     @GetMapping("/albums/{artistId}")
