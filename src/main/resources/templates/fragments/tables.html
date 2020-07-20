@@ -20,7 +20,7 @@
     </thead>
     <tbody>
     <tr th:block th:each="artist: ${artists}">
-        <td><a th:href="@{/albums/{artistId}(artistId = ${artist.id})}">
+        <td><a th:href="@{/{artistId}(artistId = ${artist.id})}">
             <button class="btn btn-outline-primary mb-auto">Albums</button>
         </a></td>
         <td th:text="${artist.name}">..</td>

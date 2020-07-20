@@ -9,10 +9,10 @@
     <title th:text="${title}"></title>
 </head>
 <body>
-<nav th:insert="fragments/navigation.html :: nav-all-links "></nav>
+<nav th:replace="fragments/navigation.html :: nav-all-links "></nav>
 <br>
 <div class="container-fluid" th:align="center">
-    <h2 th:insert="fragments/navigation.html :: ${initialized} ? 'h2-banner-2': 'h2-banner' "></h2>
+<h2 th:insert="fragments/navigation.html :: ${initialized} ? 'h2-banner-2': 'h2-banner' "></h2>
     <hr>
     <div th:replace="fragments/navigation :: ${initialized} ? 'links-bar-search-disabled': 'no-links-bar'"></div>
     <div class="container">

@@ -10,17 +10,17 @@
 
 
 <h2 th:fragment="h2-banner" th:align="center" class="header-panel">
-    <h2 style="font-size: 115%">Made Possible By: <img class="img-fluid" src="style/deez_icon.png"
+    <h1 style="font-size: 115%">Made Possible By: <img class="img-fluid" src="style/deez_icon.png"
                                                        style="max-width: 7.5%" alt="Deezer Logo"/>'s Open-Access API
-    </h2>
-    <p th:align="center" class="h6"><strong>
+    </h1>
+    <p th:align="center"><strong>
         Use the box below to search your favorite band or recording artist.<br>
     </strong>
     </p>
-    </div></h2>
+    </h2>
 
 <!-- Nav Links -->
-<nav th:fragment="nav-all-links" class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+<nav th:fragment="nav-all-links" class="navbar navbar-expand-sm navbar-dark bg-dark mb-auto">
     <a href="#" class="navbar-brand text-white"><strong>Discography Web App</strong></a>
     <div class="navbar-collapse collapse show">
         <ul class="navbar-nav mr-auto">
@@ -52,6 +52,9 @@
 </h2>
 
 <div th:fragment="links-bar" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
+    <a th:href="@{/}">
+        <button class="btn btn-outline-primary mb-auto">Home</button>
+    </a>
     <a th:href="@{/artists}">
         <button class="btn btn-outline-primary mb-auto">Search</button>
     </a>

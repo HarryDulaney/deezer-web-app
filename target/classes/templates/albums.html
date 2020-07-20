@@ -9,7 +9,7 @@
     <title th:text="${title}"></title>
 </head>
 <body>
-<nav th:insert="fragments/navigation.html :: nav-all-links"></nav>
+    <nav th:replace="fragments/navigation.html :: nav-all-links "></nav>
 <br>
 <div class="container-fluid" th:align="center">
     <h2 th:insert="fragments/navigation :: h2-banner-2"></h2>

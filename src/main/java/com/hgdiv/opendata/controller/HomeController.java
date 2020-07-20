@@ -106,11 +106,11 @@ public class HomeController {
      * Gets albums.
      *
      * @param artistId the artists Deezer id Integer
-     * @param model The model
+     * @param model    The model
      * @return the albums
      */
-    @GetMapping("/albums/{artistId}")
-    public String getAlbums(@PathVariable("artistId") Integer artistId, Model model) {
+    @GetMapping("/{artistId}")
+    public String getAlbums(@PathVariable("artistId") Integer artistId,Model model) {
         if (artistId == null) {
             return "exception-custom";
         } else {
@@ -151,8 +151,6 @@ public class HomeController {
             return "albums";
         }
     }
-
-
 
     private Albums albumsRequest(Integer id) throws Exception {
         Albums albums = null;
