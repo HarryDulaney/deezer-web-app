@@ -14,20 +14,23 @@
 <div class="container-fluid" th:align="center">
     <h2 th:insert="fragments/navigation :: h2-banner-2"></h2>
     <hr>
-    <div th:replace="fragments/navigation :: links-bar"></div>
+    <div th:replace="fragments/navigation :: links-bar-albums"></div>
     <h3 class="text-black-50 bg-secondary"><strong>Albums:</strong></h3>
         <table class="table">
             <thead class="thead-light">
             <tr>
+                <th scope="col">Select Album</th>
                 <th scope="col">Title</th>
                 <th scope="col">Release Date</th>
                 <th scope="col">Cover Art</th>
                 <th scope="col">Explicit Lyrics?</th>
-                <!--<th scope="col" class="text-danger">Record Label</th>-->
             </tr>
             </thead>
             <tbody>
-            <tr th:block th:each="album: ${albums}">
+            <!-- th:href="@{/{albumId}(albumId = ${album.id})}"-->
+            <tr th:block th:each="album: ${albums.getData()}">
+                <td><a href="#">
+                  <button class="btn btn-outline-primary mb-auto" disabled>Coming Soon</button></a></td>
                 <td th:text="${album.title}">..</td>
                 <td th:text="${album.release_date}">..</td>
                 <td><img th:src="@{${album.cover_big}}" class="card-img" alt="img-pic" src=""/></td>

@@ -11,6 +11,7 @@ public class Artist {
     private Integer id; //The artist's Deezer id
     private String name; //The artist's name
     private String link; //The url of the artist on Deezer
+//    private String share_link; // The share link of the Artist on Deezer
     private String picture; //The url of the artist picture. Add 'size' parameter to the url to change size. Can be 'small', 'medium', 'big', 'xl'\
     private String picture_small;
     private String picture_medium;

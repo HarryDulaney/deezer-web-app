@@ -51,30 +51,26 @@
         New Features coming soon!!</strong><br></p>
 </h2>
 
-<div th:fragment="links-bar" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
+<div th:fragment="links-bar-albums" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
+    <h6 class="text-info"> - Artist Content Navigation -</h6>
     <a th:href="@{/}">
         <button class="btn btn-outline-primary mb-auto">New Search</button>
     </a>
-    <a th:href="@{/artists}">
-        <button class="btn btn-outline-primary mb-auto">Search Results</button>
-    </a>
     <a th:href="@{/albums}">
-        <button class="btn btn-outline-primary mb-auto">Albums</button>
+        <button class="btn btn-outline-primary mb-auto" disabled>Albums</button>
     </a>
-    <a>
+   <!-- <a>
         <button class="btn btn-outline-primary mb-auto" disabled>Tracks</button>
     </a>
     <a>
         <button class="btn btn-outline-primary mb-auto" disabled>Similar Artists</button>
-    </a>
+    </a> -->
 </div>
 
 <div th:fragment="links-bar-search-disabled" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
-    <a href="#">
-        <button class="btn btn-outline-primary mb-auto" data-toggle="tooltip" title="" disabled>New Search</button>
-    </a>
-    <a href="#">
-        <button class="btn btn-outline-primary mb-auto" disabled>Search Results</button>
+    <h6 class="text-info"> - Artist Content Navigation -</h6>
+    <a th:href="@{/}">
+        <button class="btn btn-outline-primary mb-auto">New Search</button>
     </a>
     <a href="#">
         <button class="btn btn-outline-primary mb-auto" disabled>Albums</button>
