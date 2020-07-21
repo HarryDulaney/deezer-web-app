@@ -14,10 +14,9 @@
 <div class="container-fluid" th:align="center">
 <h2 th:insert="fragments/navigation.html :: ${initialized} ? 'h2-banner-2': 'h2-banner' "></h2>
     <hr>
-    <div th:replace="fragments/navigation :: ${initialized} ? 'links-bar-search-disabled': 'no-links-bar'"></div>
     <div class="container">
         <form class="form-group" action="#" th:align="center" th:action="@{/searchForm}" th:object="${search}" th:method="post">
-           <label th:align="center" for="name">Enter Artist Here: </label>
+           <label th:align="center" for="name">Enter Artist Here:</label>
             <input type="search" th:field="*{userInput}" style="margin-bottom: 2vh;" name="name" id="name" required>
             <button class="btn btn-primary" type="submit">Search</button>
         </form>
@@ -25,7 +24,7 @@
     <hr>
     <div class="container">
         <hr>
-        <h2 th:align="center" th:if="${initialized}"><strong>Artists:</strong></h2>
+        <h2 class="text-black-50 bg-secondary" th:align="center" th:if="${initialized}">Search Results</h2>
         <h4 th:align="center" class="text-dark text-md-center"></h4>
         <table th:insert="fragments/tables :: ${initialized} ? 'artist-table' : 'blank-table'"></table>
         </div>

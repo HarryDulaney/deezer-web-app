@@ -25,7 +25,7 @@
     <div class="navbar-collapse collapse show">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" th:href="@{/}">Home<span class="sr-only">(current)</span>
+                <a class="nav-link" th:href="@{/}">Search<span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -53,10 +53,10 @@
 
 <div th:fragment="links-bar" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
     <a th:href="@{/}">
-        <button class="btn btn-outline-primary mb-auto">Home</button>
+        <button class="btn btn-outline-primary mb-auto">New Search</button>
     </a>
     <a th:href="@{/artists}">
-        <button class="btn btn-outline-primary mb-auto">Search</button>
+        <button class="btn btn-outline-primary mb-auto">Search Results</button>
     </a>
     <a th:href="@{/albums}">
         <button class="btn btn-outline-primary mb-auto">Albums</button>
@@ -70,16 +70,19 @@
 </div>
 
 <div th:fragment="links-bar-search-disabled" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
-    <a th:href="@{/}">
-        <button class="btn btn-outline-primary mb-auto" disabled>Search</button>
+    <a href="#">
+        <button class="btn btn-outline-primary mb-auto" data-toggle="tooltip" title="" disabled>New Search</button>
     </a>
-    <a th:href="@{/albums}">
+    <a href="#">
+        <button class="btn btn-outline-primary mb-auto" disabled>Search Results</button>
+    </a>
+    <a href="#">
         <button class="btn btn-outline-primary mb-auto" disabled>Albums</button>
     </a>
-    <a th:href="@{/}">
+    <a href="#">
         <button class="btn btn-outline-primary mb-auto" disabled>Tracks</button>
     </a>
-    <a th:href="@{/}">
+    <a href="#">
         <button class="btn btn-outline-primary mb-auto" disabled>Similar Artists</button>
     </a>
 </div>
