@@ -14,8 +14,8 @@
     <groupId>com.hgdiv</groupId>
     <artifactId>opendata</artifactId>
     <version>0.0.7</version>
-    <name>Deezer-Api-Client</name>
-    <description>Web Service Client for Deezer's open-access api, Discography Web App</description>
+    <name>Discography-Web-Application</name>
+    <description>Discography Web App: Web Service Client for Deezer's open-access api, </description>
     <packaging>jar</packaging>
 
     <properties>
@@ -87,6 +87,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludeDevtools>true</excludeDevtools>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>

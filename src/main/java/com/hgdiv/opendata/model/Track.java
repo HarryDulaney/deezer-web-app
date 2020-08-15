@@ -1,5 +1,7 @@
 package com.hgdiv.opendata.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
 
 /**
@@ -7,12 +9,15 @@ import java.util.Date;
  *
  * @author HGDIV
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Track {
 
     private Long id;
     private Boolean readable;
     private String isrc;
     private String title;
+    private String title_short;
+    private String title_version;
     private String link;
     private Integer duration;
     private Integer rank;
@@ -26,6 +31,8 @@ public class Track {
     private Double gain;
     private String[] available_countries;
     private Date time_add;
+    private Boolean explicit_lyrics;
+    private Integer explicit_content_lyrics;
 
     /**
      * Gets id.
@@ -334,5 +341,40 @@ public class Track {
     public void setTime_add(Date time_add) {
         this.time_add = time_add;
     }
+
+    public String getTitle_short() {
+        return title_short;
+    }
+
+    public void setTitle_short(String title_short) {
+        this.title_short = title_short;
+    }
+
+    public String getTitle_version() {
+        return title_version;
+    }
+
+    public void setTitle_version(String title_version) {
+        this.title_version = title_version;
+    }
+
+    public Boolean getExplicit_lyrics() {
+        return explicit_lyrics;
+    }
+
+    public void setExplicit_lyrics(Boolean explicit_lyrics) {
+        this.explicit_lyrics = explicit_lyrics;
+    }
+
+
+    public Integer getExplicit_content_lyrics() {
+        return explicit_content_lyrics;
+    }
+
+    public void setExplicit_content_lyrics(Integer explicit_content_lyrics) {
+        this.explicit_content_lyrics = explicit_content_lyrics;
+    }
+
+
 }
 

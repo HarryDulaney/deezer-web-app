@@ -36,7 +36,7 @@ public class SearchServiceImpl implements SearchService {
 
 
     @Override
-    public List<Track> getTopFiveTracks(int artistId) { //TODO
+    public List<Track> getTopFiveTracks(int artistId) { //TODO: request top 5 tracks
         return null;
     }
 
@@ -44,22 +44,22 @@ public class SearchServiceImpl implements SearchService {
     public Artists searchArtist(String userInput) throws Exception {
         String urlQuery = UrlUtils.buildArtistSearchQuery(userInput);
 
-        return restTemplate.get(urlQuery,Artists.class);
+        return restTemplate.get(urlQuery, Artists.class);
     }
 
     @Override
-    public Albums getAlbumsByArtist(String artistName) {
-        return null;
+    public Album getAlbumByAlbumId(Integer albumId) throws Exception {
+        String url = UrlUtils.buildAlbumDetailURL(albumId);
+        return restTemplate.get(url, Album.class);
     }
 
     @Override
     public Albums getAlbumsByArtistId(Integer artistId) throws Exception {
 
-        String query = UrlUtils.buildAlbumLinkQuery(artistId);
+        String url = UrlUtils.buildAlbumLinkURL(artistId);
 
-        return restTemplate.get(query,Albums.class);
+        return restTemplate.get(url, Albums.class);
     }
-
 
 
 }

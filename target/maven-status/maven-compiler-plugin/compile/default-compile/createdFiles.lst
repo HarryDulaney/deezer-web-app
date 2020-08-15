@@ -4,6 +4,7 @@ com\hgdiv\opendata\Launcher.class
 com\hgdiv\opendata\model\Artists.class
 com\hgdiv\opendata\model\Genre.class
 com\hgdiv\opendata\controller\HomeController.class
+com\hgdiv\opendata\controller\AlbumController.class
 com\hgdiv\opendata\model\Data.class
 com\hgdiv\opendata\service\SearchServiceImpl.class
 com\hgdiv\opendata\model\Album.class

@@ -1,16 +1,20 @@
 package com.hgdiv.opendata.model;
 
+import java.util.List;
+import java.util.Objects;
+
 /**
  * The type Album.
  *
  * @author HGDIV
  */
 public class Album {
-
+    // Album object when returned from a search query
     private Integer id;
     private String title;
     private String upc;
     private String link;
+    private String share; //Share Link
     private String cover;
     private String cover_small;
     private String cover_medium;
@@ -23,19 +27,27 @@ public class Album {
     private String tracklist;
     private Boolean explicit_lyrics;
     private String type;
-
+    // Album objects when retrieved using album_id include the below fields
     private String label;
     private Integer duration;
     private Integer rating;
     private Boolean available;
+    private Album alternative;
     private Artist artist;
     private String approved_type;
     private String language;
     private String genre;
     private Integer nb_tracks;
     private Genres genres;
-
-
+    private Integer explicit_content_lyrics;
+    private List<Object> contributors;
+    private Integer explicit_content_cover;
+    private Tracks tracks;
+    /**
+     * Instantiates a new Album.
+     */
+    public Album() {
+    }
     /**
      * Gets id.
      *
@@ -270,6 +282,7 @@ public class Album {
         this.artist = artist;
     }
 
+
     /**
      * Gets type.
      *
@@ -406,9 +419,9 @@ public class Album {
     }
 
     /**
-     * Sets tracklist.
+     * Sets track list.
      *
-     * @param tracklist the tracklist
+     * @param tracklist the track list
      */
     public void setTracklist(String tracklist) {
         this.tracklist = tracklist;
@@ -503,6 +516,164 @@ public class Album {
      */
     public void setExplicit_lyrics(Boolean explicit_lyrics) {
         this.explicit_lyrics = explicit_lyrics;
+    }
+
+    /**
+     * Gets share link url.
+     *
+     * @return the link to use for sharing this album
+     */
+    public String getShare() {
+        return share;
+    }
+
+    /**
+     * Sets share link url.
+     *
+     * @param share The link to use for sharing this album
+     */
+    public void setShare(String share) {
+        this.share = share;
+    }
+
+
+    /**
+     * Gets explicit content lyrics.
+     *
+     * @return the explicit content lyrics
+     */
+    public Integer getExplicit_content_lyrics() {
+        return explicit_content_lyrics;
+    }
+
+    /**
+     * Sets explicit content lyrics.
+     *
+     * @param explicit_content_lyrics the explicit content lyrics
+     */
+    public void setExplicit_content_lyrics(Integer explicit_content_lyrics) {
+        this.explicit_content_lyrics = explicit_content_lyrics;
+    }
+
+    /**
+     * Gets contributors.
+     *
+     * @return the contributors
+     */
+    public List<Object> getContributors() {
+        return contributors;
+    }
+
+    /**
+     * Sets contributors.
+     *
+     * @param contributors the contributors
+     */
+    public void setContributors(List<Object> contributors) {
+        this.contributors = contributors;
+    }
+
+    public Integer getExplicit_content_cover() {
+        return explicit_content_cover;
+    }
+
+    public void setExplicit_content_cover(Integer explicit_content_cover) {
+        this.explicit_content_cover = explicit_content_cover;
+    }
+
+
+    public Tracks getTracks() {
+        return tracks;
+    }
+
+    public void setTracks(Tracks tracks) {
+        this.tracks = tracks;
+    }
+
+    public Album getAlternative() {
+        return alternative;
+    }
+
+    public void setAlternative(Album alternative) {
+        this.alternative = alternative;
+    }
+
+
+
+
+
+
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Album album = (Album) o;
+        return id.equals(album.id) &&
+                title.equals(album.title) &&
+                Objects.equals(upc, album.upc) &&
+                Objects.equals(link, album.link) &&
+                Objects.equals(cover, album.cover) &&
+                Objects.equals(cover_small, album.cover_small) &&
+                Objects.equals(cover_medium, album.cover_medium) &&
+                Objects.equals(cover_big, album.cover_big) &&
+                Objects.equals(cover_xl, album.cover_xl) &&
+                Objects.equals(genre_id, album.genre_id) &&
+                Objects.equals(fans, album.fans) &&
+                Objects.equals(release_date, album.release_date) &&
+                Objects.equals(record_type, album.record_type) &&
+                Objects.equals(tracklist, album.tracklist) &&
+                Objects.equals(explicit_lyrics, album.explicit_lyrics) &&
+                Objects.equals(type, album.type) &&
+                Objects.equals(label, album.label) &&
+                Objects.equals(duration, album.duration) &&
+                Objects.equals(rating, album.rating) &&
+                Objects.equals(available, album.available) &&
+                artist.equals(album.artist) &&
+                Objects.equals(approved_type, album.approved_type) &&
+                Objects.equals(language, album.language) &&
+                Objects.equals(genre, album.genre) &&
+                Objects.equals(nb_tracks, album.nb_tracks) &&
+                Objects.equals(genres, album.genres);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, upc, link, cover, cover_small, cover_medium, cover_big, cover_xl, genre_id, fans, release_date, record_type, tracklist, explicit_lyrics, type, label, duration, rating, available, artist, approved_type, language, genre, nb_tracks, genres);
+    }
+
+    @Override
+    public String toString() {
+        return "Album{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", upc='" + upc + '\'' +
+                ", link='" + link + '\'' +
+                ", cover='" + cover + '\'' +
+                ", cover_small='" + cover_small + '\'' +
+                ", cover_medium='" + cover_medium + '\'' +
+                ", cover_big='" + cover_big + '\'' +
+                ", cover_xl='" + cover_xl + '\'' +
+                ", genre_id='" + genre_id + '\'' +
+                ", fans=" + fans +
+                ", release_date='" + release_date + '\'' +
+                ", record_type='" + record_type + '\'' +
+                ", tracklist='" + tracklist + '\'' +
+                ", explicit_lyrics=" + explicit_lyrics +
+                ", type='" + type + '\'' +
+                ", label='" + label + '\'' +
+                ", duration=" + duration +
+                ", rating=" + rating +
+                ", available=" + available +
+                ", artist=" + artist +
+                ", approved_type='" + approved_type + '\'' +
+                ", language='" + language + '\'' +
+                ", genre='" + genre + '\'' +
+                ", nb_tracks=" + nb_tracks +
+                ", genres=" + genres +
+                '}';
     }
 
 }

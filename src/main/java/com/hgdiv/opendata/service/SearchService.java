@@ -29,13 +29,13 @@ public interface SearchService {
     Artists searchArtist(String artistName) throws Exception;
 
     /**
-     * Gets albums by artist.
+     * Gets album by album id.
      *
-     * @param artistName the artist name
-     * @return the albums by artist
+     * @param albumId the album id
+     * @return the album by album id
+     * @throws Exception the exception
      */
-    Albums getAlbumsByArtist(String artistName);
-
+    Album getAlbumByAlbumId(Integer albumId) throws Exception;
     /**
      * Gets albums by artist id.
      *

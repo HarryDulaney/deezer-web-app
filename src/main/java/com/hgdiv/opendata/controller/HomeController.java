@@ -11,11 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClientException;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * The type Home controller.
+ * The View controller.
  *
  * @author HGDIV
  */
@@ -23,7 +20,7 @@ import java.util.List;
 public class HomeController {
 
     /**
-     * The Log.
+     * The Console Logger.
      */
     Logger log = LoggerFactory.getLogger(HomeController.class);
 
@@ -46,8 +43,9 @@ public class HomeController {
     public HomeController(SearchService searchService) {
         this.searchService = searchService;
     }
+
     @ModelAttribute("title")
-    public String popTitle(){
+    public String popTitle() {
         return title;
     }
 
@@ -74,84 +72,6 @@ public class HomeController {
     public String artistSearchResults(Model model) {
         model.addAttribute("search", new Search());
         return "index";
-    }
-
-
-    /**
-     * Gets tables.
-     *
-     * @param model the model
-     * @return the tables
-     */
-    @GetMapping("/fragments/tables")
-    public String getTables(Model model) {
-        return "fragments/tables";
-    }
-
-
-    /**
-     * Gets navigation fragments
-     *
-     * @param model the model
-     * @return the core frags
-     */
-    @GetMapping("/fragments/navigation")
-    public String getCoreFrags(Model model) {
-        return "fragments/navigation";
-    }
-
-    @GetMapping("/album_details")
-    public String populateAlbumDetails(Model model) {
-        return "album_details";
-    }
-
-
-    /**
-     * Gets albums.
-     *
-     * @param artistId the artists Deezer id Integer
-     * @param model    The model
-     * @return the albums
-     */
-    @GetMapping("/{artistId}")
-    public String getAlbums(@PathVariable("artistId") Integer artistId, Model model) {
-        if (artistId == null) {
-            return "exception-custom";
-        } else {
-            Albums albums = new Albums();
-            try {
-                albums = albumsRequest(artistId);
-            } catch (Exception e) {
-                log.info("Cause: [ " + e.getCause() + " ]  Message: [" + e.getMessage() + " ]");
-                e.printStackTrace();
-            }
-            model.addAttribute("albums", albums);
-            return "albums";
-        }
-    }
-
-    @GetMapping("/albums")
-    public String albumsReturn(@ModelAttribute("albums") Albums albums, Model model) {
-        if (albums == null) {
-            return "exception-custom";
-        }
-
-        model.addAttribute("albums", albums);
-        return "albums";
-    }
-
-
-    private Albums albumsRequest(Integer id) throws Exception {
-        Albums albums = null;
-        try {
-            albums = searchService.getAlbumsByArtistId(id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (albums != null)
-            return albums;
-        else
-            throw new Exception();
     }
 
     /**
@@ -190,12 +110,6 @@ public class HomeController {
             log.info("Cause: [ " + e.getCause() + " ]  Message: [" + e.getMessage() + " ]");
 
         }
-        List<Artist> list = new ArrayList<>();
-        Artists emptyArtists = new Artists();
-        emptyArtists.setData(list);
-        return emptyArtists;
+        throw new Exception("Something un-expected went wrong during the Artist Search");
     }
-
-
-
 }

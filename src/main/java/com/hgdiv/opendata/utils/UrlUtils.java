@@ -1,6 +1,7 @@
 package com.hgdiv.opendata.utils;
 
 import com.hgdiv.opendata.model.Search;
+import com.sun.javafx.fxml.builder.URLBuilder;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -12,10 +13,12 @@ import java.net.URLEncoder;
  * @author HGDIV
  */
 public class UrlUtils {
-    private static final String BASE_URL =  "https://api.deezer.com/artist/";
+    private static final String BASE_URL_ARTIST = "https://api.deezer.com/artist/";
     private static final String ARTIST_SEARCH_URL = "https://api.deezer.com/search/artist?q=";
     private static final String BASIC_SEARCH_URL = "https://api.deezer.com/search?q=";
     private static final String ALBUMS_LINK_URL = "/albums";
+    private static final String ALBUM_DETAILS_URL = "/album/";
+    private static final String BASE_URL = "https://api.deezer.com";
 
     /**
      * Build search query string.
@@ -29,25 +32,37 @@ public class UrlUtils {
     }
 
     /**
-     * Build artist search query string.
+     * Build artist search query URL.
      *
-     * @param userInput the user input
-     * @return the string
+     * @param userInput the user input search criteria
+     * @return String rep. of URL to use Deezer's search resources
      */
     public static String buildArtistSearchQuery(String userInput) {
-        return getSearchQuery(userInput,ARTIST_SEARCH_URL);
+        return getSearchQuery(userInput, ARTIST_SEARCH_URL);
     }
 
     /**
-     * Build album link query string.
+     * Build artistId/albums query link.
      *
-     * @param artist_id the artist id
-     * @return the string
+     * @param artist_id The Deezer id for the Artist
+     * @return String rep. of URL to Artists Albums resources
      */
-    public static String buildAlbumLinkQuery(Integer artist_id){
+    public static String buildAlbumLinkURL(Integer artist_id) {
         String urlTail = String.valueOf(artist_id).concat(ALBUMS_LINK_URL);
 
-        return BASE_URL.concat(urlTail);
+        return BASE_URL_ARTIST.concat(urlTail);
+    }
+
+    /**
+     * Build album/albumId URL
+     *
+     * @param albumId The Deezer id of the Album
+     * @return String rep. of URL to Album resources.
+     */
+    public static String buildAlbumDetailURL(Integer albumId) {
+        String endsWith = ALBUM_DETAILS_URL.concat(String.valueOf(albumId));
+        return BASE_URL.concat(endsWith);
+
     }
 
 

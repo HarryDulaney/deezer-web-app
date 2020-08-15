@@ -4,33 +4,75 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
-    <link href="style/main.css" rel="stylesheet"/>
-    <!--/*@thymesVar id="title" type="java.lang.String"*/-->
+    <link href="/style/main.css" rel="stylesheet"/>
     <title th:text="${title}"></title>
 </head>
 <body>
 <table th:fragment="artist-table" class="table">
     <thead class="thead-light">
     <tr>
-        <th scope="col">SELECT Artist</th>
+        <th scope="col">Explore Artist</th>
         <th scope="col">Name</th>
         <th scope="col">Picture</th>
         <th scope="col"># of Albums</th>
-        <th scope="col"># Fans on Deezer</th>
     </tr>
     </thead>
     <tbody>
     <tr th:block th:each="artist: ${artists.getData()}">
-        <td><a th:href="@{/{artistId}(artistId = ${artist.id})}">
-            <button class="btn btn-outline-primary mb-auto">Albums</button>
+        <td><a th:href="@{/albums/{artistId}(artistId = ${artist.id})}">
+            <button class="btn btn-outline-primary mb-auto">Explore Artist</button>
         </a></td>
         <td th:text="${artist.name}">..</td>
         <td><img th:src="@{${artist.picture_big}}" class="card-img" alt="img-pic" src=""></td>
         <td th:text="${artist.nb_album}">..</td>
-        <td th:text="${artist.nb_fan}">.</td>
-
     </tr>
     </tbody>
+</table>
+
+<!-- Explore Album Table -->
+<table th:fragment="detail-album-table" class="table" th:object="${currentAlbum}">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Release Date</th>
+        <th scope="col">Record Type</th>
+        <th scope="col">Record Label</th>
+        <th scope="col">Explicit Lyrics?</th>
+        <th scope="col">UPC</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Language</th>
+        <th scope="col"># of Tracks</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <!--            <td><a th:href="'/albums/' + ${}">-->
+        <!--            <button class="btn btn-outline-primary mb-auto">Open Tracks</button></a></td>-->
+        <td th:text="${currentAlbum.title}">..</td>
+        <td th:text="${currentAlbum.release_date}">..</td>
+        <td th:text="${currentAlbum.record_type}">..</td>
+        <td th:text="${currentAlbum.label}">.</td>
+        <td th:text="${currentAlbum.explicit_lyrics}">..</td>
+        <td th:text="${currentAlbum.upc}">..</td>
+        <td th:text="${currentAlbum.duration}">..</td>
+        <td th:text="${currentAlbum.language}">..</td>
+        <td th:text="${currentAlbum.nb_tracks}">..</td>
+    </tr>
+    </tbody>
+
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">Cover Art</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><img th:src="@{${currentAlbum.cover_big}}" class="card-img" th:align="center" src=""
+                 alt="img-pic"></td>
+    </tr>
+    </tbody>
+
+
 </table>
 
 <table class="table" th:fragment="blank-table">

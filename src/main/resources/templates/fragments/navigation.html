@@ -10,17 +10,18 @@
 
 
 <h2 th:fragment="h2-banner" th:align="center" class="header-panel">
-    <h1 style="font-size: 115%">Made Possible By: <img class="img-fluid" src="style/deez_icon.png"
-                                                       style="max-width: 7.5%" alt="Deezer Logo"/>'s Open-Access API
+    <h1 style="font-size: 115%">Made Possible By: <img th:src="@{/img/deez_icon.png}" class="img-fluid"
+                                                       src="/img/deez_icon.png"
+                                                       style="max-width: 7.5%" alt="Media Resource"/>'s Open-Access API
     </h1>
     <p th:align="center"><strong>
         Use the box below to search your favorite band or recording artist.<br>
     </strong>
     </p>
-    </h2>
+</h2>
 
 <!-- Nav Links -->
-<nav th:fragment="nav-all-links" class="navbar navbar-expand-sm navbar-dark bg-dark mb-auto">
+<nav th:fragment="nav-all-links" class="navbar navbar-expand-sm navbar-dark nav bg-dark" style="min-width: 100%">
     <a href="#" class="navbar-brand text-white"><strong>Discography Web App</strong></a>
     <div class="navbar-collapse collapse show">
         <ul class="navbar-nav mr-auto">
@@ -36,21 +37,26 @@
     </div>
 </nav>
 <h2 th:fragment="h2-banner-2" th:align="center" class="header-panel">
-    <h1 th:align="center" style="font-size: 115%;">Made Possible By: <img class="img-fluid" src="style/deez_icon.png"
-                                                                          style="max-width: 7.5%" alt="Deezer Logo"/>'s
+    <h1 th:align="center" style="font-size: 115%;">Made Possible By: <img class="img-fluid"
+                                                                          src="/img/deez_icon.png"
+                                                                          th:src="@{/img/deez_icon.png}"
+                                                                          style="max-width: 7.5%" alt="Media Resource"/>'s
         Open-Access API</h1>
     <p th:align="center"><strong>
         Use the links below to explore other content on the artist<!-- or find new music to listen to by clicking on Similar
         Artists --></strong><br></p>
 </h2>
 <h2 th:fragment="h2-banner-3" th:align="center" class="header-panel">
-    <h1 th:align="center" style="font-size: 115%;">Made Possible By: <img class="img-fluid" src="style/deez_icon.png"
-                                                                          style="max-width: 7.5%" alt="Deezer Logo"/>'s
+    <h1 th:align="center" style="font-size: 115%;">Made Possible By: <img class="img-fluid"
+                                                                          src="/img/deez_icon.png"
+                                                                          th:src="@{/img/deez_icon.png}"
+                                                                          style="max-width: 7.5%" alt="Media Resource"/>'s
         Open-Access API</h1>
     <p th:align="center"><strong>
         New Features coming soon!!</strong><br></p>
 </h2>
 
+<!-- Artist links for New Search and Albums with all Albums Disabled -->
 <div th:fragment="links-bar-albums" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
     <h6 class="text-info"> - Artist Content Navigation -</h6>
     <a th:href="@{/}">
@@ -59,16 +65,34 @@
     <a th:href="@{/albums}">
         <button class="btn btn-outline-primary mb-auto" disabled>Albums</button>
     </a>
-   <!-- <a>
-        <button class="btn btn-outline-primary mb-auto" disabled>Tracks</button>
-    </a>
-    <a>
-        <button class="btn btn-outline-primary mb-auto" disabled>Similar Artists</button>
-    </a> -->
+    <!-- <a>
+         <button class="btn btn-outline-primary mb-auto" disabled>Tracks</button>
+     </a>
+     <a>
+         <button class="btn btn-outline-primary mb-auto" disabled>Similar Artists</button>
+     </a> -->
 </div>
 
+<!-- Artist Links with all links Disabled -->
 <div th:fragment="links-bar-search-disabled" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
-    <h6 class="text-info"> - Artist Content Navigation -</h6>
+    <h6 class="text-info"> Artist Content Navigation </h6>
+    <a th:href="@{/}">
+        <button class="btn btn-outline-primary mb-auto">New Search</button>
+    </a>
+    <a href="#">
+        <button class="btn btn-outline-primary mb-auto" disabled>Albums</button>
+    </a>
+    <a href="#">
+        <button class="btn btn-outline-primary mb-auto" disabled>Tracks</button>
+    </a>
+    <a href="#">
+        <button class="btn btn-outline-primary mb-auto" disabled>Similar Artists</button>
+    </a>
+</div>
+
+<!-- Artist Links with all links Active -->
+<div th:fragment="links-bar-active-all" class="button-bar" style="margin-top: 1vh;margin-bottom: 2vh;">
+    <h6 class="text-info"> Artist Content Navigation </h6>
     <a th:href="@{/}">
         <button class="btn btn-outline-primary mb-auto">New Search</button>
     </a>

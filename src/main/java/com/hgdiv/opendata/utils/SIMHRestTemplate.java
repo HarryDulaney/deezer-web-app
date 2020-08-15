@@ -2,8 +2,6 @@ package com.hgdiv.opendata.utils;
 
 
 import com.fasterxml.jackson.databind.*;
-import com.hgdiv.opendata.model.Albums;
-import com.hgdiv.opendata.model.Artists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -37,7 +35,7 @@ public class SIMHRestTemplate {
     /**
      * Get t.
      *
-     * @param <T>    the type parameter e.g. <p>Artist,Album,Track</p>
+     * @param <T>    /*the type parameter e.g. <p>Artist,Album,Track....</p>
      * @param url    the url
      * @param target the variable name
      * @return the t

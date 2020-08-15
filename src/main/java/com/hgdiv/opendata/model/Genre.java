@@ -9,7 +9,7 @@ public class Genre {
     private Long id;
     private String name;
     private String type;
-
+    private String picture;
     /**
      * Gets id.
      *
@@ -63,5 +63,25 @@ public class Genre {
     public void setType(String type) {
         this.type = type;
     }
+
+    /**
+     * Gets picture.
+     *
+     * @return the picture
+     */
+    public String getPicture() {
+        return picture;
+    }
+
+    /**
+     * Sets picture.
+     *
+     * @param picture the picture
+     */
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+
 
 }

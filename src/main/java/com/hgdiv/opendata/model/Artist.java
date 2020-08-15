@@ -1,6 +1,8 @@
 package com.hgdiv.opendata.model;
 
 
+import java.util.Objects;
+
 /**
  * The type Artist.
  *
@@ -274,7 +276,30 @@ public class Artist {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Artist artist = (Artist) o;
+        return radio == artist.radio &&
+                id.equals(artist.id) &&
+                Objects.equals(name, artist.name) &&
+                Objects.equals(link, artist.link) &&
+                Objects.equals(picture, artist.picture) &&
+                Objects.equals(picture_small, artist.picture_small) &&
+                Objects.equals(picture_medium, artist.picture_medium) &&
+                Objects.equals(picture_big, artist.picture_big) &&
+                Objects.equals(picture_xl, artist.picture_xl) &&
+                Objects.equals(nb_album, artist.nb_album) &&
+                Objects.equals(nb_fan, artist.nb_fan) &&
+                Objects.equals(tracklist, artist.tracklist) &&
+                Objects.equals(type, artist.type);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, link, picture, picture_small, picture_medium, picture_big, picture_xl, nb_album, nb_fan, tracklist, radio, type);
+    }
 
     @Override
     public String toString() {
@@ -283,11 +308,15 @@ public class Artist {
                 ", name='" + name + '\'' +
                 ", link='" + link + '\'' +
                 ", picture='" + picture + '\'' +
+                ", picture_small='" + picture_small + '\'' +
+                ", picture_medium='" + picture_medium + '\'' +
+                ", picture_big='" + picture_big + '\'' +
+                ", picture_xl='" + picture_xl + '\'' +
                 ", nb_album=" + nb_album +
                 ", nb_fan=" + nb_fan +
                 ", tracklist='" + tracklist + '\'' +
+                ", radio=" + radio +
                 ", type='" + type + '\'' +
                 '}';
     }
-
 }
