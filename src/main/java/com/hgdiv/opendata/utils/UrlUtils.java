@@ -1,8 +1,5 @@
 package com.hgdiv.opendata.utils;
 
-import com.hgdiv.opendata.model.Search;
-import com.sun.javafx.fxml.builder.URLBuilder;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
