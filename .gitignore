@@ -31,6 +31,5 @@ build/
 /node_modules/
 
 /data-serv-app.userlibraries
-/target/
 /src/main/java/com/hgdiv/opendata/Launcher.java
 /inProcess/bin/
