@@ -29,52 +29,6 @@
     </tbody>
 </table>
 
-<!-- Explore Album Table -->
-<table th:fragment="detail-album-table" class="table" th:object="${currentAlbum}">
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Release Date</th>
-        <th scope="col">Record Type</th>
-        <th scope="col">Record Label</th>
-        <th scope="col">Explicit Lyrics?</th>
-        <th scope="col">UPC</th>
-        <th scope="col">Duration</th>
-        <th scope="col">Language</th>
-        <th scope="col"># of Tracks</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <!--            <td><a th:href="'/albums/' + ${}">-->
-        <!--            <button class="btn btn-outline-primary mb-auto">Open Tracks</button></a></td>-->
-        <td th:text="${currentAlbum.title}">..</td>
-        <td th:text="${currentAlbum.release_date}">..</td>
-        <td th:text="${currentAlbum.record_type}">..</td>
-        <td th:text="${currentAlbum.label}">.</td>
-        <td th:text="${currentAlbum.explicit_lyrics}">..</td>
-        <td th:text="${currentAlbum.upc}">..</td>
-        <td th:text="${currentAlbum.duration}">..</td>
-        <td th:text="${currentAlbum.language}">..</td>
-        <td th:text="${currentAlbum.nb_tracks}">..</td>
-    </tr>
-    </tbody>
-
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">Cover Art</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td><img th:src="@{${currentAlbum.cover_big}}" class="card-img" th:align="center" src=""
-                 alt="img-pic"></td>
-    </tr>
-    </tbody>
-
-
-</table>
-
 <table class="table" th:fragment="blank-table">
 
 </table>

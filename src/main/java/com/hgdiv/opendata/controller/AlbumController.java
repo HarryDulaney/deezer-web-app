@@ -2,7 +2,7 @@ package com.hgdiv.opendata.controller;
 
 import com.hgdiv.opendata.model.Album;
 import com.hgdiv.opendata.model.Albums;
-import com.hgdiv.opendata.service.SearchService;
+import com.hgdiv.opendata.service.APIService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +10,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class AlbumController {
 
     Logger log = LoggerFactory.getLogger(AlbumController.class);
-    private final SearchService searchService;
+    private final APIService APIService;
 
 
     /**
@@ -26,9 +27,14 @@ public class AlbumController {
     public String title;
 
     @Autowired
-    public AlbumController(SearchService searchService) {
-        this.searchService = searchService;
+    public AlbumController(APIService APIService) {
+        this.APIService = APIService;
 
+    }
+
+    @ModelAttribute("title")
+    public String popTitle(){
+        return title;
     }
 
 
@@ -40,7 +46,7 @@ public class AlbumController {
 
             Album currentAlbum = new Album();
             try {
-                currentAlbum = searchService.getAlbumByAlbumId(albumId);
+                currentAlbum = APIService.getAlbumByAlbumId(albumId);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -82,7 +88,7 @@ public class AlbumController {
     private Albums albumsRequest(Integer id) throws Exception {
         Albums albums = null;
         try {
-            albums = searchService.getAlbumsByArtistId(id);
+            albums = APIService.getAlbumsByArtistId(id);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,7 +1,7 @@
 package com.hgdiv.opendata.controller;
 
 import com.hgdiv.opendata.model.*;
-import com.hgdiv.opendata.service.SearchService;
+import com.hgdiv.opendata.service.APIService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class HomeController {
      */
     Logger log = LoggerFactory.getLogger(HomeController.class);
 
-    private final SearchService searchService;
+    private final APIService APIService;
 
 
     /**
@@ -37,11 +37,11 @@ public class HomeController {
     /**
      * Instantiates a new Home controller.
      *
-     * @param searchService the search service
+     * @param APIService the search service
      */
     @Autowired
-    public HomeController(SearchService searchService) {
-        this.searchService = searchService;
+    public HomeController(APIService APIService) {
+        this.APIService = APIService;
     }
 
     @ModelAttribute("title")
@@ -103,7 +103,7 @@ public class HomeController {
 
     private Artists searchArtist(Search search) throws Exception {
         try {
-            return searchService.searchArtist(search.getUserInput());
+            return APIService.searchArtist(search.getUserInput());
 
         } catch (RestClientException e) {
             e.printStackTrace();

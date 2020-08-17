@@ -16,20 +16,20 @@ import java.util.List;
  *
  * @author HGDIV
  */
-@Service("searchService")
-public class SearchServiceImpl implements SearchService {
+@Service("apiService")
+public class APIServiceImpl implements APIService {
 
-    private static final Logger logger = LoggerFactory.getLogger(SearchServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(APIServiceImpl.class);
 
     private SIMHRestTemplate restTemplate;
 
     /**
-     * Instantiates a new Search service.
+     * Instantiates a new API service.
      *
      * @param httpConnectionUtils the http connection utils
      */
     @Autowired
-    public SearchServiceImpl(HttpConnectionUtils httpConnectionUtils) {
+    public APIServiceImpl(HttpConnectionUtils httpConnectionUtils) {
         this.restTemplate = new SIMHRestTemplate(httpConnectionUtils);
 
     }

@@ -1,5 +1,7 @@
 package com.hgdiv.opendata.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -8,6 +10,7 @@ import java.util.Objects;
  *
  * @author HGDIV
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Album {
     // Album object when returned from a search query
     private Integer id;

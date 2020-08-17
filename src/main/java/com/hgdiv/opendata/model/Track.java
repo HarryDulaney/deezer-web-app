@@ -12,34 +12,33 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Track {
 
-    private Long id;
-    private Boolean readable;
-    private String isrc;
-    private String title;
+    private Integer id; //The track's Deezer id
+    private Boolean readable; //true if the track is readable in the player for the current user
+    private String isrc; // The track isrc (Unique international music IP identifier)
+    private String title; //full-title
     private String title_short;
-    private String title_version;
-    private String link;
-    private Integer duration;
-    private Integer rank;
-    private String preview;
-    private Artist artist;
-    private Album album;
-    private String type;
-    private Integer track_position;
-    private Integer disk_number;
-    private Double bpm;
-    private Double gain;
+    private String title_version; // The track version
+    private String link; // The url of the track on Deezer
+    private Integer duration;//The track's duration in seconds
+    private Integer rank; // The track's Deezer rank
+    private String preview; // The url of track's preview file. This file contains the first 30 seconds of the track
+    private Artist artist;// Artists object
+    private Album album; // Albums object
+    private Integer track_position; //The position of the track in its album
+    private Integer disk_number; // The track's album's disk number
+    private Double bpm; // Beats per minute
+    private Double gain; // Signal strength
     private String[] available_countries;
-    private Date time_add;
-    private Boolean explicit_lyrics;
-    private Integer explicit_content_lyrics;
-
+    private Date release_date; // The track's release date
+    private Boolean explicit_lyrics; // Whether the track contains explicit lyrics
+    private Integer explicit_content_lyrics;//The explicit content lyrics values (0:Not Explicit; 1:Explicit; 2:Unknown; 3:Edited; 6:No Advice Available)
+    private Integer explicit_content_cover;
     /**
      * Gets id.
      *
      * @return the id
      */
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -48,7 +47,7 @@ public class Track {
      *
      * @param id the id
      */
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -179,16 +178,6 @@ public class Track {
     }
 
     /**
-     * Gets type.
-     *
-     * @return the type
-     */
-    public String getType() {
-        return type;
-
-    }
-
-    /**
      * Gets album.
      *
      * @return the album
@@ -222,16 +211,6 @@ public class Track {
      */
     public void setIsrc(String isrc) {
         this.isrc = isrc;
-    }
-
-    /**
-     * Sets type.
-     *
-     * @param type the type
-     */
-    public void setType(String type) {
-        this.type = type;
-
     }
 
     /**
@@ -329,17 +308,17 @@ public class Track {
      *
      * @return the time add
      */
-    public Date getTime_add() {
-        return time_add;
+    public Date getReleaseDate() {
+        return release_date;
     }
 
     /**
-     * Sets time add.
+     * The release date
      *
-     * @param time_add the time add
+     * @param release_date
      */
-    public void setTime_add(Date time_add) {
-        this.time_add = time_add;
+    public void setReleaseDate(Date release_date) {
+        this.release_date = release_date;
     }
 
     public String getTitle_short() {
@@ -374,6 +353,26 @@ public class Track {
     public void setExplicit_content_lyrics(Integer explicit_content_lyrics) {
         this.explicit_content_lyrics = explicit_content_lyrics;
     }
+
+    public Date getRelease_date() {
+        return release_date;
+    }
+
+    public void setRelease_date(Date release_date) {
+        this.release_date = release_date;
+    }
+
+    public Integer getExplicit_content_cover() {
+        return explicit_content_cover;
+    }
+
+    public void setExplicit_content_cover(Integer explicit_content_cover) {
+        this.explicit_content_cover = explicit_content_cover;
+    }
+
+
+
+
 
 
 }

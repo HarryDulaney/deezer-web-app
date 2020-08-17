@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author HGDIV
  */
-public interface SearchService {
+public interface APIService {
 
     /**
      * Gets top five tracks.
@@ -20,10 +20,10 @@ public interface SearchService {
     List<Track> getTopFiveTracks(int artistId);
 
     /**
-     * Search artist artists.
+     * Search artist
      *
      * @param artistName the artist name
-     * @return the artists
+     * @return the artists returned by the search query
      * @throws Exception the exception
      */
     Artists searchArtist(String artistName) throws Exception;
@@ -40,7 +40,7 @@ public interface SearchService {
      * Gets albums by artist id.
      *
      * @param artistId the artist id
-     * @return the albums by artist id
+     * @return the artists albums
      * @throws Exception the exception
      */
     Albums getAlbumsByArtistId(Integer artistId) throws Exception;

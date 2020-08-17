@@ -6,16 +6,21 @@ package com.hgdiv.opendata.model;
 public class Genre {
 
 
-    private Long id;
+    private Integer id;
     private String name;
     private String type;
     private String picture;
+    private String picture_small;
+    private String picture_medium;
+    private String picture_big;
+    private String picture_xl;
+
     /**
      * Gets id.
      *
      * @return the id
      */
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -24,7 +29,7 @@ public class Genre {
      *
      * @param id the id
      */
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -81,6 +86,80 @@ public class Genre {
     public void setPicture(String picture) {
         this.picture = picture;
     }
+
+    /**
+     * Gets picture small.
+     *
+     * @return the picture small
+     */
+    public String getPicture_small() {
+        return picture_small;
+    }
+
+    /**
+     * Sets picture small.
+     *
+     * @param picture_small the picture small
+     */
+    public void setPicture_small(String picture_small) {
+        this.picture_small = picture_small;
+    }
+
+    /**
+     * Gets picture medium.
+     *
+     * @return the picture medium
+     */
+    public String getPicture_medium() {
+        return picture_medium;
+    }
+
+    /**
+     * Sets picture medium.
+     *
+     * @param picture_medium the picture medium
+     */
+    public void setPicture_medium(String picture_medium) {
+        this.picture_medium = picture_medium;
+    }
+
+    /**
+     * Gets picture big.
+     *
+     * @return the picture big
+     */
+    public String getPicture_big() {
+        return picture_big;
+    }
+
+    /**
+     * Sets picture big.
+     *
+     * @param picture_big the picture big
+     */
+    public void setPicture_big(String picture_big) {
+        this.picture_big = picture_big;
+    }
+
+    /**
+     * Gets picture xl.
+     *
+     * @return the picture xl
+     */
+    public String getPicture_xl() {
+        return picture_xl;
+    }
+
+    /**
+     * Sets picture xl.
+     *
+     * @param picture_xl the picture xl
+     */
+    public void setPicture_xl(String picture_xl) {
+        this.picture_xl = picture_xl;
+    }
+
+
 
 
 
