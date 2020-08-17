@@ -1,14 +1,14 @@
 package com.hgdiv.app;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 
 class WebApplicationTests {
-
-
-	void contextLoads() {
-
-	}
+//
+//	public static void main(String[] args) {
+//		int duration = 2324;
+//		int res = duration / 60;
+//		int decimalPoints = duration % 60;
+//		System.out.println("Formatted Duration: " + res + " min" + " and " + decimalPoints + " sec");
+//	}
 
 }

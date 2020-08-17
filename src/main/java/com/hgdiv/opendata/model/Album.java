@@ -46,6 +46,23 @@ public class Album {
     private List<Object> contributors;
     private Integer explicit_content_cover;
     private Tracks tracks;
+
+    /**
+     * @return duration formatted as D min and D sec.
+     */
+    public String formatDuration() {
+        String result = "";
+        if (this.duration != null) {
+            int minutes = this.duration / 60;
+            int seconds = this.duration % 60;
+            result += minutes + " min and " + seconds + " sec";
+
+        }
+        return result;
+
+    }
+
+
     /**
      * Instantiates a new Album.
      */

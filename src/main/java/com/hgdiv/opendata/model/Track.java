@@ -33,6 +33,22 @@ public class Track {
     private Boolean explicit_lyrics; // Whether the track contains explicit lyrics
     private Integer explicit_content_lyrics;//The explicit content lyrics values (0:Not Explicit; 1:Explicit; 2:Unknown; 3:Edited; 6:No Advice Available)
     private Integer explicit_content_cover;
+
+
+    /**
+     * @return duration formatted as D min and D sec.
+     */
+    public String formatDuration() {
+        String result = "";
+        if (this.duration != null) {
+            int minutes = this.duration / 60;
+            int seconds = this.duration % 60;
+            result += minutes + " min and " + seconds + " sec";
+
+        }
+        return result;
+
+    }
     /**
      * Gets id.
      *
