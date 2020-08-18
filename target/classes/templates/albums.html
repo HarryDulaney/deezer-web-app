@@ -4,14 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
-    <link rel="stylesheet" href="style/main.css"/>
+    <link rel="stylesheet" href="/style/main.css"/>
 
     <title th:text="${title}"></title>
 </head>
 <body>
 <nav th:replace="fragments/navigation.html :: nav-all-links "></nav>
 <br>
-<div class="container-fluid" th:align="center">
+<div class="container" th:align="center">
     <h2 th:insert="fragments/navigation :: h2-banner-2"></h2>
     <hr>
     <div th:replace="fragments/navigation :: links-bar-albums"></div>

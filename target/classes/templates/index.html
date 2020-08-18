@@ -4,30 +4,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css} "/>
-    <link rel="stylesheet" href="style/main.css"/>
+    <link rel="stylesheet" href="/style/main.css"/>
 
     <title th:text="${title}"></title>
 </head>
 <body>
 <nav th:replace="fragments/navigation.html :: nav-all-links "></nav>
 <br>
-<div class="container-fluid" th:align="center">
+<div class="container" th:align="center">
 <h2 th:insert="fragments/navigation.html :: ${initialized} ? 'h2-banner-2': 'h2-banner' "></h2>
     <hr>
-    <div class="container">
         <form class="form-group" action="#" th:align="center" th:action="@{/searchForm}" th:object="${search}" th:method="post">
            <label th:align="center" for="name">Enter Artist Here:</label>
             <input type="search" th:field="*{userInput}" style="margin-bottom: 2vh;" name="name" id="name" required>
             <button class="btn btn-primary" type="submit">Search</button>
         </form>
-    </div>
+
     <hr>
-    <div class="container">
         <hr>
         <h2 class="text-black-50 bg-secondary" th:align="center" th:if="${initialized}">Search Results</h2>
         <h4 th:align="center" class="text-dark text-md-center"></h4>
-        <table th:insert="fragments/tables :: ${initialized} ? 'artist-table' : 'blank-table'"></table>
-        </div>
+    <div class="table-responsive" style="max-width: 100%;">
+    <table th:replace="fragments/tables :: ${initialized} ? 'artist-table' : 'blank-table'"></table>
+    </div>
     </div>
 <footer th:insert="fragments/navigation :: footer"></footer>
 <hr>

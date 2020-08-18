@@ -8,26 +8,26 @@
     <title th:text="${title}"></title>
 </head>
 <body>
-<table th:fragment="artist-table" class="table">
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">Explore Artist</th>
-        <th scope="col">Name</th>
-        <th scope="col">Picture</th>
-        <th scope="col"># of Albums</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:block th:each="artist: ${artists.getData()}">
-        <td><a th:href="@{/albums/{artistId}(artistId = ${artist.id})}">
-            <button class="btn btn-outline-primary mb-auto">Explore Artist</button>
-        </a></td>
-        <td th:text="${artist.name}">..</td>
-        <td><img th:src="@{${artist.picture_big}}" class="card-img" alt="img-pic" src=""></td>
-        <td th:text="${artist.nb_album}">..</td>
-    </tr>
-    </tbody>
-</table>
+    <table th:fragment="artist-table" class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Explore Artist</th>
+            <th scope="col">Name</th>
+            <th scope="col">Picture</th>
+            <th scope="col"># of Albums</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:block th:each="artist: ${artists.getData()}">
+            <td><a th:href="@{/albums/{artistId}(artistId = ${artist.id})}">
+                <button class="btn btn-outline-primary mb-auto">Explore Artist</button>
+            </a></td>
+            <td th:text="${artist.name}">..</td>
+            <td><img th:src="@{${artist.picture_big}}" class="card-img" alt="img-pic" src=""></td>
+            <td th:text="${artist.nb_album}">..</td>
+        </tr>
+        </tbody>
+    </table>
 
 <table class="table" th:fragment="blank-table">
 
