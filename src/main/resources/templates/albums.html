@@ -29,7 +29,7 @@
             <tbody>
             <tr th:block th:each="album: ${albums.getData()}">
                 <td><a th:href="@{/albums/details/{albumId}(albumId = ${album.id})}">
-                <button class="btn btn-outline-primary mb-auto">Explore Album</button>
+                    <button class="btn btn-outline-primary mb-auto">Explore Album</button>
                 </a></td>
                 <td th:text="${album.title}">..</td>
                 <td th:text="${album.release_date}">..</td>
