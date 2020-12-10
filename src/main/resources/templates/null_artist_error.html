@@ -10,9 +10,12 @@
 
 </head>
 <body>
+<nav th:replace="fragments/navigation.html :: nav-all-links "></nav>
 <div th:align="center" class="container">
-    <h1>O0ps, something went wrong.....</h1><hr>
-
+    <h1>Oops I couldn't find that artist...</h1><hr>
+    <h2 class="align-content-center">  <a th:href="@{/}">
+        <button class="btn btn-outline-primary mb-auto">Back to Search Menu</button>
+    </a></h2>
     <table class="align-content-md-center align-self-auto">
         <thead>
         <tr>
