@@ -14,5 +14,5 @@
 <strong><p><em>Get Discography with album covers and album info</em></p></strong>
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/two.png" height="300" width="500" alt="Strokes Two"/>
 <strong><p><em>Listen to song clips</em></p></strong>
-<img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/.png" height="300" width="500" alt="Strokes listen"/>
+<img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/listenTOTunes.png" height="300" width="500" alt="Strokes listen"/>
 </div>
