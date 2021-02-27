@@ -1,7 +1,7 @@
 
 
 # [_Deezer-Api-Client-Music-Discography_](https://powerful-hollows-10387.herokuapp.com/ "CLICK HERE TO TRY IT!")
-
+#### (Hosted in a Free Dyno on Heroku which can be very slow to launch.)
 
 ## Java, Spring Boot, Jackson Databind, and Thymeleaf Web Application for searching recording artist's and musicians. This web app consumes the Deezer.com API to display pictures and artist discography. 
 
