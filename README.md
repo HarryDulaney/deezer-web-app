@@ -6,15 +6,16 @@
 
 <div align="center">
   <a href="https://powerful-hollows-10387.herokuapp.com/">TRY IT HERE!</a>
+  <p>Hosted in a Free Dyno on Heroku which can be very slow to launch.</p>
+
   <strong><p><em>Find info on your favorite musicians and recording artists</em></p></strong>
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/one.png" height="300" width="500" alt="Strokes One"><br>
-#### (Hosted in a Free Dyno on Heroku which can be very slow to launch.)
 
 <strong><p><em>Get Discography with album covers and album info</em></p></strong>
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/two.png" height="300" width="500" alt="Strokes Two">
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/three.png" height="300" width="500" alt="Strokes Three">
-<img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/four.png" height="300" width="500" alt="Strokes Four">
-<!-- <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/five.png" height="300" width="500" alt="Strokes Five">
+<!-- <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/four.png" height="300" width="500" alt="Strokes Four">
+ <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/five.png" height="300" width="500" alt="Strokes Five">
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/six.png" height="300" width="500" alt="Strokes Six">
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/seven.png" height="300" width="500" alt="Strokes Seven">
 <img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/eight.png" height="300" width="500" alt="Strokes Eight"> -->
