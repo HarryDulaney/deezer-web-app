@@ -9,10 +9,10 @@
   <p>Hosted in a Free Dyno on Heroku which can be very slow to launch.</p>
 
   <strong><p><em>Find info on your favorite musicians and recording artists</em></p></strong>
-<img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/one.png" height="300" width="500" alt="Strokes One"/><br>
+<img src="https://github.com/HarryDulaney/deezer-web-app/blob/master/img/one.png" height="300" width="500" alt="Strokes One"/><br>
 
 <strong><p><em>Get Discography with album covers and album info</em></p></strong>
-<img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/two.png" height="300" width="500" alt="Strokes Two"/>
+<img src="https://github.com/HarryDulaney/deezer-web-app/blob/master/img/two.png" height="300" width="500" alt="Strokes Two"/>
 <strong><p><em>Listen to song clips</em></p></strong>
-<img src="https://github.com/HarryDulaney/open-data-web-app/blob/master/img/listenTOTunes.png" height="300" width="500" alt="Strokes listen"/>
+<img src="https://github.com/HarryDulaney/deezer-web-app/blob/master/img/listenTotunes.png" height="300" width="500" alt="Strokes listen"/>
 </div>
