@@ -10,7 +10,7 @@
   <a href="https://powerful-hollows-10387.herokuapp.com/">LAUNCH NOW!</a>
 
   <strong><p><em>Find info on your favorite musicians and recording artists</em></p></strong>
-<img src="https://github.com/HarryDulaney/deezer-web-app/blob/master/img/one.png" height="300" width="500" alt="Strokes One"/><br>
+<img src="https://raw.githubusercontent.com/HarryDulaney/deezer-example-web-app/master/img/one.png" height="300" width="500" alt="Strokes One"/><br>
 
 <strong><p><em>Get Discography with album covers and album info</em></p></strong>
 <img src="https://github.com/HarryDulaney/deezer-web-app/blob/master/img/two.png" height="300" width="500" alt="Strokes Two"/>
