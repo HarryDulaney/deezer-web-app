@@ -5,7 +5,7 @@
 ## Java, Spring Boot, Jackson Databind, and Thymeleaf Web Application for searching recording artist's and musicians. This web app consumes the Deezer.com API to display pictures and artist discography. 
 
 <div align="center">
-  <a href="https://powerful-hollows-10387.herokuapp.com/">TRY IT HERE!</a>
+  <a href="https://powerful-hollows-10387.herokuapp.com/">LAUNCH NOW!</a>
   <p>Hosted in a Free Dyno on Heroku which can be very slow to launch.</p>
 
   <strong><p><em>Find info on your favorite musicians and recording artists</em></p></strong>
