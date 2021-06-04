@@ -1,7 +1,6 @@
 
 
 <h1><strong>Deezer Api Client Discography Web Application</strong></h1>
-____
 
 
 #### Software Stack:
