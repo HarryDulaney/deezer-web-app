@@ -1,4 +1,3 @@
-HELP.md
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
@@ -17,7 +16,7 @@ HELP.md
 *.iws
 *.iml
 *.ipr
-inProcess/
+/inProcess/
 
 ### NetBeans ###
 /nbproject/private/
@@ -33,4 +32,3 @@ build/
 /data-serv-app.userlibraries
 /target/
 /src/main/java/com/hgdiv/opendata/Launcher.java
-/inProcess/bin/
