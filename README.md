@@ -11,7 +11,7 @@ consumes the Deezer Open-Source API to server, discographies, album artwork, alb
 currently deployed on a hobby Dyno on Heroku. Click 'LAUNCH NOW' and search for your favorite music.
 
 
-<p style="text-align:center">  <a href="https://powerful-hollows-10387.herokuapp.com/">LAUNCH NOW</a></p>
+<p style="text-align:center;width:100vw;">  <a href="https://powerful-hollows-10387.herokuapp.com/">LAUNCH NOW</a></p>
 
 
 <img style="margin:0 auto;" src="https://raw.githubusercontent.com/HarryDulaney/deezer-example-web-app/master/img/Deezer-Web-App-Demo.gif" height="300" width="500" alt="demo_gif"/><br>
