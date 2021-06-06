@@ -4,9 +4,8 @@
 
 <div align="center"><h1><strong>Deezer Api Client Discography Web Application</strong></h1>
 <h2> <a href="https://deezer-app.harrydulaney.com">LAUNCH NOW</a></h2></div>
-<br>
-<div align="center"><img src="https://raw.githubusercontent.com/HarryDulaney/deezer-example-web-app/master/img/Deezer-Web-App-Demo.gif" height="400" width="650" alt="demo_gif"/></div>
 <hr>
+<div align="center"><img src="https://raw.githubusercontent.com/HarryDulaney/deezer-example-web-app/master/img/Deezer-Web-App-Demo.gif" height="400" width="650" alt="demo_gif"/></div>
 <h3><strong> Software Stack:</strong></h3>
 <h4><i>Java - Spring Boot - Spring MVC - Jackson Databind - Thymeleaf - Apache HttpClient - Bootstrap</i></h4>
 <hr>
@@ -15,4 +14,3 @@
 consumes the Deezer Open-Source API to server, discographies, album artwork, album info, and song clips. It is 
 currently deployed on a hobby Dyno on Heroku. Click 'LAUNCH NOW' and search for your favorite music. </i></h4>
 <hr>
-
