@@ -14,7 +14,5 @@
 Search content from your favorite recording artist's and musicians. This is a web application I built in 2020, that 
 consumes the Deezer Open-Source API to server, discographies, album artwork, album info, and song clips. It is 
 currently deployed on a hobby Dyno on Heroku. Click 'LAUNCH NOW' and search for your favorite music.
-
-</div>
 <hr>
 </div>
