@@ -6,7 +6,7 @@
 <h2><div align="center">  <a href="https://deezer-app.harrydulaney.com">LAUNCH NOW</a></div><br>
 </h2>
 <div align="center">
-<img style="margin:0 auto;" src="https://raw.githubusercontent.com/HarryDulaney/deezer-example-web-app/master/img/Deezer-Web-App-Demo.gif" height="300" width="500" alt="demo_gif"/></div>
+<img style="margin:0 auto;" src="https://raw.githubusercontent.com/HarryDulaney/deezer-example-web-app/master/img/Deezer-Web-App-Demo.gif" height="400" width="650" alt="demo_gif"/></div>
 
 #### Software Stack:
 ### _Java - Spring Boot - Spring MVC - Jackson Databind - Thymeleaf - Apache HttpClient - Bootstrap_
