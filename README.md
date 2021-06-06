@@ -4,7 +4,7 @@
 
 
 #### Software Stack:
-### _Java - Spring Boot - Jackson Databind (ObjectMapper) Thymeleaf - Apache HttpClient_
+### _Java - Spring Boot - Jackson Databind - Thymeleaf - Apache HttpClient - Bootstrap_
 #### About:
 Search content from your favorite recording artist's and musicians. This is a web application I built in 2020, that 
 consumes the Deezer Open-Source API to server, discographies, album artwork, album info, and song clips. It is 
