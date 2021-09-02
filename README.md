@@ -2,8 +2,8 @@
 
 
 
-<div align="center"><h1><strong>Deezer Api Client Discography Web Application</strong></h1>
-<h2> <a href="https://deezer-app.harrydulaney.com">LAUNCH NOW</a></h2></div>
+<div align="center"><h1><strong>Deezer Api Client - Discography Web Application</strong></h1>
+<h2> <a target="_blank" href="https://deezer-app.harrydulaney.com">https://deezer-app.harrydulaney.com/</a></h2>
 <hr>
 <div align="center"><img src="https://raw.githubusercontent.com/HarryDulaney/deezer-example-web-app/master/img/Deezer-Web-App-Demo.gif" height="400" width="650" alt="demo_gif"/></div>
 <h3><strong> Software Stack:</strong></h3>
