@@ -1,0 +1,62 @@
+body {
+    background-color: whitesmoke;
+}
+
+
+h1 {
+
+    color: darkblue;
+    text-align: center;
+    align-content: center;
+}
+
+h2 {
+    color: darkblue;
+    text-align: center;
+    align-content: center;
+}
+
+
+footer {
+
+    justify-content: center;
+    margin: 2px;
+    padding-bottom: 5px;
+}
+
+hr {
+    height: 30px;
+}
+
+br {
+    height: 15px;
+}
+
+.container {
+    align-content: center;
+    text-align-all: center;
+
+}
+
+label {
+    color: darkblue;
+    align-content: center;
+    padding: 1px 1px 1px 1px;
+
+}
+
+button {
+
+    padding: 1px 1px 1px 1px;
+}
+
+a {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-variant-caps: petite-caps;
+
+}
+
+@media screen and (max-width: 900px) {
+
+}
+
