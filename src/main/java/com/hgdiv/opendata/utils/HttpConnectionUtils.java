@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
  * @author HGDIV
  */
 @Component
-public class HttpConnectionUtils implements IHttpConnection{
+public class HttpConnectionUtils implements IHttpConnection {
 
     /**
      * The Log.
@@ -34,13 +34,13 @@ public class HttpConnectionUtils implements IHttpConnection{
         CloseableHttpClient client = HttpClients.createDefault();
 
         HttpGet request = new HttpGet(url);
-        request.addHeader("User-Agent",USER_AGENT);
+        request.addHeader("User-Agent", USER_AGENT);
         request.addHeader("Content-Type", "application/json");
         BufferedReader rd;
         CloseableHttpResponse response = client.execute(request);
 
-            rd = new BufferedReader(
-                    new InputStreamReader(response.getEntity().getContent()));
+        rd = new BufferedReader(
+                new InputStreamReader(response.getEntity().getContent()));
 
         StringBuffer result = new StringBuffer();
         String line = "";
