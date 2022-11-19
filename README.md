@@ -35,9 +35,3 @@ consumes the Deezer Open-Source API.</h3>
 </ul>
 </h3>
 </div>
-
-<div style="display: flex;justify-content: center;flex-direction: row">
-<h2>
-Click 'LAUNCH NOW' and try searching for your favorite music.
-</h2>
-</div>
