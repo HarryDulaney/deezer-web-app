@@ -6,14 +6,15 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.4.RELEASE</version>
+        <version>2.7.4</version>
         <relativePath />
     </parent>
+
     <groupId>com.hgdiv</groupId>
     <artifactId>deezer-example-web-app</artifactId>
-    <version>0.0.7</version>
+    <version>1.0.1</version>
     <name>Discography-Web-Application</name>
-    <description>Discography Web App: Web Service Client for Deezer's open-access api,</description>
+    <description>Discography Web App: Web Service Client for Deezer open-access api,</description>
     <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
@@ -48,7 +49,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.4.1</version>
+            <version>2.14.0</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
@@ -58,7 +59,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
-            <version>0.30</version>
+            <version>0.45</version>
         </dependency>
     </dependencies>
     <build>

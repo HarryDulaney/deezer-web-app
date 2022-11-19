@@ -32,3 +32,4 @@ build/
 /data-serv-app.userlibraries
 /target/
 /src/main/java/com/hgdiv/opendata/Launcher.java
+/target/**
