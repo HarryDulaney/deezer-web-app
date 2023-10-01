@@ -2,7 +2,6 @@
 <h1><strong>Deezer Api Client - Discography Web Application</strong></h1>
 </div>
 <div style="display: flex;justify-content: center;flex-direction: row">
-<h2> <a target="_blank" href="https://deezer-app.harrydulaney.com">https://deezer-app.harrydulaney.com/</a></h2>
 </div>
 <hr>
 <div style="display: flex;justify-content: center;flex-direction: row">
